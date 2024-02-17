@@ -1,0 +1,15 @@
+$breakpoints: xs, sm, md, lg, lg-sm, xl-sm, xl;
+
+$xs: 0;
+$sm: 375;
+$md: 768;
+$lg: 1024;
+$lg-sm: 1280;
+$xl-sm: 1366;
+$xl: 1440;
+
+@mixin media-lg {
+  @media screen and (min-width: #{$lg}px) {
+    @content;
+  }
+}
