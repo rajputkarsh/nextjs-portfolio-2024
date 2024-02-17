@@ -1,7 +1,9 @@
 import { Inter } from "next/font/google";
-import TransitionProvider from "@/components/transitionProvider";
+import TransitionProvider from "@/wrappers/TransitionProvider";
 import "./globals.css";
 import "@/styles/index.scss";
+
+const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
   title: "Utkarsh Rajput",
@@ -14,9 +16,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html suppressHydrationWarning lang="en">
-      <body className="antialiased bg-white dark:dark-background text-slate-900 dark:text-slate-50 min-page-screen">
-        {children}
+    <html lang="en">
+      <body className={inter.className}>
+        <TransitionProvider>{children}</TransitionProvider>
       </body>
     </html>
   );
