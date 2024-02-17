@@ -1,3 +1,8 @@
+import { Inter } from "next/font/google";
+import TransitionProvider from "@/components/transitionProvider";
+import "./globals.css";
+import "@/styles/index.scss";
+
 export const metadata = {
   title: "Utkarsh Rajput",
   description: "Utkarsh: MERN Stack Developer",
