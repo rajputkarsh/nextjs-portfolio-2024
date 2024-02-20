@@ -1,13 +1,11 @@
 "use client";
 
+import { links } from "@/constants/navlink";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
 interface NavLinkProps {
-  link: {
-    url: string;
-    title: string;
-  };
+  link: (typeof links)[number];
 }
 
 const NavLink = ({ link }: NavLinkProps) => {
@@ -15,10 +13,9 @@ const NavLink = ({ link }: NavLinkProps) => {
 
   return (
     <Link
-      className={`rounded p-1 ${
-        pathName === link.url && "bg-black text-white"
-      }`}
+      className={`rounded p-1 hover:bg-${link.bgColor} hover:text-${link.textColor}`}
       href={link.url}
+      target={link.redirectNewTab ? "_blank" : "_self"}
     >
       {link.title}
     </Link>

@@ -1,11 +1,11 @@
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
-import NavLink from "../navlink";
+import NavLink from "./navlink";
 import { motion } from "framer-motion";
 import { links } from "@/constants/navlink";
+import config from "@/constants/config";
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
@@ -63,48 +63,22 @@ const Navbar = () => {
   };
 
   return (
-    <div className="h-full flex items-center justify-between px-4 sm:px-8 md:px-12 lg:px-20 xl:px-48 text-xl">
-      {/* LINKS */}
-      <div className="hidden md:flex gap-4 w-1/3">
+    <div className="w-screen h-full flex items-center justify-between text-xl xl:px-8 overflow-hidden">
+      <div className="lg:flex xl:w-1/3">
+        <Link href="/" className="text-sm rounded-md p-4 font-semibold flex">
+          <h2 className="text-theme-color text-3xl md:text-4xl mr-1">
+            {`<${config.title} />`}
+          </h2>
+        </Link>
+      </div>
+      <div className="hidden md:flex gap-4">
         {links.map((link) => (
           <NavLink link={link} key={link.title} />
         ))}
       </div>
-      {/* LOGO */}
-      <div className="md:hidden lg:flex xl:w-1/3 xl:justify-center">
-        <Link
-          href="/"
-          className="text-sm bg-black rounded-md p-1 font-semibold flex items-center justify-center"
-        >
-          <span className="text-white mr-1">Lama</span>
-          <span className="w-12 h-8 rounded bg-white text-black flex items-center justify-center">
-            .dev
-          </span>
-        </Link>
-      </div>
-      {/* SOCIAL */}
-      <div className="hidden md:flex gap-4 w-1/3">
-        <Link href="/">
-          <Image src="/github.png" alt="" width={24} height={24} />
-        </Link>
-        <Link href="/">
-          <Image src="/dribbble.png" alt="" width={24} height={24} />
-        </Link>
-        <Link href="/">
-          <Image src="/instagram.png" alt="" width={24} height={24} />
-        </Link>
-        <Link href="/">
-          <Image src="/facebook.png" alt="" width={24} height={24} />
-        </Link>
-        <Link href="/">
-          <Image src="/pinterest.png" alt="" width={24} height={24} />
-        </Link>
-        <Link href="/">
-          <Image src="/linkedin.png" alt="" width={24} height={24} />
-        </Link>
-      </div>
+
       {/* RESPONSIVE MENU */}
-      <div className="md:hidden">
+      <div className="md:hidden p-4">
         {/* MENU BUTTON */}
         <button
           className="w-10 h-8 flex flex-col justify-between z-50 relative"
@@ -113,17 +87,17 @@ const Navbar = () => {
           <motion.div
             variants={topVariants}
             animate={open ? "opened" : "closed"}
-            className="w-10 h-1 bg-black rounded origin-left"
+            className="w-10 h-1 bg-black rounded origin-left bg-theme-color"
           ></motion.div>
           <motion.div
             variants={centerVariants}
             animate={open ? "opened" : "closed"}
-            className="w-10 h-1 bg-black rounded"
+            className="w-10 h-1 bg-black rounded bg-theme-color"
           ></motion.div>
           <motion.div
             variants={bottomVariants}
             animate={open ? "opened" : "closed"}
-            className="w-10 h-1 bg-black rounded origin-left"
+            className="w-10 h-1 bg-black rounded origin-left bg-theme-color"
           ></motion.div>
         </button>
         {/* MENU LIST */}
@@ -140,7 +114,12 @@ const Navbar = () => {
                 className=""
                 key={link.title}
               >
-                <Link href={link.url}>{link.title}</Link>
+                <Link
+                  target={link.redirectNewTab ? "_blank" : "_self"}
+                  href={link.url}
+                >
+                  {link.title}
+                </Link>
               </motion.div>
             ))}
           </motion.div>

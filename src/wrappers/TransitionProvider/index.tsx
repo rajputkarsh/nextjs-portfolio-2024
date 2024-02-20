@@ -5,6 +5,7 @@ import { AnimatePresence } from "framer-motion";
 import Navbar from "@/components/navbar";
 import { motion } from "framer-motion";
 import { usePathname } from "next/navigation";
+import config from "@/constants/config";
 
 const TransitionProvider = ({ children }: { children: ReactNode }) => {
   const pathName = usePathname();
@@ -28,7 +29,11 @@ const TransitionProvider = ({ children }: { children: ReactNode }) => {
           exit={{ opacity: 0 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
         >
-          {pathName.substring(1)}
+          {`<${
+            pathName.substring(1)
+              ? pathName.substring(1).toUpperCase()
+              : config.title
+          } />`}
         </motion.div>
         <motion.div
           className="h-screen w-screen fixed bg-black rounded-t-[100px] bottom-0 z-30"

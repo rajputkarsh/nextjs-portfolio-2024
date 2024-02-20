@@ -9,6 +9,10 @@ const config = {
   variants: ["dark"],
   theme: {
     extend: {
+      colors: {
+        palered: "#ef4444",
+        "theme-color": "#e3405f",
+      },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
         "gradient-conic":
