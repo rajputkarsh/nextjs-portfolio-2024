@@ -13,7 +13,7 @@ const NavLink = ({ link }: NavLinkProps) => {
 
   return (
     <Link
-      className={`rounded p-1 hover:bg-${link.bgColor} hover:text-${link.textColor}`}
+      className={`rounded p-1 transition-colors duration-300 hover:bg-${link.hoverColor} hover:text-${link.textColor}`}
       href={link.url}
       target={link.redirectNewTab ? "_blank" : "_self"}
     >

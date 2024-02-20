@@ -9,8 +9,8 @@ const config = {
   variants: ["dark"],
   theme: {
     extend: {
+      textColor: ["hover"],
       colors: {
-        palered: "#ef4444",
         "theme-color": "#e3405f",
       },
       backgroundImage: {
