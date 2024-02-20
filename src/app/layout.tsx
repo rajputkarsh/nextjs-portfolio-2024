@@ -17,7 +17,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <body className={`overflow-x-hidden ${inter.className}`}>
         <TransitionProvider>{children}</TransitionProvider>
       </body>
     </html>
