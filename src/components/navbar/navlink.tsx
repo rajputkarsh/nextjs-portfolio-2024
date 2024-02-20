@@ -1,15 +1,24 @@
 "use client";
 
-import { links } from "@/constants/navlink";
+import { links, listItemVariants } from "@/constants/navbar";
+import { motion } from "framer-motion";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
 
 interface NavLinkProps {
   link: (typeof links)[number];
+  mobile?: boolean;
 }
 
-const NavLink = ({ link }: NavLinkProps) => {
-  const pathName = usePathname();
+const NavLink = ({ link, mobile = false }: NavLinkProps) => {
+  if (mobile) {
+    return (
+      <motion.div variants={listItemVariants} className="" key={link.title}>
+        <Link target={link.redirectNewTab ? "_blank" : "_self"} href={link.url}>
+          {link.title}
+        </Link>
+      </motion.div>
+    );
+  }
 
   return (
     <Link
