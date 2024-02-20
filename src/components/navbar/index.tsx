@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { ReactNode, useState } from "react";
-import NavLink from "./navlink";
+import NavLink from "./Navlink";
 import { motion } from "framer-motion";
 import {
   bottomVariants,
