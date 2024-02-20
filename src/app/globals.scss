@@ -1,0 +1,21 @@
+@import "../styles/colors";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #dddcdc;
+}
+::-webkit-scrollbar-thumb {
+  background: $themeColor;
+  border-radius: 5px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: $themeColor;
+}
