@@ -4,6 +4,30 @@
 @tailwind components;
 @tailwind utilities;
 
+.underline-animation {
+  display: inline-block;
+  position: relative;
+  color: $themeColor;
+}
+
+.underline-animation:after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  height: 3px;
+  bottom: 0;
+  left: 0;
+  background-color: $themeColor;
+  transform-origin: bottom right;
+  transition: transform 0.25s ease-out;
+}
+
+.underline-animation:hover:after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+
 ::-webkit-scrollbar {
   width: 10px;
   height: 10px;
