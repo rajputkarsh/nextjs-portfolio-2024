@@ -1,5 +1,5 @@
 import ProjectComponent from "@/containers/project";
 
-export default function Project() {
+export default function page() {
   return <ProjectComponent />;
 }
