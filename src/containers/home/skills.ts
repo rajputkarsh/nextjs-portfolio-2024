@@ -8,6 +8,11 @@ import muiLogo from "@/assets/logos/mui.webp";
 import reduxLogo from "@/assets/logos/redux.webp";
 import recoilLogo from "@/assets/logos/recoil.webp";
 import nodejsLogo from "@/assets/logos/nodejs.webp";
+import expressLogo from "@/assets/logos/express.webp";
+import nestLogo from "@/assets/logos/nest.webp";
+import hapiLogo from "@/assets/logos/hapi.webp";
+import mongodbLogo from "@/assets/logos/mongodb.webp";
+import mysqlLogo from "@/assets/logos/mysql.webp";
 
 export default {
   language: [
@@ -59,25 +64,25 @@ export default {
     },
     {
       name: "Express.JS",
-      icon: sassLogo.src,
+      icon: expressLogo.src,
     },
     {
       name: "Nest.JS",
-      icon: sassLogo.src,
+      icon: nestLogo.src,
     },
     {
       name: "Hapi.JS",
-      icon: sassLogo.src,
+      icon: hapiLogo.src,
     },
   ],
   database: [
     {
       name: "MongoDB",
-      icon: sassLogo.src,
+      icon: mongodbLogo.src,
     },
     {
       name: "MySQL",
-      icon: sassLogo.src,
+      icon: mysqlLogo.src,
     },
   ],
   version_control: [
