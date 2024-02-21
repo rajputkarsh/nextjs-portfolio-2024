@@ -13,6 +13,10 @@ import nestLogo from "@/assets/logos/nest.webp";
 import hapiLogo from "@/assets/logos/hapi.webp";
 import mongodbLogo from "@/assets/logos/mongodb.webp";
 import mysqlLogo from "@/assets/logos/mysql.webp";
+import gitLogo from "@/assets/logos/git.webp";
+import gitlabLogo from "@/assets/logos/gitlab.webp";
+import githubLogo from "@/assets/logos/github.webp";
+import bitbucketLogo from "@/assets/logos/bitbucket.webp";
 
 export default {
   language: [
@@ -88,15 +92,19 @@ export default {
   version_control: [
     {
       name: "Git",
-      icon: sassLogo.src,
+      icon: gitLogo.src,
     },
     {
       name: "Gitlab",
-      icon: sassLogo.src,
+      icon: gitlabLogo.src,
     },
     {
       name: "Github",
-      icon: sassLogo.src,
+      icon: githubLogo.src,
+    },
+    {
+      name: "BitBucket",
+      icon: bitbucketLogo.src,
     },
   ],
   misc: [
