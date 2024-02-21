@@ -8,11 +8,14 @@ function Skillset() {
       <h2 className="text-6xl font-bold text-theme-color underline-animation">
         {config.skillset}
       </h2>
-      <div className="w-full mt-8 flex flex-row gap-4 flex-wrap justify-center items-center">
-        {Object.entries(skills).map(([skillType, skill], i) =>
-          skill.map((skillInfo, j: number) => (
-            <div className="w-2/12 aspect-square">
-              <div>
+      <div className="w-full my-8 px-16">
+        <div className="flex flex-row gap-4 flex-wrap justify-center items-center py-4 bg-slate-300 rounded-2xl">
+          {Object.entries(skills).map(([skillType, skill], i) =>
+            skill.map((skillInfo, j: number) => (
+              <div
+                className="w-3/12 md:w-2/12 lg:w-1/12 aspect-square flex flex-col items-center justify-center gap-1"
+                title={skillInfo.name}
+              >
                 <Image
                   src={skillInfo.icon}
                   alt=""
@@ -20,11 +23,11 @@ function Skillset() {
                   height={100}
                   className="h-[10vh] w-auto"
                 />
+                <div>{skillInfo.name}</div>
               </div>
-              <div title={skillInfo.name}>{skillInfo.name}</div>
-            </div>
-          ))
-        )}
+            ))
+          )}
+        </div>
       </div>
     </div>
   );
