@@ -11,7 +11,7 @@ export const links = [
     title: "Blogs",
     hoverColor: "red-500",
     textColor: "white",
-    redirectNewTab: false,
+    redirectNewTab: true,
   },
   {
     url: "/education",
