@@ -31,5 +31,14 @@ const config = {
       addUtilities(utilities, ["responsive", "hover", "dark"]);
     },
   ],
+  safelist: [
+    "hover:bg-purple-600",
+    "hover:bg-red-500",
+    "hover:bg-green-500",
+    "hover:bg-yellow-600",
+    "hover:bg-emerald-700",
+    "hover:bg-slate-600",
+    "hover:text-white",
+  ],
 };
 export default config;
