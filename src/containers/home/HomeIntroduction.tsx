@@ -12,7 +12,7 @@ function HomeIntroduction() {
           alt=""
           width={0}
           height={0}
-          className="h-[50vh] w-auto"
+          className="w-auto"
         />
       </div>
       <div className="mt-12 md:mt-0 lg:w-1/2 flex flex-col gap-8 items-center justify-center">
