@@ -11,4 +11,5 @@ export default {
   ],
 
   skillset: "Skillset",
+  githubStats: "Github Stats",
 };

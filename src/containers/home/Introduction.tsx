@@ -30,7 +30,7 @@ function Introduction() {
         </h1>
         <ul className="text-2xl md:text-3xl font-semi-bold">
           {config.introductionTexts.map((text) => (
-            <li className="mt-2">{text}</li>
+            <li key={text} className="mt-2">{text}</li>
           ))}
         </ul>
       </div>

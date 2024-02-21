@@ -13,6 +13,7 @@ function Skillset() {
           {Object.entries(skills).map(([skillType, skill], i) =>
             skill.map((skillInfo, j: number) => (
               <div
+                key={skillInfo.name}
                 className="w-3/12 md:w-2/12 lg:w-1/12 aspect-square flex flex-col items-center justify-center gap-1"
                 title={skillInfo.name}
               >

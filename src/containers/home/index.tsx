@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import Introduction from "./Introduction";
 import Skillset from "./Skillset";
+import GithubStats from "./GithubStats";
 
 function HomeComponent() {
   return (
@@ -16,6 +17,8 @@ function HomeComponent() {
         <Introduction />
         <div className="mt-24"></div>
         <Skillset />
+        <div className="mt-24"></div>
+        <GithubStats />
       </div>
     </motion.div>
   );
