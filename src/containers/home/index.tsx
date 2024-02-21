@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import { motion } from "framer-motion";
 import Introduction from "./Introduction";
 import Skillset from "./Skillset";

@@ -3,6 +3,11 @@ import tsLogo from "@/assets/logos/ts.webp";
 import reactLogo from "@/assets/logos/react.webp";
 import nextLogo from "@/assets/logos/next.webp";
 import sassLogo from "@/assets/logos/sass.webp";
+import tailwindLogo from "@/assets/logos/tailwind.webp";
+import muiLogo from "@/assets/logos/mui.webp";
+import reduxLogo from "@/assets/logos/redux.webp";
+import recoilLogo from "@/assets/logos/recoil.webp";
+import nodejsLogo from "@/assets/logos/nodejs.webp";
 
 export default {
   language: [
@@ -30,27 +35,27 @@ export default {
     },
     {
       name: "MaterialUI",
-      icon: sassLogo.src,
+      icon: muiLogo.src,
     },
     {
       name: "Tailwind CSS",
-      icon: sassLogo.src,
+      icon: tailwindLogo.src,
     },
   ],
   state_management: [
     {
       name: "Redux",
-      icon: sassLogo.src,
+      icon: reduxLogo.src,
     },
     {
       name: "Recoil",
-      icon: sassLogo.src,
+      icon: recoilLogo.src,
     },
   ],
   backend: [
     {
       name: "Node.JS",
-      icon: sassLogo.src,
+      icon: nodejsLogo.src,
     },
     {
       name: "Express.JS",
