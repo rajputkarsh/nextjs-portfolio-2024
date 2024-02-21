@@ -17,6 +17,11 @@ import gitLogo from "@/assets/logos/git.webp";
 import gitlabLogo from "@/assets/logos/gitlab.webp";
 import githubLogo from "@/assets/logos/github.webp";
 import bitbucketLogo from "@/assets/logos/bitbucket.webp";
+import graphqlLogo from "@/assets/logos/graphql.webp";
+import redisLogo from "@/assets/logos/redis.webp";
+import kafkaLogo from "@/assets/logos/kafka.webp";
+import rabbitmqLogo from "@/assets/logos/rabbitmq.webp";
+import firebaseLogo from "@/assets/logos/firebase.webp";
 
 export default {
   language: [
@@ -110,23 +115,23 @@ export default {
   misc: [
     {
       name: "GraphQL",
-      icon: sassLogo.src,
+      icon: graphqlLogo.src,
     },
     {
       name: "Redis",
-      icon: sassLogo.src,
+      icon: redisLogo.src,
     },
     {
       name: "Kafka",
-      icon: sassLogo.src,
+      icon: kafkaLogo.src,
     },
     {
       name: "RabbitMQ",
-      icon: sassLogo.src,
+      icon: rabbitmqLogo.src,
     },
     {
       name: "Firebase",
-      icon: sassLogo.src,
+      icon: firebaseLogo.src,
     },
   ],
 } as const;
