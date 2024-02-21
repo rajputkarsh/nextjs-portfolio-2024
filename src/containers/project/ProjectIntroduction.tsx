@@ -3,7 +3,7 @@ import CodingBoy from "@/assets/coding-boy.svg";
 import config from "@/constants/config";
 import Typewriter from "typewriter-effect";
 
-function Introduction() {
+function ProjectIntroduction() {
   return (
     <div className="flex flex-col lg:flex-row px-4 sm:px-8 md:px-12">
       <div className="h-1/2 lg:h-full lg:w-1/2 relative">
@@ -28,14 +28,9 @@ function Introduction() {
             />
           </span>
         </h1>
-        <ul className="text-2xl md:text-3xl font-semi-bold">
-          {config.introductionTexts.map((text) => (
-            <li key={text} className="mt-2">{text}</li>
-          ))}
-        </ul>
       </div>
     </div>
   );
 }
 
-export default Introduction;
+export default ProjectIntroduction;

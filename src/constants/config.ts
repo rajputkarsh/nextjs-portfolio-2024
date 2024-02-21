@@ -4,7 +4,7 @@ export default {
   typewriterPreText: "const name = ",
   typewriterText: "'UTKARSH';",
 
-  introductionTexts: [
+  homeIintroductionTexts: [
     "Full Stack Developer 👨‍💻",
     "Tech Enthusiast 🔥",
     "Always Learning 🎯",

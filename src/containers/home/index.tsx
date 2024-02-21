@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import Introduction from "./Introduction";
+import HomeIntroduction from "./HomeIntroduction";
 import Skillset from "./Skillset";
 import GithubStats from "./GithubStats";
 
@@ -14,7 +14,7 @@ function HomeComponent() {
       transition={{ duration: 1 }}
     >
       <div className="w-full">
-        <Introduction />
+        <HomeIntroduction />
         <div className="mt-24"></div>
         <Skillset />
         <div className="mt-24"></div>
