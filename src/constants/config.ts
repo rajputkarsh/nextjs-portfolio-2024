@@ -19,4 +19,5 @@ export default {
   ],
 
   latestProject: "Latest Project",
+  otherProjects: "Other Projects",
 };

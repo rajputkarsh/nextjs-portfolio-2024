@@ -40,10 +40,6 @@ class Firebase {
         documentArray.push({ ...doc.data(), id: doc.id } as Project);
       });
 
-      documentArray.sort(
-        (doc1, doc2) => parseInt(doc2.index) - parseInt(doc1.index)
-      );
-
       return documentArray as Array<Project>;
     } catch (error) {
       throw error;
