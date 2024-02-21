@@ -2,6 +2,9 @@
 
 import { motion } from "framer-motion";
 import ProjectIntroduction from "./ProjectIntroduction";
+import LatestProject from "./LatestProject";
+import OtherProjects from "./OtherProjects";
+import ComingSoonProjects from "./ComingSoonProjects";
 
 function ProjectComponent() {
   return (
@@ -13,6 +16,12 @@ function ProjectComponent() {
     >
       <div className="w-full">
         <ProjectIntroduction />
+        <div className="mt-24"></div>
+        <LatestProject />
+        <div className="mt-24"></div>
+        <OtherProjects />
+        <div className="mt-24"></div>
+        <ComingSoonProjects />
       </div>
     </motion.div>
   );
