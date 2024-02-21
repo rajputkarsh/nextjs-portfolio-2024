@@ -1,3 +1,4 @@
+import { Project } from "@/interfaces/project";
 import { FirebaseApp, initializeApp } from "firebase/app";
 import {
   Firestore,
@@ -29,16 +30,21 @@ class Firebase {
     this.#db = getFirestore(this.#app);
   }
 
-  async getDocuments(name: string): Promise<Array<any>> {
+  async getDocuments(name: string): Promise<Array<Project>> {
     try {
       const documents = await getDocs(
         query(collection(this.#db, name), orderBy("index", "desc"))
       );
-      const documentArray: Array<any> = [];
+      const documentArray: Array<Project> = [];
       documents.forEach((doc: QueryDocumentSnapshot<DocumentData>) => {
-        documentArray.push({ ...doc.data(), id: doc.id });
+        documentArray.push({ ...doc.data(), id: doc.id } as Project);
       });
-      return documentArray;
+
+      documentArray.sort(
+        (doc1, doc2) => parseInt(doc2.index) - parseInt(doc1.index)
+      );
+
+      return documentArray as Array<Project>;
     } catch (error) {
       throw error;
     }

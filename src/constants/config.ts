@@ -17,4 +17,6 @@ export default {
     "My projects make use of a vast variety of latest technology tools. My best experience is to create MERN Stack based projects, and NextJS Projects.",
     " Below are some of my projects",
   ],
+
+  latestProject: "Latest Project",
 };
