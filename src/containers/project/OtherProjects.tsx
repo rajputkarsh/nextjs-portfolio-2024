@@ -27,7 +27,7 @@ function OtherProject() {
           {otherProjects.map((project) => (
             <Link
               key={project.title}
-              className="bg-slate-200 p-4  rounded-2xl w-full md:w-3/12"
+              className="bg-slate-200 p-4 border-2 border-slate-500 rounded-2xl w-full md:w-3/12"
               href={project?.demoUrl || project?.sourceUrl}
               target="_blank"
             >
