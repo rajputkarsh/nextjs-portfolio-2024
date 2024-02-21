@@ -9,13 +9,13 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@octokit/rest": "^20.0.2",
+    "@octokit/rest": "20.0.2",
     "@tailwindcss/typography": "0.5.10",
     "framer-motion": "11.0.5",
     "next": "14.1.0",
-    "octokit": "^3.1.2",
+    "octokit": "3.1.2",
     "react": "18",
-    "react-activity-calendar": "^2.2.7",
+    "react-activity-calendar": "2.2.7",
     "react-dom": "18",
     "typewriter-effect": "2.21.0"
   },
