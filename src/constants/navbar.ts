@@ -34,13 +34,13 @@ export const links = [
   //   textColor: "white",
   //   redirectNewTab: false,
   // },
-  {
-    url: "/games",
-    title: "Games",
-    hoverColor: "slate-600",
-    textColor: "white",
-    redirectNewTab: false,
-  },
+  // {
+  //   url: "/games",
+  //   title: "Games",
+  //   hoverColor: "slate-600",
+  //   textColor: "white",
+  //   redirectNewTab: false,
+  // },
 ] as const;
 
 export const topVariants = {
