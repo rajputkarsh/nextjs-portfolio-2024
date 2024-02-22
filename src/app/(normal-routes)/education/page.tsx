@@ -1,5 +1,5 @@
-import EducationComponent from "@/containers/education";
+import EducationContainer from "@/containers/education";
 
 export default function page() {
-  return <EducationComponent />;
+  return <EducationContainer />;
 }

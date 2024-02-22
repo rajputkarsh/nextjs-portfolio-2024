@@ -27,13 +27,13 @@ export const links = [
   //   textColor: "white",
   //   redirectNewTab: true,
   // },
-  {
-    url: "/contact",
-    title: "Contact",
-    hoverColor: "emerald-700",
-    textColor: "white",
-    redirectNewTab: false,
-  },
+  // {
+  //   url: "/contact",
+  //   title: "Contact",
+  //   hoverColor: "emerald-700",
+  //   textColor: "white",
+  //   redirectNewTab: false,
+  // },
   {
     url: "/games",
     title: "Games",

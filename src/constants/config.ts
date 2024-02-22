@@ -25,4 +25,12 @@ export default {
     "I have been actively participating in community event, meetups and webinars. Below given is a brief timeline of my education and qualifications.",
   ],
   educationTimelineTitle: "My Journey so far",
+
+  social: {
+    email: "mailto:hello@utkarshrajput.com",
+    linkedin: "https://www.linkedin.com/in/utkarsh-rajput/",
+    github: "https://github.com/rajputkarsh",
+    stackoverflow: "https://stackoverflow.com/users/15149125/utkarsh",
+    twitter: "https://twitter.com/thedevperson",
+  },
 };

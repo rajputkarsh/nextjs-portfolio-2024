@@ -6,7 +6,7 @@ import LatestProject from "./LatestProject";
 import OtherProjects from "./OtherProjects";
 import ComingSoonProjects from "./ComingSoonProjects";
 
-function ProjectComponent() {
+function ProjectContainer() {
   return (
     <motion.div
       className="h-full mt-12"
@@ -27,4 +27,4 @@ function ProjectComponent() {
   );
 }
 
-export default ProjectComponent;
+export default ProjectContainer;

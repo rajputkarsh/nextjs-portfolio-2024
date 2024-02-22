@@ -5,7 +5,7 @@ import HomeIntroduction from "./HomeIntroduction";
 import Skillset from "./Skillset";
 import GithubStats from "./GithubStats";
 
-function HomeComponent() {
+function HomeContainer() {
   return (
     <motion.div
       className="h-full mt-12"
@@ -24,4 +24,4 @@ function HomeComponent() {
   );
 }
 
-export default HomeComponent;
+export default HomeContainer;

@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import EducationIntroduction from "./EducationIntroduction";
 import EducationTimeline from "./EducationTimeline";
 
-function EducationComponent() {
+function EducationContainer() {
   return (
     <motion.div
       className="h-full mt-12"
@@ -21,4 +21,4 @@ function EducationComponent() {
   );
 }
 
-export default EducationComponent;
+export default EducationContainer;

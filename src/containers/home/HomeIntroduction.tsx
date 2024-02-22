@@ -2,6 +2,7 @@ import Image from "next/image";
 import CodingBoy from "@/assets/coding-boy.svg";
 import config from "@/constants/config";
 import Typewriter from "typewriter-effect";
+import Socials from "@/components/socials";
 
 function HomeIntroduction() {
   return (
@@ -35,6 +36,7 @@ function HomeIntroduction() {
             </li>
           ))}
         </ul>
+        <Socials />
       </div>
     </div>
   );
