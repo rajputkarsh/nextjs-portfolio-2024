@@ -1,9 +1,9 @@
-import BabyFace from "@/assets//icons/baby-face.svg";
-import School from "@/assets//icons/school.svg";
-import College from "@/assets//icons/college.svg";
-import GraduationHat from "@/assets//icons/graduation-hat.svg";
-import Graduation from "@/assets//icons/graduation.svg";
-import PartyPopper from "@/assets//icons/party-popper.svg";
+import BabyFace from "@/assets/icons/baby-face.svg";
+import School from "@/assets/icons/school.svg";
+import College from "@/assets/icons/college.svg";
+import GraduationHat from "@/assets/icons/graduation-hat.svg";
+import Graduation from "@/assets/icons/graduation.svg";
+import PartyPopper from "@/assets/icons/party-popper.svg";
 
 const EDUCATION_TIMELINE = [
   {
