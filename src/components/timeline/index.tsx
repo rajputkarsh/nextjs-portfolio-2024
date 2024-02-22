@@ -32,14 +32,16 @@ function Timeline({ events }: { events: Array<TimelineObject> }) {
               />
             }
           >
-            <h4 className="text-xl font-semibold">{event.event}</h4>
+            <h4 className="text-theme-color text-center text-xl font-semibold">
+              {event.event}
+            </h4>
             <div className="grid grid-cols-4 gap-4 mt-2">
               <div className="col-span-1 bg-white">
                 <Image
                   alt={event.event}
                   src={event.contentIcon}
-                  width={20}
-                  height={20}
+                  width={300}
+                  height={300}
                   className="max-w-full h-auto"
                 />
               </div>
@@ -56,8 +58,8 @@ function Timeline({ events }: { events: Array<TimelineObject> }) {
               <Image
                 alt={event.event}
                 src={event.icon}
-                width={20}
-                height={20}
+                width={30}
+                height={30}
               />
             }
           ></VerticalTimelineElement>

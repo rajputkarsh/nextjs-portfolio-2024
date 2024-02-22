@@ -24,4 +24,5 @@ export default {
   educationDescriptionLines: [
     "I have been actively participating in community event, meetups and webinars. Below given is a brief timeline of my education and qualifications.",
   ],
+  educationTimelineTitle: "My Journey so far",
 };

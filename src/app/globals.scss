@@ -28,6 +28,20 @@
   transform-origin: bottom left;
 }
 
+.vertical-timeline {
+  .vertical-timeline-element-icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: antiquewhite;
+  }
+
+  .vertical-timeline-element-date {
+    color: #000000;
+    font-weight: 600;
+  }
+}
+
 ::-webkit-scrollbar {
   width: 10px;
   height: 10px;
