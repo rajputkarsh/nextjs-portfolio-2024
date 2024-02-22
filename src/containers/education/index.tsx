@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import EducationIntroduction from "./EducationIntroduction";
+import EducationTimeline from "./EducationTimeline";
 
 function EducationComponent() {
   return (
@@ -13,6 +14,8 @@ function EducationComponent() {
     >
       <div className="w-full">
         <EducationIntroduction />
+        <div className="mt-24"></div>
+        <EducationTimeline />
       </div>
     </motion.div>
   );

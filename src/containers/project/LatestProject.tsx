@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import Image from "next/image";
 import loader from "@/assets/loader.svg";
-import arrow from "@/assets/arrow.svg";
+import arrow from "@/assets/icons/arrow.svg";
 import { fetchLatestProject } from "@/actions/project";
 import config from "@/constants/config";
 import { Project } from "@/interfaces/project";
