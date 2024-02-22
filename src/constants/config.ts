@@ -20,4 +20,8 @@ export default {
 
   latestProject: "Latest Project",
   otherProjects: "Other Projects",
+
+  educationDescriptionLines: [
+    "I have been actively participating in community event, meetups and webinars. Below given is a brief timeline of my education and qualifications.",
+  ],
 };
