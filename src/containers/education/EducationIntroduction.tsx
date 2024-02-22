@@ -1,13 +1,13 @@
 import Image from "next/image";
-import ProjectWork from "@/assets/project-work.svg";
+import GraduatingBoy from "@/assets/graduating-boy.svg";
 import config from "@/constants/config";
 
-function ProjectIntroduction() {
+function EducationIntroduction() {
   return (
     <div className="flex flex-col lg:flex-row px-4 sm:px-8 md:px-12">
       <div className="h-1/2 lg:h-full lg:w-1/2 relative">
         <Image
-          src={ProjectWork.src}
+          src={GraduatingBoy.src}
           alt=""
           width={0}
           height={0}
@@ -23,4 +23,4 @@ function ProjectIntroduction() {
   );
 }
 
-export default ProjectIntroduction;
+export default EducationIntroduction;

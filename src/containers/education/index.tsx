@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import EducationIntroduction from "./EducationIntroduction";
 
 function EducationComponent() {
   return (
@@ -10,7 +11,9 @@ function EducationComponent() {
       animate={{ y: "0%" }}
       transition={{ duration: 1 }}
     >
-      <div className="w-full"></div>
+      <div className="w-full">
+        <EducationIntroduction />
+      </div>
     </motion.div>
   );
 }
