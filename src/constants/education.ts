@@ -1,3 +1,7 @@
+import BcmLogo from "@/assets/images/bcm.webp";
+import DavietLogo from "@/assets/images/daviet.webp";
+import ScalerLogo from "@/assets/images/scaler.webp";
+
 import BabyFace from "@/assets/icons/baby-face.svg";
 import School from "@/assets/icons/school.svg";
 import College from "@/assets/icons/college.svg";
@@ -21,7 +25,7 @@ const EDUCATION_TIMELINE = [
     date: "2015",
     content:
       "Completed my matriculation examination in 2015 with a score of 9.6 CGPA",
-    contentIcon: BCM_LOGO,
+    contentIcon: BcmLogo.src,
   },
   {
     index: 3,
@@ -30,7 +34,7 @@ const EDUCATION_TIMELINE = [
     date: "2017",
     content:
       "Completed my AISSCE (12th Standard) examination in 2015 with a score of 83.4%",
-    contentIcon: BCM_LOGO,
+    contentIcon: BcmLogo.src,
   },
   {
     index: 4,
@@ -39,7 +43,7 @@ const EDUCATION_TIMELINE = [
     date: "2021",
     content:
       "Completed my Bachelors in Technology (Information Technology) in 2021 with an accumulative score of 8.48 CGPA",
-    contentIcon: DAVIET_LOGO,
+    contentIcon: DavietLogo.src,
   },
   {
     index: 5,
@@ -47,7 +51,7 @@ const EDUCATION_TIMELINE = [
     icon: Graduation.src,
     date: "2022",
     content: `Started my journey in Competitive Coding and DSA via Scaler Academy's Problem Solving & System Design course. Joined the September 2022 intake batch.`,
-    contentIcon: SCALER_LOGO,
+    contentIcon: ScalerLogo.src,
   },
   {
     index: 6,
