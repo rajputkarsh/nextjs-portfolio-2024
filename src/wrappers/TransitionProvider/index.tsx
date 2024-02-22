@@ -7,7 +7,13 @@ import { motion } from "framer-motion";
 import { usePathname } from "next/navigation";
 import config from "@/constants/config";
 
-const TransitionProvider = ({ children }: { children: ReactNode }) => {
+const TransitionProvider = ({
+  children,
+  noNavbar = false,
+}: {
+  children: ReactNode;
+  noNavbar?: boolean;
+}) => {
   const pathName = usePathname();
 
   return (
@@ -40,10 +46,14 @@ const TransitionProvider = ({ children }: { children: ReactNode }) => {
           initial={{ height: "140vh" }}
           animate={{ height: "0vh", transition: { delay: 0.5 } }}
         />
-        <div className="h-24">
-          <Navbar />
+        {!noNavbar && (
+          <div className="h-24">
+            <Navbar />
+          </div>
+        )}
+        <div className={`${!noNavbar ? "min-h-[calc(100vh-6rem)]" : ""}`}>
+          {children}
         </div>
-        <div className="min-h-[calc(100vh-6rem)]">{children}</div>
       </div>
     </AnimatePresence>
   );
