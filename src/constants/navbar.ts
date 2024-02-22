@@ -20,13 +20,13 @@ export const links = [
     textColor: "white",
     redirectNewTab: false,
   },
-  {
-    url: "/experience",
-    title: "Experience",
-    hoverColor: "yellow-600",
-    textColor: "white",
-    redirectNewTab: true,
-  },
+  // {
+  //   url: "/experience",
+  //   title: "Experience",
+  //   hoverColor: "yellow-600",
+  //   textColor: "white",
+  //   redirectNewTab: true,
+  // },
   {
     url: "/contact",
     title: "Contact",
