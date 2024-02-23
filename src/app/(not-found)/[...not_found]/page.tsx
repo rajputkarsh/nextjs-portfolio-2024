@@ -1,11 +1,6 @@
 "use client";
 
-import { NextConfig } from "next";
 import Link from "next/link";
-
-export const config: NextConfig = {
-  sta: 404,
-};
 
 export default function NotFound() {
   return (
