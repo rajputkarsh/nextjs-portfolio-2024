@@ -34,5 +34,9 @@ export default {
     twitter: "https://twitter.com/thedevperson",
   },
 
+  gameOver: {
+    "GAME OVER !",
+  }
+
   pageNotFound: "Page not found",
 } as const;
