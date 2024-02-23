@@ -1,15 +1,24 @@
 "use client";
 
-import Error from "next/error";
+import { NextConfig } from "next";
+import Link from "next/link";
+
+export const config: NextConfig = {
+  sta: 404,
+};
 
 export default function NotFound() {
-  console.log(`here`);
-
   return (
-    <html suppressHydrationWarning lang="en">
-      <body className="antialiased bg-white dark:dark-background text-slate-900 dark:text-slate-50 min-page-screen">
-        <Error statusCode={404} />
-      </body>
-    </html>
+    <div className="w-screen h-screen flex flex-col gap-8 justify-center items-center">
+      <h3 className="text-4xl font-semibold underline-animation-black">
+        Page Not Found
+      </h3>
+      <Link
+        href="/"
+        className="text-2xl rounded-2xl px-8 py-4 bg-theme-color text-white"
+      >
+        Return to Homepage
+      </Link>
+    </div>
   );
 }

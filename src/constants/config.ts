@@ -33,4 +33,6 @@ export default {
     stackoverflow: "https://stackoverflow.com/users/15149125/utkarsh",
     twitter: "https://twitter.com/thedevperson",
   },
-};
+
+  pageNotFound: "Page not found",
+} as const;

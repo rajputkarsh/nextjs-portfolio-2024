@@ -1,6 +1,6 @@
 "use client";
 
-import { ReactNode } from "react";
+import { ReactNode, useEffect, useRef } from "react";
 import { AnimatePresence } from "framer-motion";
 import Navbar from "@/components/navbar";
 import { motion } from "framer-motion";
@@ -15,6 +15,21 @@ const TransitionProvider = ({
   noNavbar?: boolean;
 }) => {
   const pathName = usePathname();
+  const motionDivRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    setTimeout(() => {
+      if (motionDivRef.current) {
+        motionDivRef.current.style.display = "none";
+      }
+    }, 800);
+
+    return () => {
+      if (motionDivRef.current) {
+        motionDivRef.current.style.display = "block";
+      }
+    };
+  }, []);
 
   return (
     <AnimatePresence mode="wait">
@@ -29,6 +44,7 @@ const TransitionProvider = ({
           transition={{ duration: 0.5, ease: "easeOut" }}
         />
         <motion.div
+          ref={motionDivRef}
           className="fixed m-auto top-0 bottom-0 left-0 right-0 text-white text-8xl cursor-default z-50 w-fit h-fit"
           initial={{ opacity: 1 }}
           animate={{ opacity: 0 }}
