@@ -6,6 +6,7 @@ import Navbar from "@/components/navbar";
 import { motion } from "framer-motion";
 import { usePathname } from "next/navigation";
 import config from "@/constants/config";
+import Footer from "@/components/footer";
 
 const TransitionProvider = ({
   children,
@@ -70,6 +71,7 @@ const TransitionProvider = ({
         <div className={`${!noNavbar ? "min-h-[calc(100vh-6rem)]" : ""}`}>
           {children}
         </div>
+        <Footer />
       </div>
     </AnimatePresence>
   );
