@@ -34,7 +34,11 @@ export default {
     twitter: "https://twitter.com/thedevperson",
   },
 
+  selectMode: "Select Mode",
+  onePlayer: "One Player",
+  twoPlayer: "Two Player",
   availablegames: "Available Games",
+  playTickTackToe: "Play Tik Tak Toe",
   gameDescriptionLines: [
     "Reached Here? Lets play rome refreshing games to reset our minds.",
     "Below given are some mind blowing games that you can try.",
