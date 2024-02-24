@@ -10,10 +10,11 @@ interface TileListProps {
 const isGame = (data: Game | Project): data is Game => "url" in data;
 const isProject = (data: Game | Project): data is Project => "demoUrl" in data;
 
-function TileList<T>({ list }: TileListProps) {
+function TileList({ list }: TileListProps) {
+  console.log(`list - `, list);
   return (
     <>
-      {list.map((item) => {
+      {list.map((item) => (
         <Link
           key={item.title}
           className="bg-slate-200 p-4 border-2 border-slate-500 rounded-2xl w-full md:w-3/12"
@@ -31,8 +32,8 @@ function TileList<T>({ list }: TileListProps) {
             height={400}
           />
           <p className="">{item.body}</p>
-        </Link>;
-      })}
+        </Link>
+      ))}
     </>
   );
 }
