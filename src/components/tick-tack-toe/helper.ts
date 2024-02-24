@@ -1,4 +1,6 @@
-function findWinner(squares) {
+function findWinner(
+  squares: Array<number | string | null>
+): Array<string | number | number[] | null> | null {
   const winConditions = [
     [0, 1, 2],
     [3, 4, 5],
@@ -17,7 +19,7 @@ function findWinner(squares) {
   return null;
 }
 
-function isDraw(square) {
+function isDraw(square: Array<number | string | null>): boolean {
   for (let i = 0; i < 9; i++) {
     if (square[i] === null) {
       return false;
@@ -26,45 +28,49 @@ function isDraw(square) {
   return true;
 }
 
-function checkWinner(board) {
-  const winnner = findWinner(board);
+function checkWinner(
+  board: Array<number | string | null>
+): Array<string | number | number[] | null> | "draw" | null {
+  const winner = findWinner(board);
   const draw = isDraw(board);
-  if (winnner !== null) return winnner;
+  if (winner !== null) return winner;
   else if (draw) return "draw";
   else return null;
 }
 
-let scoresX = {
-  X: 10,
-  O: -10,
-  d: 0,
-};
-
-let scoresO = {
-  X: -10,
-  O: 10,
-  d: 0,
-};
-
-function Random(min, max) {
+function random(min: number, max: number): number {
   min = Math.ceil(min);
   max = Math.floor(max);
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
 function MMax(
-  board,
-  depth,
-  is_max,
-  ai,
-  hn,
+  board: Array<string | number | null>,
+  depth: number,
+  is_max: boolean,
+  ai: "X" | "O",
+  hn: "X" | "O",
   alpha = -Infinity,
   beta = Infinity
 ) {
   let winner = checkWinner(board);
 
+  const scoresX = {
+    X: 10,
+    O: -10,
+    d: 0,
+  };
+
+  const scoresO = {
+    X: -10,
+    O: 10,
+    d: 0,
+  };
+
   if (winner) {
-    return ai === "X" ? scoresX[winner[0]] : scoresO[winner[0]];
+    return ai === "X"
+      ? scoresX[winner[0] as "X" | "O" | "d"]
+      : scoresO[winner[0] as "X" | "O" | "d"];
   }
 
   if (is_max) {
@@ -73,7 +79,7 @@ function MMax(
       if (board[i] == null) {
         board[i] = ai; //.
         let score =
-          MMax(board, depth + 1, false, ai, hn, alpha, beta) + Random(-5, 5);
+          MMax(board, depth + 1, false, ai, hn, alpha, beta) + random(-5, 5);
         board[i] = null;
         bestScore = Math.max(score, bestScore);
         alpha = Math.max(alpha, score);
@@ -87,7 +93,7 @@ function MMax(
       if (board[i] == null) {
         board[i] = hn; //.
         let score =
-          MMax(board, depth + 1, true, ai, hn, alpha, beta) + Random(-5, 5);
+          MMax(board, depth + 1, true, ai, hn, alpha, beta) + random(-5, 5);
         board[i] = null;
         bestScore = Math.min(score, bestScore);
         alpha = Math.min(beta, score);
@@ -98,7 +104,11 @@ function MMax(
   }
 }
 
-function AImove(square, Turn, HN) {
+function AImove(
+  square: Array<number | string | null>,
+  Turn: "X" | "O",
+  HN: "X" | "O"
+) {
   let board = square.slice();
   let bestScore = -Infinity;
   let bestMove;
