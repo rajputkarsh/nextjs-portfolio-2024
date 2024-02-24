@@ -293,33 +293,31 @@ function Game2048() {
   useEvent("keydown", handleKeyDown);
 
   return (
-    <div className="App">
-      <div className="w-96 mx-auto mt-8">
-        <div className="flex flex-row">
-          <div className="flex-1 text-6xl font-bold text-color-[#776e65]">
-            2048
-          </div>
-          <div className="flex-1 mt-auto">
+    <div className="w-full">
+      <div className="w-4/6 mx-auto mt-8">
+        <div className="w-full flex flex-row gap-16 justify-center">
+          <div className="text-6xl font-bold">2048</div>
+          <div className="my-auto">
             <div
               onClick={resetGame}
-              className="p-2.5 bg-[#846F5B] text-[#F8F5F0] w-24 rounded-md font-bold mx-auto cursor-pointer"
+              className="p-2.5 bg-brown-200 text-brown-50 w-28 rounded-md font-bold mx-auto cursor-pointer"
             >
-              NEW GAME
+              {config.newGame}
             </div>
           </div>
         </div>
-        <div className="relative w-max h-max bg-[#AD9D8F] m-auto p-2 rounded-md mt-4">
+        <div className="relative w-max h-max bg-brown-200 m-auto p-2 rounded-md mt-4">
           {gameOver && (
             <div className="absolute w-full h-full left-0 top-0 rounded-md bg-[rgba(238,228,218,0.5)] flex justify-center items-center">
               <div>
-                <div className="text-3xl font-bold text-[#776E65]">
-                  Game Over
+                <div className="text-3xl font-bold text-grey-700">
+                  {config.gameOver}
                 </div>
                 <div>
                   <div className="flex-1 mt-auto">
                     <div
                       onClick={resetGame}
-                      className="p-2.5 bg-[#846F5B] text-[#F8F5F0] w-20 rounded-lg font-bold cursor-pointer m-auto mt-5"
+                      className="p-2.5 bg-brown-200 text-brown-50 w-20 rounded-lg font-bold cursor-pointer m-auto mt-5"
                     >
                       Try Again
                     </div>
@@ -347,13 +345,11 @@ function Game2048() {
           </Swipe>
         </div>
 
-        <div>
-          <p>
-            <strong>How to play:</strong> Use your <strong>arrow keys</strong>{" "}
-            to move the tiles. When two tiles with the same number touch, they{" "}
-            <strong>merge into one!</strong>
-          </p>
-        </div>
+        <p className="mt-8 w-full text-center">
+          <strong>How to play:</strong> Use your <strong>arrow keys</strong> to
+          move the tiles. When two tiles with the same number touch, they{" "}
+          <strong>merge into one!</strong>
+        </p>
       </div>
     </div>
   );

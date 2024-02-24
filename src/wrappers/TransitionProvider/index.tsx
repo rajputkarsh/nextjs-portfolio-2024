@@ -15,8 +15,10 @@ const TransitionProvider = ({
   children: ReactNode;
   noNavbar?: boolean;
 }) => {
-  const pathName = usePathname();
+  let pathName = usePathname();
   const motionDivRef = useRef<HTMLDivElement>(null);
+
+  if (pathName.includes("/")) pathName = pathName.split("/").at(-1) || "";
 
   useEffect(() => {
     setTimeout(() => {
@@ -52,11 +54,9 @@ const TransitionProvider = ({
           exit={{ opacity: 0 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
         >
-          {`<${
-            pathName.substring(1)
-              ? pathName.substring(1).toUpperCase()
-              : config.title
-          } />`}
+          <span className="capitalize">{`<${
+            pathName || config.title
+          } />`}</span>
         </motion.div>
         <motion.div
           className="h-screen w-screen fixed bg-black rounded-t-[100px] bottom-0 z-30"

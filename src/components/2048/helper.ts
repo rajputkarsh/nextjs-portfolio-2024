@@ -14,28 +14,28 @@ export const useEvent = (
 export const getColor = (num: number) => {
   switch (num) {
     case 2:
-      return "#EBDCD0";
+      return "orange-50";
     case 4:
-      return "#E9DBBA";
+      return "yellow-100";
     case 8:
-      return "#E9A067";
+      return "orange-300";
     case 16:
-      return "#F08151";
+      return "deep-orange-400";
     case 32:
-      return "#F2654F";
+      return "red-500";
     case 64:
-      return "#F1462C";
+      return "red-700";
     case 128:
-      return "#E7C65E";
+      return "yellow-400";
     case 256:
-      return "#E8C350";
+      return "yellow-500";
     case 512:
-      return "#E8BE40";
+      return "yellow-600";
     case 1024:
-      return "#E8BB31";
+      return "yellow-700";
     case 2048:
-      return "#E7B723";
+      return "yellow-800";
     default:
-      return "#C2B3A3";
+      return "brown-100";
   }
 };

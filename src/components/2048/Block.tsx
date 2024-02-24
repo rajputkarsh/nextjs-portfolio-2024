@@ -5,12 +5,12 @@ interface BlockProps {
 }
 
 function Block({ num }: BlockProps) {
-  const getTextColor = () => (num === 2 || num === 4 ? "#645B52" : "#F7F4EF");
+  const getTextColor = () => (num === 2 || num === 4 ? "grey-800" : "brown-50");
   return (
     <div
-      className={`bg-[${getColor(
+      className={`bg-${getColor(
         num
-      )}] text-color-[${getTextColor()}] h-20 w-20 m-1 flex justify-center items-center text-5xl font-bold`}
+      )} text-${getTextColor()} h-20 w-20 m-1 flex justify-center items-center text-5xl font-bold`}
     >
       {num !== 0 ? num : ""}
     </div>

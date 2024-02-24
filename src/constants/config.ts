@@ -39,6 +39,7 @@ export default {
     "Reached Here? Lets play rome refreshing games to reset our minds.",
     "Below given are some mind blowing games that you can try.",
   ],
+  newGame: "NEW GAME",
   gameOver: "GAME OVER !",
 
   pageNotFound: "Page not found",
