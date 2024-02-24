@@ -1,11 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { cloneDeep } from "@/utils/common";
-import { useEvent, getColor } from "./helper";
+import { useEvent } from "./helper";
 import Swipe from "react-easy-swipe";
 import { INITIAL_DATA } from "@/constants/game_2048";
 import config from "@/constants/config";
-
-import css from "./index.module.scss";
+import Block from "./Block";
 
 type Grid = Array<Array<number>>;
 
@@ -53,7 +52,7 @@ function Game() {
     }
   };
 
-  const swipeLeft = (dummy: boolean = false): void => {
+  const swipeLeft = (dummy: boolean = false): Grid | void => {
     let oldGrid = data;
     let newArray = cloneDeep(data);
 
@@ -98,7 +97,7 @@ function Game() {
     }
   };
 
-  const swipeRight = (dummy: boolean = false): void => {
+  const swipeRight = (dummy: boolean = false): Grid | void => {
     let oldData = data;
     let newArray = cloneDeep(data);
 
@@ -143,7 +142,7 @@ function Game() {
     }
   };
 
-  const swipeDown = (dummy: boolean = false): void => {
+  const swipeDown = (dummy: boolean = false): Grid | void => {
     let b = cloneDeep(data);
     let oldData = cloneDeep(data);
     for (let i = 3; i >= 0; i--) {
@@ -186,7 +185,7 @@ function Game() {
     }
   };
 
-  const swipeUp = (dummy: boolean = false): void => {
+  const swipeUp = (dummy: boolean = false): Grid | void => {
     let b = cloneDeep(data);
     let oldData = cloneDeep(data);
     for (let i = 0; i < 4; i++) {
@@ -295,69 +294,33 @@ function Game() {
 
   return (
     <div className="App">
-      <div
-        style={{
-          width: 345,
-          margin: "auto",
-          marginTop: 30,
-        }}
-      >
+      <div className="w-96 mx-auto mt-8">
         <div className="flex flex-row">
-          <div
-            style={{
-              fontFamily: "sans-serif",
-              flex: 1,
-              fontWeight: "700",
-              fontSize: 60,
-              color: "#776e65",
-            }}
-          >
+          <div className="flex-1 text-6xl font-bold text-color-[#776e65]">
             2048
           </div>
-          <div
-            style={{
-              flex: 1,
-              marginTop: "auto",
-            }}
-          >
-            <div onClick={resetGame} style={style.newGameButton}>
+          <div className="flex-1 mt-auto">
+            <div
+              onClick={resetGame}
+              className="p-2.5 bg-[#846F5B] text-[#F8F5F0] w-24 rounded-md font-bold mx-auto cursor-pointer"
+            >
               NEW GAME
             </div>
           </div>
         </div>
-        <div
-          style={{
-            background: "#AD9D8F",
-            width: "max-content",
-            height: "max-content",
-            margin: "auto",
-            padding: 2,
-            borderRadius: 5,
-            marginTop: 10,
-            position: "relative",
-          }}
-        >
+        <div className="relative w-max h-max bg-[#AD9D8F] m-auto p-2 rounded-md mt-4">
           {gameOver && (
-            <div style={style.gameOverOverlay}>
+            <div className="absolute w-full h-full left-0 top-0 rounded-md bg-[rgba(238,228,218,0.5)] flex justify-center items-center">
               <div>
-                <div
-                  style={{
-                    fontSize: 30,
-                    fontFamily: "sans-serif",
-                    fontWeight: "900",
-                    color: "#776E65",
-                  }}
-                >
+                <div className="text-3xl font-bold text-[#776E65]">
                   Game Over
                 </div>
                 <div>
-                  <div
-                    style={{
-                      flex: 1,
-                      marginTop: "auto",
-                    }}
-                  >
-                    <div onClick={resetGame} style={style.tryAgainButton}>
+                  <div className="flex-1 mt-auto">
+                    <div
+                      onClick={resetGame}
+                      className="p-2.5 bg-[#846F5B] text-[#F8F5F0] w-20 rounded-lg font-bold cursor-pointer m-auto mt-5"
+                    >
                       Try Again
                     </div>
                   </div>
@@ -366,17 +329,15 @@ function Game() {
             </div>
           )}
           <Swipe
-            onSwipeDown={() => {
-              swipeDown();
-            }}
+            onSwipeDown={() => swipeDown()}
             onSwipeLeft={() => swipeLeft()}
             onSwipeRight={() => swipeRight()}
             onSwipeUp={() => swipeUp()}
-            style={{ overflowY: "hidden" }}
+            className="overflow-y-hidden"
           >
             {data.map((row, oneIndex) => {
               return (
-                <div style={{ display: "flex" }} key={oneIndex}>
+                <div className="flex" key={oneIndex}>
                   {row.map((digit, index) => (
                     <Block num={digit} key={index} />
                   ))}
@@ -386,81 +347,16 @@ function Game() {
           </Swipe>
         </div>
 
-        <div style={{ width: "inherit" }}>
-          <p className="game-explanation">
-            <strong className="important">How to play:</strong> Use your{" "}
-            <strong>arrow keys</strong> to move the tiles. When two tiles with
-            the same number touch, they <strong>merge into one!</strong>
+        <div>
+          <p>
+            <strong>How to play:</strong> Use your <strong>arrow keys</strong>{" "}
+            to move the tiles. When two tiles with the same number touch, they{" "}
+            <strong>merge into one!</strong>
           </p>
         </div>
       </div>
     </div>
   );
 }
-
-const Block = ({ num }: { num: number }) => {
-  const { blockStyle } = style;
-
-  return (
-    <div
-      style={{
-        ...blockStyle,
-        background: getColor(num),
-        color: num === 2 || num === 4 ? "#645B52" : "#F7F4EF",
-      }}
-    >
-      {num !== 0 ? num : ""}
-    </div>
-  );
-};
-
-const style = {
-  blockStyle: {
-    height: 80,
-    width: 80,
-    background: "lightgray",
-    margin: 3,
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "center",
-    fontSize: 45,
-    fontWeight: "800",
-    color: "white",
-  },
-  newGameButton: {
-    padding: 10,
-    background: "#846F5B",
-    color: "#F8F5F0",
-    width: 95,
-    borderRadius: 7,
-    fontWeight: "900",
-    marginLeft: "auto",
-    marginBottom: "auto",
-    cursor: "pointer",
-  },
-  tryAgainButton: {
-    padding: 10,
-    background: "#846F5B",
-    color: "#F8F5F0",
-    width: 80,
-    borderRadius: 7,
-    fontWeight: "900",
-    cursor: "pointer",
-    margin: "auto",
-    marginTop: 20,
-  },
-  gameOverOverlay: {
-    position: "absolute",
-    height: "100%",
-    width: "100%",
-    left: 0,
-    top: 0,
-    borderRadius: 5,
-    background: "rgba(238,228,218,.5)",
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "center",
-  },
-};
 
 export default Game;
