@@ -1,6 +1,6 @@
 import Image from "next/image";
 import config from "@/constants/config";
-import skills from "./skills";
+import skills from "@/constants/skills";
 
 function Skillset() {
   return (

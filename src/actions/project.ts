@@ -6,7 +6,7 @@ import firebase from "@/utils/firebase";
 const COLLECTION_NAME = "projects";
 
 export const fetchLatestProject = async (): Promise<Project> => {
-  const data = await firebase.getDocuments(COLLECTION_NAME);
+  const data = await firebase.getDocuments<Project>(COLLECTION_NAME);
   return data
     .filter((project) => project.status === "completed")
     .sort(
@@ -16,6 +16,6 @@ export const fetchLatestProject = async (): Promise<Project> => {
 };
 
 export const fetchOtherProjects = async (): Promise<Array<Project>> => {
-  const data = await firebase.getDocuments(COLLECTION_NAME);
+  const data = await firebase.getDocuments<Project>(COLLECTION_NAME);
   return data.filter((project) => project.status === "completed").slice(1);
 };

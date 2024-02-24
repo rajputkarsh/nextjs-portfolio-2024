@@ -15,7 +15,7 @@ enum ARROW {
   DOWN = "ArrowDown",
 }
 
-function Game() {
+function Game2048() {
   const [data, setData] = useState<Grid>(INITIAL_DATA);
   const [gameOver, setGameOver] = useState<boolean>(false);
 
@@ -359,4 +359,4 @@ function Game() {
   );
 }
 
-export default Game;
+export default Game2048;

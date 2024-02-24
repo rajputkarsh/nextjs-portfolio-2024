@@ -34,6 +34,7 @@ export default {
     twitter: "https://twitter.com/thedevperson",
   },
 
+  availablegames: "Available Games",
   gameDescriptionLines: [
     "Reached Here? Lets play rome refreshing games to reset our minds.",
     "Below given are some mind blowing games that you can try.",

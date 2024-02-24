@@ -30,17 +30,17 @@ class Firebase {
     this.#db = getFirestore(this.#app);
   }
 
-  async getDocuments(name: string): Promise<Array<Project>> {
+  async getDocuments<T>(name: string): Promise<Array<T>> {
     try {
       const documents = await getDocs(
         query(collection(this.#db, name), orderBy("index", "desc"))
       );
-      const documentArray: Array<Project> = [];
+      const documentArray: Array<T> = [];
       documents.forEach((doc: QueryDocumentSnapshot<DocumentData>) => {
-        documentArray.push({ ...doc.data(), id: doc.id } as Project);
+        documentArray.push({ ...doc.data(), id: doc.id } as T);
       });
 
-      return documentArray as Array<Project>;
+      return documentArray as Array<T>;
     } catch (error) {
       throw error;
     }
