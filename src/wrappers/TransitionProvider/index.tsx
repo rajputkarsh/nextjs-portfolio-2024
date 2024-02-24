@@ -7,6 +7,7 @@ import { motion } from "framer-motion";
 import { usePathname } from "next/navigation";
 import config from "@/constants/config";
 import Footer from "@/components/footer";
+import { removeHyphens } from "@/utils/common";
 
 const TransitionProvider = ({
   children,
@@ -55,7 +56,7 @@ const TransitionProvider = ({
           transition={{ duration: 0.8, ease: "easeOut" }}
         >
           <span className="capitalize">{`<${
-            pathName || config.title
+            removeHyphens(pathName) || config.title
           } />`}</span>
         </motion.div>
         <motion.div

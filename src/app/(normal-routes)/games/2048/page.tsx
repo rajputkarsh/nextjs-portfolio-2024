@@ -1,5 +1,5 @@
-import GameContainer from "@/containers/game-2048";
+import Game2048Container from "@/containers/2048";
 
 export default function page() {
-  return <GameContainer />;
+  return <Game2048Container />;
 }

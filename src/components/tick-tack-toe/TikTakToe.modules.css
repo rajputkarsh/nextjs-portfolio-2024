@@ -1,0 +1,66 @@
+
+.select-mode{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.bordered-select{
+    display: flex;
+    padding: 20px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid #000;
+    border-radius: 15px;
+}
+.bordered-select.dark{
+    border: 2px solid #fff;
+}
+
+.select-player-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+
+}
+
+.board-container{
+    text-align: center;
+}
+
+.score-card-container{
+    display: inline-flex;
+    width: fit-content;
+    justify-content: center;
+    text-align: center;
+    align-items: center !important;
+}
+
+
+.margined-right{
+    margin-right: 15px;
+}
+
+.margined-left{
+    margin-left: 15px;
+}
+
+.score-button{
+    font-size: 30px !important;   
+    margin-right: 5px;
+    margin-left: 5x;
+    text-align: center !important;
+
+}
+
+@media (max-width:800px) {    
+    .score-card-container span{
+        padding-top: 8px;
+    }
+    .score-button{
+        padding-top: 8px;
+    }
+}
