@@ -35,7 +35,7 @@ export const links = [
   //   redirectNewTab: false,
   // },
   {
-    url: "/",
+    url: "/games",
     title: "Games",
     hoverColor: "slate-600",
     textColor: "white",

@@ -34,6 +34,11 @@ export default {
     twitter: "https://twitter.com/thedevperson",
   },
 
+  gameDescriptionLines: [
+    "Reached Here? Lets play rome refreshing games to reset our minds.",
+    "Below given are some mind blowing games that you can try.",
+  ],
   gameOver: "GAME OVER !",
+
   pageNotFound: "Page not found",
 } as const;

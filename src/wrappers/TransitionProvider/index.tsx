@@ -68,7 +68,7 @@ const TransitionProvider = ({
             <Navbar />
           </div>
         )}
-        <div className={`${!noNavbar ? "min-h-[calc(100vh-6rem)]" : ""}`}>
+        <div className={`${!noNavbar ? "min-h-[calc(100vh-14rem)]" : ""}`}>
           {children}
         </div>
         <Footer />
