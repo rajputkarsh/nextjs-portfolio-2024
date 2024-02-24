@@ -7,7 +7,7 @@ import { checkWinner, AImove } from "./helper";
 
 import "./TikTakToe.modules.css";
 
-function TikTakToe(props) {
+function TikTakToe() {
   const [square, setSquare] = useState(Array(9).fill(null));
   const [mode, setMode] = useState(null);
   const [Turn, setTurn] = useState(null);
@@ -50,7 +50,7 @@ function TikTakToe(props) {
     else if (Turn === "O") setTurn("X");
   };
 
-  const handleClick = (i) => {
+  const handleClick = (i: number) => {
     const squares = square.slice();
     if (squares[i] || Winner) {
       return;
@@ -96,15 +96,9 @@ function TikTakToe(props) {
   return (
     <div className="tik-tak-toe-container">
       {mode === null ? (
-        <Mode
-          theme={props.theme}
-          setTheme={props.setTheme}
-          clickHumanBtn={clickHumanBtn}
-          clickAIBtn={clickAIBtn}
-        />
+        <Mode clickHumanBtn={clickHumanBtn} clickAIBtn={clickAIBtn} />
       ) : Turn ? (
         <Board
-          clickExit={clickExit}
           playAgain={playAgain}
           ShowSquares={ShowSquares}
           mode={mode}
