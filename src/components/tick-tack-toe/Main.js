@@ -1,13 +1,9 @@
 import React, { useState, useEffect } from "react";
-
 import Board from "./Board";
-import Mode from "./Mode";
+import Mode from "../components/Mode";
 import SelectPlayer from "./SelectPlayer";
 import { checkWinner, AImove } from "./helper";
-
-import "./TikTakToe.modules.css";
-
-function TikTakToe(props) {
+function Main() {
   const [square, setSquare] = useState(Array(9).fill(null));
   const [mode, setMode] = useState(null);
   const [Turn, setTurn] = useState(null);
@@ -19,9 +15,9 @@ function TikTakToe(props) {
   const [ShowSquares, setShowSquares] = useState(true);
 
   useEffect(() => {
-    if (mode && AI === Turn) {
-      console.log(AImove(square, AI, AI === "X" ? "O" : "X"));
-      handleClick(AImove(square, AI, AI === "X" ? "O" : "X"));
+    if (mode && AI == Turn) {
+      console.log(AImove(square, AI, AI == "X" ? "O" : "X"));
+      handleClick(AImove(square, AI, AI == "X" ? "O" : "X"));
     }
     const winner = checkWinner(square);
     setWinner(winner ? winner[0] : winner);
@@ -94,14 +90,9 @@ function TikTakToe(props) {
   };
 
   return (
-    <div className="tik-tak-toe-container">
+    <div>
       {mode === null ? (
-        <Mode
-          theme={props.theme}
-          setTheme={props.setTheme}
-          clickHumanBtn={clickHumanBtn}
-          clickAIBtn={clickAIBtn}
-        />
+        <Mode clickHumanBtn={clickHumanBtn} clickAIBtn={clickAIBtn} />
       ) : Turn ? (
         <Board
           clickExit={clickExit}
@@ -118,14 +109,10 @@ function TikTakToe(props) {
           WinningSquares={WinningSquares}
         />
       ) : (
-        <SelectPlayer
-          oClick={oPlayerSelect}
-          xClick={xPlayerSelect}
-          mode={mode}
-        />
+        <SelectPlayer oClick={oPlayerSelect} xClick={xPlayerSelect} />
       )}
     </div>
   );
 }
 
-export default TikTakToe;
+export default Main;
