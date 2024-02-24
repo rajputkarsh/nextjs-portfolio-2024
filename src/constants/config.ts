@@ -35,8 +35,8 @@ export default {
   },
 
   gameOver: {
-    "GAME OVER !",
-  }
+    "GAME OVER !"
+  },
 
   pageNotFound: "Page not found",
 } as const;
