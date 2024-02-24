@@ -4,7 +4,6 @@ import { motion } from "framer-motion";
 import ProjectIntroduction from "./ProjectIntroduction";
 import LatestProject from "./LatestProject";
 import OtherProjects from "./OtherProjects";
-import ComingSoonProjects from "./ComingSoonProjects";
 
 function ProjectContainer() {
   return (
@@ -20,8 +19,6 @@ function ProjectContainer() {
         <LatestProject />
         <div className="mt-24"></div>
         <OtherProjects />
-        <div className="mt-24"></div>
-        <ComingSoonProjects />
       </div>
     </motion.div>
   );
