@@ -5,8 +5,6 @@ import Mode from "./Mode";
 import SelectPlayer from "./SelectPlayer";
 import { checkWinner, AImove } from "./helper";
 
-import "./TikTakToe.modules.css";
-
 function TikTakToe() {
   const [square, setSquare] = useState<Array<"X" | "O" | null>>(
     Array(9).fill(null)
@@ -39,7 +37,7 @@ function TikTakToe() {
       changeTurn();
       setShowSquares(false);
       setWinner(null);
-    }, 2000);
+    }, 3000);
   };
 
   useEffect(() => {

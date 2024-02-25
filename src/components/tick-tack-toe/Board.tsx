@@ -30,39 +30,39 @@ function Board({
         : null;
     return (
       <button
-        className={`text-${color} w-24 h-24`}
+        className={`text-[${color}] border-slate-500 border-2 rounded-xl w-16 h-16`}
         onClick={() => {
           onClick(i);
         }}
       >
-        {!squares[i] ? "." : squares[i]}
+        {!squares[i] ? "" : squares[i]}
       </button>
     );
   };
 
   return (
-    <div className="board-container">
-      <h1>
+    <div>
+      <h1 className="w-full text-center text-3xl">
         {Winner === "d" ? "Draw" : Winner !== null && "Winner: " + Winner}
       </h1>
       {Winner === null && (
         <ScoreCard Turn={Turn} xScore={xScore} oScore={oScore} />
       )}
       {ShowSquares && (
-        <div>
-          <div>
+        <div className="flex flex-col items-center justify-center gap-2 mt-8">
+          <div className="flex flex-row items-center justify-center gap-2">
             {renderSquare(0)}
             {renderSquare(1)}
             {renderSquare(2)}
           </div>
 
-          <div>
+          <div className="flex flex-row items-center justify-center gap-2">
             {renderSquare(3)}
             {renderSquare(4)}
             {renderSquare(5)}
           </div>
 
-          <div>
+          <div className="flex flex-row items-center justify-center gap-2">
             {renderSquare(6)}
             {renderSquare(7)}
             {renderSquare(8)}
@@ -70,8 +70,13 @@ function Board({
         </div>
       )}
       {!ShowSquares && (
-        <div>
-          <button onClick={playAgain}>Play Again</button>
+        <div className="w-full flex flex-row justify-center items-center mt-16">
+          <button
+            className="text-2xl border-slate-500 border-2 rounded-xl px-8 py-4"
+            onClick={playAgain}
+          >
+            Play Again
+          </button>
         </div>
       )}
     </div>
