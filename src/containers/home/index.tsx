@@ -4,8 +4,14 @@ import { motion } from "framer-motion";
 import HomeIntroduction from "./HomeIntroduction";
 import Skillset from "./Skillset";
 import GithubStats from "./GithubStats";
+import { useEffect } from "react";
+import { pageView } from "@/utils/analyticsEvents";
 
 function HomeContainer() {
+  useEffect(() => {
+    pageView("Homepage");
+  }, []);
+
   return (
     <motion.div
       className="h-full mt-12"

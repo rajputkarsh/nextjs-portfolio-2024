@@ -1,11 +1,17 @@
 "use client";
 
+import { useEffect } from "react";
 import { motion } from "framer-motion";
 import GameIntroduction from "./GameIntroduction";
 import GameList from "./GameList";
 import Title from "@/components/title";
+import { pageView } from "@/utils/analyticsEvents";
 
-function HomeContainer() {
+function GameContainer() {
+  useEffect(() => {
+    pageView("Games");
+  }, []);
+
   return (
     <motion.div
       className="h-full mt-12"
@@ -24,4 +30,4 @@ function HomeContainer() {
   );
 }
 
-export default HomeContainer;
+export default GameContainer;

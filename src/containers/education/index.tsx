@@ -1,11 +1,17 @@
 "use client";
 
+import { useEffect } from "react";
 import { motion } from "framer-motion";
 import EducationIntroduction from "./EducationIntroduction";
 import EducationTimeline from "./EducationTimeline";
 import Title from "@/components/title";
+import { pageView } from "@/utils/analyticsEvents";
 
 function EducationContainer() {
+  useEffect(() => {
+    pageView("Education");
+  }, []);
+
   return (
     <motion.div
       className="h-full mt-12"

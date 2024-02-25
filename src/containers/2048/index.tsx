@@ -1,9 +1,15 @@
 "use client";
 
+import { useEffect } from "react";
 import Game2048 from "@/components/2048";
 import { motion } from "framer-motion";
+import { pageView } from "@/utils/analyticsEvents";
 
 function Game2048Container() {
+  useEffect(() => {
+    pageView("Homepage");
+  }, []);
+
   return (
     <motion.div
       className="h-full mt-12"

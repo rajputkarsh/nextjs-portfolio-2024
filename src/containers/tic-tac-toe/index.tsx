@@ -1,9 +1,15 @@
 "use client";
 
+import { useEffect } from "react";
 import TicTacToe from "@/components/tic-tac-toe";
+import { pageView } from "@/utils/analyticsEvents";
 import { motion } from "framer-motion";
 
 function TicTacToeContainer() {
+  useEffect(() => {
+    pageView("Game - Tic Tac Toe");
+  }, []);
+
   return (
     <motion.div
       className="h-full mt-12"
