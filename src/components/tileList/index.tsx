@@ -11,7 +11,6 @@ const isGame = (data: Game | Project): data is Game => "url" in data;
 const isProject = (data: Game | Project): data is Project => "demoUrl" in data;
 
 function TileList({ list }: TileListProps) {
-  console.log(`list - `, list);
   return (
     <>
       {list.map((item) => (

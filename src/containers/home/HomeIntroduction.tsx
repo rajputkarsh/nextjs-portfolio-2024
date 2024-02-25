@@ -1,5 +1,5 @@
 import Image from "next/image";
-import CodingBoy from "@/assets/coding-boy.svg";
+import CodingBoy from "@/assets/coding-boy.webp";
 import config from "@/constants/config";
 import Typewriter from "typewriter-effect";
 import Socials from "@/components/socials";
@@ -11,8 +11,8 @@ function HomeIntroduction() {
         <Image
           src={CodingBoy.src}
           alt=""
-          width={0}
-          height={0}
+          width={700}
+          height={700}
           className="w-auto"
         />
       </div>

@@ -1,5 +1,5 @@
 import Image from "next/image";
-import GraduatingBoy from "@/assets/graduating-boy.svg";
+import GraduatingBoy from "@/assets/graduating-boy.webp";
 import config from "@/constants/config";
 
 function EducationIntroduction() {
@@ -9,8 +9,8 @@ function EducationIntroduction() {
         <Image
           src={GraduatingBoy.src}
           alt=""
-          width={0}
-          height={0}
+          width={700}
+          height={700}
           className="w-auto"
         />
       </div>

@@ -1,5 +1,5 @@
 import Image from "next/image";
-import ProjectWork from "@/assets/project-work.svg";
+import ProjectWork from "@/assets/project-work.webp";
 import config from "@/constants/config";
 
 function ProjectIntroduction() {
@@ -9,8 +9,8 @@ function ProjectIntroduction() {
         <Image
           src={ProjectWork.src}
           alt=""
-          width={0}
-          height={0}
+          width={700}
+          height={700}
           className="w-auto"
         />
       </div>

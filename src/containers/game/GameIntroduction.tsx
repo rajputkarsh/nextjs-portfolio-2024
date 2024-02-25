@@ -1,5 +1,5 @@
 import Image from "next/image";
-import GraduatingBoy from "@/assets/graduating-boy.svg";
+import GamingBoy from "@/assets/gaming-boy.webp";
 import config from "@/constants/config";
 
 function GameIntroduction() {
@@ -7,10 +7,10 @@ function GameIntroduction() {
     <div className="flex flex-col lg:flex-row px-4 sm:px-8 md:px-12">
       <div className="h-1/2 lg:h-full lg:w-1/2 relative">
         <Image
-          src={GraduatingBoy.src}
+          src={GamingBoy.src}
           alt=""
-          width={0}
-          height={0}
+          width={500}
+          height={500}
           className="w-auto"
         />
       </div>
