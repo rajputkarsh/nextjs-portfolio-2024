@@ -8,16 +8,10 @@ function HomeIntroduction() {
   return (
     <div className="flex flex-col lg:flex-row px-4 sm:px-8 md:px-12">
       <div className="h-1/2 lg:h-full lg:w-1/2 relative text-center flex flex-row justify-center">
-        <Image
-          src={CodingBoy.src}
-          alt=""
-          width={700}
-          height={700}
-          className="w-auto"
-        />
+        <Image src={CodingBoy.src} alt="" width={700} height={700} />
       </div>
       <div className="mt-12 md:mt-0 lg:w-1/2 flex flex-col gap-8 items-center justify-center">
-        <h1 className="text-4xl md:text-5xl font-bold flex flex-row gap-2">
+        <h1 className="text-3xl md:text-4xl font-bold flex flex-row gap-2">
           {config.typewriterPreText}
           <span className="text-theme-color">
             <Typewriter
@@ -29,7 +23,7 @@ function HomeIntroduction() {
             />
           </span>
         </h1>
-        <ul className="text-2xl md:text-3xl font-semi-bold">
+        <ul className="text-lg md:text-2xl font-semi-bold">
           {config.homeIintroductionTexts.map((text) => (
             <li key={text} className="mt-2">
               {text}

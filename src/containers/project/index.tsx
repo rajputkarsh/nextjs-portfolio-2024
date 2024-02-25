@@ -13,7 +13,7 @@ function ProjectContainer() {
       animate={{ y: "0%" }}
       transition={{ duration: 1 }}
     >
-      <div className="w-full">
+      <div className="w-full text-center">
         <ProjectIntroduction />
         <div className="mt-24"></div>
         <LatestProject />

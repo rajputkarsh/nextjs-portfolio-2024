@@ -5,7 +5,7 @@ import skills from "@/constants/skills";
 function Skillset() {
   return (
     <div className="w-full text-center">
-      <h2 className="text-6xl font-bold text-theme-color underline-animation">
+      <h2 className="text-5xl font-bold text-theme-color underline-animation">
         {config.skillset}
       </h2>
       <div className="w-full my-8 px-16">
