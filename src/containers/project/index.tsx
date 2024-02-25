@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import ProjectIntroduction from "./ProjectIntroduction";
 import LatestProject from "./LatestProject";
 import OtherProjects from "./OtherProjects";
+import Title from "@/components/title";
 
 function ProjectContainer() {
   return (
@@ -14,6 +15,8 @@ function ProjectContainer() {
       transition={{ duration: 1 }}
     >
       <div className="w-full text-center">
+        <Title title="Projects" />
+        <div className="mt-24"></div>
         <ProjectIntroduction />
         <div className="mt-24"></div>
         <LatestProject />
