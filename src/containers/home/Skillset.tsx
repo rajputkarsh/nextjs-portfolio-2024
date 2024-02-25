@@ -18,7 +18,6 @@ function Skillset() {
                 title={skillInfo.name}
               >
                 <Image
-                  placeholder="blur"
                   src={skillInfo.icon}
                   title={skillInfo.name}
                   alt=""

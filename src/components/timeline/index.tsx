@@ -25,7 +25,6 @@ function Timeline({ events }: { events: Array<TimelineObject> }) {
             className=""
             icon={
               <Image
-                placeholder="blur"
                 alt={event.event}
                 src={event.icon}
                 width={20}
@@ -39,7 +38,6 @@ function Timeline({ events }: { events: Array<TimelineObject> }) {
             <div className="grid grid-cols-4 gap-4 mt-2">
               <div className="col-span-1 bg-white">
                 <Image
-                  placeholder="blur"
                   alt={event.event}
                   src={event.contentIcon}
                   width={300}
@@ -58,7 +56,6 @@ function Timeline({ events }: { events: Array<TimelineObject> }) {
             date={event.date}
             icon={
               <Image
-                placeholder="blur"
                 alt={event.event}
                 src={event.icon}
                 width={30}

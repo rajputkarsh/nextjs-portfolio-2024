@@ -29,7 +29,6 @@ function GameList() {
         </div>
       ) : (
         <Image
-          placeholder="blur"
           className="m-auto"
           src={loader.src}
           alt=""

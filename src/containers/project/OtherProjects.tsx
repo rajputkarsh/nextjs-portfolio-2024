@@ -28,7 +28,6 @@ function OtherProject() {
         </div>
       ) : (
         <Image
-          placeholder="blur"
           className="m-auto"
           src={loader.src}
           alt=""

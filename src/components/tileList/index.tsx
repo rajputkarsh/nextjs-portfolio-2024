@@ -24,7 +24,6 @@ function TileList({ list }: TileListProps) {
             {item.title}
           </h4>
           <Image
-            placeholder="blur"
             className="mb-4 w-full max-h-40 object-contain m-auto"
             src={item.image}
             alt=""
