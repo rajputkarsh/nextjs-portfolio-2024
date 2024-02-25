@@ -10,7 +10,7 @@ export default {
     "Always Learning 🎯",
   ],
 
-  skillset: "Skillset",
+  skillset: "Skill Set",
   githubStats: "Github Stats",
 
   projects: "Projects",
