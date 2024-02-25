@@ -10,7 +10,9 @@ function EducationIntroduction() {
       </div>
       <div className=" px-8 mt-12 md:mt-0 lg:w-1/2 flex flex-col gap-4 justify-center">
         {config.educationDescriptionLines.map((text) => (
-          <p className="text-lg md:text-2xl font-semibold">{text}</p>
+          <p key={text} className="text-lg md:text-2xl font-semibold">
+            {text}
+          </p>
         ))}
       </div>
     </div>

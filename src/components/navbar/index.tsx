@@ -45,10 +45,15 @@ const Navbar = () => {
             variants={listVariants}
             initial="closed"
             animate="opened"
-            className="absolute top-0 left-0 w-screen h-screen bg-black text-white flex flex-col items-center justify-center gap-8 text-4xl z-40"
+            className="h-screen absolute top-0 left-0 w-screen h-screen bg-black text-white flex flex-col items-center justify-center gap-8 text-4xl z-40"
           >
             {links.map((link) => (
-              <NavLink link={link} key={link.title} mobile={true} />
+              <NavLink
+                link={link}
+                key={link.title}
+                setOpen={setOpen}
+                mobile={true}
+              />
             ))}
           </motion.div>
         )}
@@ -61,13 +66,13 @@ const Navbar = () => {
       <div className="lg:flex xl:w-1/3">
         <Link href="/" className="text-sm rounded-md p-4 font-semibold flex">
           <h2 className="text-theme-color text-3xl md:text-4xl mr-1">
-            {`<${config.title} />`}
+            {`<${config.title.toUpperCase()} />`}
           </h2>
         </Link>
       </div>
       <div className="hidden md:flex gap-4">
         {links.map((link) => (
-          <NavLink link={link} key={link.title} />
+          <NavLink link={link} key={link.title} setOpen={setOpen} />
         ))}
       </div>
 

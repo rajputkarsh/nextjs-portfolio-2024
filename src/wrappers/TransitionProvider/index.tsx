@@ -58,8 +58,8 @@ const TransitionProvider = ({
           ref={motionDivRef}
           className="fixed m-auto top-0 bottom-0 left-0 right-0 text-white text-8xl cursor-default z-50 w-fit h-fit"
           initial={{ opacity: 1 }}
-          animate={{ opacity: 0 }}
-          exit={{ opacity: 0 }}
+          animate={{ opacity: 0, display: "none" }}
+          exit={{ opacity: 0, display: "none" }}
           transition={{ duration: 0.8, ease: "easeOut" }}
         >
           <span className="capitalize">{`<${
@@ -72,11 +72,11 @@ const TransitionProvider = ({
           animate={{ height: "0vh", transition: { delay: 0.5 } }}
         />
         {!noNavbar && (
-          <div className="h-24">
+          <div className="h-16">
             <Navbar />
           </div>
         )}
-        <div className={`${!noNavbar ? "min-h-[calc(100vh-14rem)]" : ""}`}>
+        <div className={`${!noNavbar ? "min-h-[calc(100vh-12rem)]" : ""}`}>
           {children}
         </div>
         <Footer />
