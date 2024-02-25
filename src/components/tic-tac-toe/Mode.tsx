@@ -8,7 +8,7 @@ interface ModeProps {
 function Mode({ clickHumanBtn, clickAIBtn }: ModeProps) {
   return (
     <div className="flex flex-col items-center justify-center p-5 rounded-md border-2">
-      <h1>{config.playTickTackToe}</h1>
+      <h1>{config.playTicTacToe}</h1>
       <div className={`flex flex-col items-center justify-center`}>
         <h2>{config.selectMode}</h2>
         <button onClick={clickHumanBtn}>{config.twoPlayer}</button>

@@ -1,9 +1,9 @@
 "use client";
 
-import TickTackToe from "@/components/tick-tack-toe";
+import TicTacToe from "@/components/tic-tac-toe";
 import { motion } from "framer-motion";
 
-function TickTackToeContainer() {
+function TicTacToeContainer() {
   return (
     <motion.div
       className="h-full mt-12"
@@ -12,10 +12,10 @@ function TickTackToeContainer() {
       transition={{ duration: 1 }}
     >
       <div className="w-full">
-        <TickTackToe />
+        <TicTacToe />
       </div>
     </motion.div>
   );
 }
 
-export default TickTackToeContainer;
+export default TicTacToeContainer;

@@ -33,13 +33,20 @@ function LatestProject() {
                 href={latestProject.demoUrl || latestProject.sourceUrl}
                 target="_blank"
               >
-                <Image src={arrow.src} alt="" width={20} height={20} />
+                <Image
+                  placeholder="blur"
+                  src={arrow.src}
+                  alt=""
+                  width={20}
+                  height={20}
+                />
               </Link>
             </h3>
             <h4 className="text-xl font-semibold">{latestProject.body}</h4>
           </div>
           <div className="w-full md:w-1/2">
             <Image
+              placeholder="blur"
               className="m-auto px-16 md:px-0"
               src={latestProject.image}
               alt=""
@@ -50,6 +57,7 @@ function LatestProject() {
         </div>
       ) : (
         <Image
+          placeholder="blur"
           className="m-auto"
           src={loader.src}
           alt=""

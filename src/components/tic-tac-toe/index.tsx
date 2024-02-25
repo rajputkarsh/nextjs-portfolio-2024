@@ -5,7 +5,7 @@ import Mode from "./Mode";
 import SelectPlayer from "./SelectPlayer";
 import { checkWinner, AImove } from "./helper";
 
-function TikTakToe() {
+function TicTacToe() {
   const [square, setSquare] = useState<Array<"X" | "O" | null>>(
     Array(9).fill(null)
   );
@@ -100,7 +100,7 @@ function TikTakToe() {
   };
 
   return (
-    <div className="tik-tak-toe-container">
+    <div className="tic-tac-toe-container">
       {mode === null ? (
         <Mode clickHumanBtn={clickHumanBtn} clickAIBtn={clickAIBtn} />
       ) : Turn ? (
@@ -126,4 +126,4 @@ function TikTakToe() {
   );
 }
 
-export default TikTakToe;
+export default TicTacToe;
