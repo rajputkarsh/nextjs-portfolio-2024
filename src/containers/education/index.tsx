@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import EducationIntroduction from "./EducationIntroduction";
 import EducationTimeline from "./EducationTimeline";
+import Title from "@/components/title";
 
 function EducationContainer() {
   return (
@@ -13,6 +14,8 @@ function EducationContainer() {
       transition={{ duration: 1 }}
     >
       <div className="w-full">
+        <Title title="Education" />
+        <div className="mt-24"></div>
         <EducationIntroduction />
         <div className="mt-24"></div>
         <EducationTimeline />

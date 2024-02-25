@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import GameIntroduction from "./GameIntroduction";
 import GameList from "./GameList";
+import Title from "@/components/title";
 
 function HomeContainer() {
   return (
@@ -13,6 +14,8 @@ function HomeContainer() {
       transition={{ duration: 1 }}
     >
       <div className="w-full">
+        <Title title="Games" />
+        <div className="mt-24"></div>
         <GameIntroduction />
         <div className="mt-24"></div>
         <GameList />
