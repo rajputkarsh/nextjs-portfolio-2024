@@ -19,7 +19,14 @@ const TransitionProvider = ({
   let pathName = usePathname();
   const motionDivRef = useRef<HTMLDivElement>(null);
 
-  if (pathName.includes("/")) pathName = pathName.split("/").at(-1) || "";
+  if (pathName.includes("/")) {
+    let pathNameEnd = pathName.split("/").at(-1) || "";
+    if (pathNameEnd.length && pathNameEnd.length > 6) {
+      pathNameEnd = pathName.split("/").at(-2) || "";
+    }
+
+    pathName = pathNameEnd;
+  }
 
   useEffect(() => {
     setTimeout(() => {
