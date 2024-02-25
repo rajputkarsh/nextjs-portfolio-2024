@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 
 import Board from "./Board";
 import Mode from "./Mode";
@@ -8,27 +8,33 @@ import { checkWinner, AImove } from "./helper";
 import "./TikTakToe.modules.css";
 
 function TikTakToe() {
-  const [square, setSquare] = useState(Array(9).fill(null));
-  const [mode, setMode] = useState(null);
-  const [Turn, setTurn] = useState(null);
-  const [AI, setAI] = useState(null);
-  const [ScoreX, setScoreX] = useState(0);
-  const [ScoreO, setScoreO] = useState(0);
-  const [Winner, setWinner] = useState(null);
-  const [WinningSquares, setWinningSquares] = useState(null);
-  const [ShowSquares, setShowSquares] = useState(true);
+  const [square, setSquare] = useState<Array<"X" | "O" | null>>(
+    Array(9).fill(null)
+  );
+  const [mode, setMode] = useState<boolean | null>(null);
+  const [Turn, setTurn] = useState<"X" | "O" | null>(null);
+  const [AI, setAI] = useState<"X" | "O" | null>(null);
+  const [ScoreX, setScoreX] = useState<number>(0);
+  const [ScoreO, setScoreO] = useState<number>(0);
+  const [Winner, setWinner] = useState<"X" | "O" | null>(null);
+  const [WinningSquares, setWinningSquares] = useState<Array<number | null>>(
+    []
+  );
+  const [ShowSquares, setShowSquares] = useState<boolean>(true);
 
   useEffect(() => {
-    if (mode && AI === Turn) {
-      console.log(AImove(square, AI, AI === "X" ? "O" : "X"));
-      handleClick(AImove(square, AI, AI === "X" ? "O" : "X"));
+    if (mode && AI && AI === Turn) {
+      const AIMove = AImove(square, AI, AI === "X" ? "O" : "X");
+      handleClick(AIMove);
     }
     const winner = checkWinner(square);
-    setWinner(winner ? winner[0] : winner);
-    setWinningSquares(winner ? winner[1] : winner);
+    if (winner && winner !== "draw") {
+      setWinner(winner.player);
+      setWinningSquares(winner.win);
+    }
   }, [square]);
 
-  const countDown = (winner) => {
+  const countDown = () => {
     setTimeout(() => {
       changeTurn();
       setShowSquares(false);
@@ -50,7 +56,9 @@ function TikTakToe() {
     else if (Turn === "O") setTurn("X");
   };
 
-  const handleClick = (i: number) => {
+  const handleClick = (i: number | undefined) => {
+    if (i === undefined || Turn === undefined) return;
+
     const squares = square.slice();
     if (squares[i] || Winner) {
       return;
@@ -101,10 +109,8 @@ function TikTakToe() {
         <Board
           playAgain={playAgain}
           ShowSquares={ShowSquares}
-          mode={mode}
           Winner={Winner}
           Turn={Turn}
-          AI={AI}
           squares={square}
           onClick={handleClick}
           xScore={ScoreX}

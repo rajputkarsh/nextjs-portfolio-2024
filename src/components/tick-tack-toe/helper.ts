@@ -1,6 +1,6 @@
 function findWinner(
-  squares: Array<number | string | null>
-): Array<string | number | number[] | null> | null {
+  squares: Array<"X" | "O" | null>
+): { player: "X" | "O" | null; win: Array<number> } | null {
   const winConditions = [
     [0, 1, 2],
     [3, 4, 5],
@@ -14,12 +14,12 @@ function findWinner(
   for (let i = 0; i < winConditions.length; i++) {
     const [a, b, c] = winConditions[i];
     if (squares[a] && squares[a] === squares[b] && squares[b] === squares[c])
-      return [squares[a], winConditions[i]];
+      return { player: squares[a], win: winConditions[i] };
   }
   return null;
 }
 
-function isDraw(square: Array<number | string | null>): boolean {
+function isDraw(square: Array<"X" | "O" | null>): boolean {
   for (let i = 0; i < 9; i++) {
     if (square[i] === null) {
       return false;
@@ -29,8 +29,8 @@ function isDraw(square: Array<number | string | null>): boolean {
 }
 
 function checkWinner(
-  board: Array<number | string | null>
-): Array<string | number | number[] | null> | "draw" | null {
+  board: Array<"X" | "O" | null>
+): { player: "X" | "O" | null; win: Array<number> } | "draw" | null {
   const winner = findWinner(board);
   const draw = isDraw(board);
   if (winner !== null) return winner;
@@ -45,7 +45,7 @@ function random(min: number, max: number): number {
 }
 
 function MMax(
-  board: Array<string | number | null>,
+  board: Array<"X" | "O" | null>,
   depth: number,
   is_max: boolean,
   ai: "X" | "O",
@@ -67,10 +67,10 @@ function MMax(
     d: 0,
   };
 
-  if (winner) {
+  if (winner && winner !== "draw") {
     return ai === "X"
-      ? scoresX[winner[0] as "X" | "O" | "d"]
-      : scoresO[winner[0] as "X" | "O" | "d"];
+      ? scoresX[winner.player as "X" | "O" | "d"]
+      : scoresO[winner.player as "X" | "O" | "d"];
   }
 
   if (is_max) {
@@ -105,7 +105,7 @@ function MMax(
 }
 
 function AImove(
-  square: Array<number | string | null>,
+  square: Array<"X" | "O" | null>,
   Turn: "X" | "O",
   HN: "X" | "O"
 ) {

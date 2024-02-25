@@ -1,12 +1,12 @@
 import ScoreCard from "./ScoreCard";
 
 interface BoardProps {
-  squares: Array<number | null>;
+  squares: Array<"X" | "O" | null>;
   onClick: (i: number) => void;
   Turn: "X" | "O";
   xScore: number;
   oScore: number;
-  Winner: string;
+  Winner: null | string;
   WinningSquares: Array<number | null>;
   ShowSquares: boolean;
   playAgain: () => void;
