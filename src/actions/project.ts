@@ -7,6 +7,7 @@ const COLLECTION_NAME = "projects";
 
 export const fetchLatestProject = async (): Promise<Project> => {
   const data = await firebase.getDocuments<Project>(COLLECTION_NAME);
+  console.log(`fetchLatestProject -- `, data);
   return data
     .filter((project) => project.status === "completed")
     .sort(
@@ -17,5 +18,6 @@ export const fetchLatestProject = async (): Promise<Project> => {
 
 export const fetchOtherProjects = async (): Promise<Array<Project>> => {
   const data = await firebase.getDocuments<Project>(COLLECTION_NAME);
+  console.log(`fetchOtherProjects -- `, data);
   return data.filter((project) => project.status === "completed").slice(1);
 };
