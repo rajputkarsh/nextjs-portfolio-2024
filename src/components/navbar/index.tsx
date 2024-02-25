@@ -62,7 +62,7 @@ const Navbar = () => {
   };
 
   return (
-    <div className="w-screen h-full flex items-center justify-between text-xl xl:px-8 overflow-hidden">
+    <div className="navbar w-screen h-full flex items-center justify-between text-xl xl:px-8 overflow-hidden drop-shadow-lg">
       <div className="lg:flex xl:w-1/3">
         <Link href="/" className="text-sm rounded-md p-4 font-semibold flex">
           <h2 className="text-theme-color text-3xl md:text-4xl mr-1">

@@ -72,11 +72,13 @@ const TransitionProvider = ({
           animate={{ height: "0vh", transition: { delay: 0.5 } }}
         />
         {!noNavbar && (
-          <div className="h-16">
+          <div className="h-16 bg-blue-100 fixed z-10">
             <Navbar />
           </div>
         )}
-        <div className={`${!noNavbar ? "min-h-[calc(100vh-12rem)]" : ""}`}>
+        <div
+          className={`${!noNavbar ? "min-h-[calc(100vh-12rem)] mt-28" : ""}`}
+        >
           {children}
         </div>
         <Footer />
