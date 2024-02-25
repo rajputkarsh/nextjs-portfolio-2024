@@ -4,7 +4,7 @@ import Link from "next/link";
 
 export default function NotFound() {
   return (
-    <div className="w-screen h-screen flex flex-col gap-8 justify-center items-center">
+    <div className="w-screen h-[91vh] md:h-[90.5vh] flex flex-col gap-8 justify-center items-center">
       <h3 className="text-4xl font-semibold underline-animation-black">
         Page Not Found
       </h3>
