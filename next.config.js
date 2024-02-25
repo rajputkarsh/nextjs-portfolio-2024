@@ -1,15 +1,6 @@
 /** @type {import('next').NextConfig} */
 
-const runtimeCaching = require("next-pwa/cache");
-const withPWA = require("next-pwa")({
-  dest: "public",
-  register: true,
-  scope: "/",
-  skipWaiting: true,
-  runtimeCaching,
-});
-
-const nextConfig = withPWA({
+const nextConfig = {
   reactStrictMode: false,
   swcMinify: true,
   images: {
@@ -21,6 +12,6 @@ const nextConfig = withPWA({
       },
     ],
   },
-});
+};
 
 module.exports = nextConfig;

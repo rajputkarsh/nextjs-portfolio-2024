@@ -1,13 +1,14 @@
 "use client";
 
 import { ReactNode, useEffect, useRef } from "react";
-import { AnimatePresence } from "framer-motion";
-import Navbar from "@/components/navbar";
-import { motion } from "framer-motion";
 import { usePathname } from "next/navigation";
-import config from "@/constants/config";
+import Navbar from "@/components/navbar";
 import Footer from "@/components/footer";
+import { AnimatePresence } from "framer-motion";
+import registerServiceWorker from "@/service-worker/workbox";
+import { motion } from "framer-motion";
 import { removeHyphens } from "@/utils/common";
+import config from "@/constants/config";
 
 const TransitionProvider = ({
   children,
@@ -29,6 +30,7 @@ const TransitionProvider = ({
   }
 
   useEffect(() => {
+    registerServiceWorker();
     setTimeout(() => {
       if (motionDivRef.current) {
         motionDivRef.current.style.display = "none";
