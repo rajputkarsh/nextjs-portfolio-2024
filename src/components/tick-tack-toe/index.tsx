@@ -11,7 +11,7 @@ function TikTakToe() {
   const [square, setSquare] = useState<Array<"X" | "O" | null>>(
     Array(9).fill(null)
   );
-  const [mode, setMode] = useState<boolean | null>(null);
+  const [mode, setMode] = useState<boolean | null>(false);
   const [Turn, setTurn] = useState<"X" | "O" | null>(null);
   const [AI, setAI] = useState<"X" | "O" | null>(null);
   const [ScoreX, setScoreX] = useState<number>(0);
