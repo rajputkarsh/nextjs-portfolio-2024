@@ -1,8 +1,11 @@
-import { Inter } from "next/font/google";
+import { Metadata } from "next";
+import Header from "@/components/header";
+import Analytics from "@/components/analytics";
 import TransitionProvider from "@/wrappers/TransitionProvider";
+import { Inter } from "next/font/google";
+
 import "@/styles/index.scss";
 import "@/app/globals.scss";
-import { Metadata } from "next";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -44,6 +47,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
+      <head>
+        <Header />
+        <Analytics />
+      </head>
       <body className={`overflow-x-hidden ${inter.className}`}>
         <TransitionProvider noNavbar={true}>{children}</TransitionProvider>
       </body>

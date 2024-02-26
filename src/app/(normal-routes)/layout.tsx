@@ -5,6 +5,7 @@ import { Metadata } from "next";
 
 import "@/styles/index.scss";
 import "@/app/globals.scss";
+import Header from "@/components/header";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -47,6 +48,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
+        <Header />
         <Analytics />
       </head>
       <body className={`overflow-x-hidden ${inter.className}`}>
