@@ -20,6 +20,7 @@ const Navbar = () => {
     return (
       <div className="md:hidden p-4">
         <button
+          aria-label="menu"
           className="w-10 h-8 flex flex-col justify-between z-50 relative"
           onClick={() => setOpen((prev) => !prev)}
         >
