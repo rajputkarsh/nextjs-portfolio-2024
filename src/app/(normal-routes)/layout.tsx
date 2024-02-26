@@ -1,14 +1,42 @@
 import { Inter } from "next/font/google";
-import Script from "next/script";
 import TransitionProvider from "@/wrappers/TransitionProvider";
+import Analytics from "@/components/analytics";
+import { Metadata } from "next";
+
 import "@/styles/index.scss";
 import "@/app/globals.scss";
 
 const inter = Inter({ subsets: ["latin"] });
 
-export const metadata = {
-  title: "Utkarsh Rajput",
-  description: "Utkarsh: MERN Stack Developer",
+export const metadata: Metadata = {
+  title: "Utkarsh Rajput: Full Stack Developer",
+  description:
+    "Utkarsh: Full Stack Developer - Typescript, ReactJS, NodeJS, NextJS, MongoDB, PostgreSQL, MERN Stack",
+  generator: "Utkarsh Rajput",
+  applicationName: "Utkarsh Rajput",
+  referrer: "origin-when-cross-origin",
+  keywords: [
+    "Utkarsh",
+    "React",
+    "JavaScript",
+    "Typescript",
+    "ReactJS",
+    "NodeJS",
+    "NextJS",
+    "MongoDB",
+    "PostgreSQL",
+    "MERN Stack",
+  ],
+  authors: [{ name: "Utkarsh" }],
+  creator: "Utkarsh",
+  publisher: "Utkarsh",
+
+  openGraph: {
+    title: "Utkarsh Rajput: Full Stack Developer",
+    description:
+      "Utkarsh: Full Stack Developer - Typescript, ReactJS, NodeJS, NextJS, MongoDB, PostgreSQL, MERN Stack",
+    url: "https://utkarshrajput.com",
+  },
 };
 
 export default function RootLayout({
@@ -19,18 +47,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        <Script
-          async
-          src={`https://www.googletagmanager.com/gtag/js?id=${process.env.GOOGLE_ANALYTICS_MEASUREMENT_ID}`}
-        />
-        <Script id="google-analytics">
-          {`
-              window.dataLayer = window.dataLayer || [];
-              function gtag(){dataLayer.push(arguments);}
-              gtag('js', new Date());
-              gtag('config', '${"${process.env.GOOGLE_ANALYTICS_MEASUREMENT_ID}"}');
-          `}
-        </Script>
+        <Analytics />
       </head>
       <body className={`overflow-x-hidden ${inter.className}`}>
         <TransitionProvider>{children}</TransitionProvider>
