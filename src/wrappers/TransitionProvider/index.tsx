@@ -35,7 +35,7 @@ const TransitionProvider = ({
       if (motionDivRef.current) {
         motionDivRef.current.style.display = "none";
       }
-    }, 1600);
+    }, 800);
 
     return () => {
       if (motionDivRef.current) {
@@ -71,7 +71,7 @@ const TransitionProvider = ({
         <motion.div
           className="h-screen w-screen fixed bg-black rounded-t-[100px] bottom-0 z-30"
           initial={{ height: "140vh" }}
-          animate={{ height: "0vh", transition: { delay: 0.8 } }}
+          animate={{ height: "0vh", transition: { delay: 0.5 } }}
         />
         {!noNavbar && (
           <div className="h-16 bg-blue-100 fixed z-10">
