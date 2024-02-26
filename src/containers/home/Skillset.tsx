@@ -21,8 +21,8 @@ function Skillset() {
                   src={skillInfo.icon}
                   title={skillInfo.name}
                   alt=""
-                  width={100}
-                  height={100}
+                  width={70}
+                  height={82}
                   className="h-[10vh] w-auto"
                 />
                 <div>{skillInfo.name}</div>
