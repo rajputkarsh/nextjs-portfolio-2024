@@ -9,6 +9,7 @@ import config from "@/constants/config";
 import loader from "@/assets/loader.svg";
 
 import "react-tooltip/dist/react-tooltip.css";
+import { formatDate } from "@/utils/common";
 
 interface GithubDayActivity {
   date: string;
@@ -80,7 +81,10 @@ function GithubStats() {
               console.log(`block - `, block);
               return cloneElement(block, {
                 "data-tooltip-id": "react-tooltip",
-                "data-tooltip-html": `${activity.count} commits on ${activity.date}`,
+                "data-tooltip-html": `${activity.count} commits on ${formatDate(
+                  activity.date,
+                  true
+                )}`,
               });
             }}
             theme={GITHUB_CALENDAR_THEME}
