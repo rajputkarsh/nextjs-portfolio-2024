@@ -14,7 +14,7 @@ const EDUCATION_TIMELINE = [
     index: 1,
     event: "BIRTH",
     icon: BabyFace.src,
-    date: "1999",
+    date: "1997",
     content: "",
     contentIcon: "",
   },
