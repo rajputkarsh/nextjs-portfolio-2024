@@ -1,11 +1,14 @@
-import { useEffect, useState } from "react";
+import { cloneElement, useEffect, useState } from "react";
 import Image from "next/image";
 import ActivityCalendar, {
   ThemeInput as ReactCalendarThemeInput,
 } from "react-activity-calendar";
+import { Tooltip as ReactTooltip } from "react-tooltip";
 import { fetchStats } from "@/actions/github";
 import config from "@/constants/config";
 import loader from "@/assets/loader.svg";
+
+import "react-tooltip/dist/react-tooltip.css";
 
 interface GithubDayActivity {
   date: string;
@@ -72,11 +75,20 @@ function GithubStats() {
         <div className="w-full flex flex-row justify-center">
           <ActivityCalendar
             data={githubStats || []}
+            renderBlock={(block, activity) => {
+              console.log(`activity - `, activity);
+              console.log(`block - `, block);
+              return cloneElement(block, {
+                "data-tooltip-id": "react-tooltip",
+                "data-tooltip-html": `${activity.count} commits on ${activity.date}`,
+              });
+            }}
             theme={GITHUB_CALENDAR_THEME}
             colorScheme="light"
             labels={Object.assign({}, GITHUB_LABEL)}
             totalCount={totalCommits}
           />
+          <ReactTooltip id="react-tooltip" />
         </div>
       ) : (
         <Image
