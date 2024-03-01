@@ -77,8 +77,6 @@ function GithubStats() {
           <ActivityCalendar
             data={githubStats || []}
             renderBlock={(block, activity) => {
-              console.log(`activity - `, activity);
-              console.log(`block - `, block);
               return cloneElement(block, {
                 "data-tooltip-id": "react-tooltip",
                 "data-tooltip-html": `${activity.count} commits on ${formatDate(
