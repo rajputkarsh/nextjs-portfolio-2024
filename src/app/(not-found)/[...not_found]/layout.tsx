@@ -1,8 +1,9 @@
-import { Metadata } from "next";
 import Header from "@/components/header";
 import Analytics from "@/components/analytics";
 import TransitionProvider from "@/wrappers/TransitionProvider";
 import { Inter } from "next/font/google";
+import { metadataObject } from "@/constants/common";
+import { Metadata } from "next";
 
 import "@/styles/index.scss";
 import "@/app/globals.scss";
@@ -10,34 +11,8 @@ import "@/app/globals.scss";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Utkarsh Rajput: Full Stack Developer",
-  description:
-    "Utkarsh: Full Stack Developer - Typescript, ReactJS, NodeJS, NextJS, MongoDB, PostgreSQL, MERN Stack",
-  generator: "Utkarsh Rajput",
-  applicationName: "Utkarsh Rajput",
-  referrer: "origin-when-cross-origin",
-  keywords: [
-    "Utkarsh",
-    "React",
-    "JavaScript",
-    "Typescript",
-    "ReactJS",
-    "NodeJS",
-    "NextJS",
-    "MongoDB",
-    "PostgreSQL",
-    "MERN Stack",
-  ],
-  authors: [{ name: "Utkarsh" }],
-  creator: "Utkarsh",
-  publisher: "Utkarsh",
-
-  openGraph: {
-    title: "Utkarsh Rajput: Full Stack Developer",
-    description:
-      "Utkarsh: Full Stack Developer - Typescript, ReactJS, NodeJS, NextJS, MongoDB, PostgreSQL, MERN Stack",
-    url: "https://utkarshrajput.com",
-  },
+  ...metadataObject,
+  title: `Not Found | ${metadataObject.title}`,
 };
 
 export default function RootLayout({

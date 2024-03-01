@@ -1,4 +1,5 @@
 import { ShortMonth, FullMonth } from "@/interfaces/common";
+import { Metadata } from "next";
 
 export const SHORT_MONTHS: { [key: number]: ShortMonth } = {
   1: "JAN",
@@ -28,4 +29,35 @@ export const FULL_MONTHS: { [key: number]: FullMonth } = {
   10: "OCTOBER",
   11: "NOVEMBER",
   12: "DECEMBER",
+};
+
+export const metadataObject: Metadata = {
+  title: "Utkarsh Rajput: Full Stack Developer",
+  description:
+    "Utkarsh: Full Stack Developer - Typescript, ReactJS, NodeJS, NextJS, MongoDB, PostgreSQL, MERN Stack",
+  generator: "Utkarsh Rajput",
+  applicationName: "Utkarsh Rajput",
+  referrer: "origin-when-cross-origin",
+  keywords: [
+    "Utkarsh",
+    "React",
+    "JavaScript",
+    "Typescript",
+    "ReactJS",
+    "NodeJS",
+    "NextJS",
+    "MongoDB",
+    "PostgreSQL",
+    "MERN Stack",
+  ],
+  authors: [{ name: "Utkarsh" }],
+  creator: "Utkarsh",
+  publisher: "Utkarsh",
+
+  openGraph: {
+    title: "Utkarsh Rajput: Full Stack Developer",
+    description:
+      "Utkarsh: Full Stack Developer - Typescript, ReactJS, NodeJS, NextJS, MongoDB, PostgreSQL, MERN Stack",
+    url: "https://utkarshrajput.com",
+  },
 };
