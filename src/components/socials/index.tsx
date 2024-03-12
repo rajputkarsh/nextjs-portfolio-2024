@@ -13,6 +13,7 @@ function Socials() {
     <div className="flex flex-row gap-8">
       <Link target="_blank" href={config.social.github}>
         <Image
+          className="w-10 md:w-12"
           src={github.src}
           width={50}
           height={50}
@@ -21,6 +22,7 @@ function Socials() {
       </Link>
       <Link target="_blank" href={config.social.linkedin}>
         <Image
+          className="w-10 md:w-12"
           src={linkedin.src}
           width={50}
           height={50}
@@ -29,6 +31,7 @@ function Socials() {
       </Link>
       <Link target="_blank" href={config.social.stackoverflow}>
         <Image
+          className="w-10 md:w-12"
           src={stackoverflow.src}
           width={50}
           height={50}
@@ -37,6 +40,7 @@ function Socials() {
       </Link>
       <Link target="_blank" href={config.social.twitter}>
         <Image
+          className="w-10 md:w-12"
           src={twitter.src}
           width={50}
           height={50}
@@ -45,6 +49,7 @@ function Socials() {
       </Link>
       <Link target="_blank" href={config.social.email}>
         <Image
+          className="w-10 md:w-12"
           src={gmail.src}
           width={50}
           height={50}

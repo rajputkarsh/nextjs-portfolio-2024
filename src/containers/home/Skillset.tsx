@@ -5,7 +5,7 @@ import skills from "@/constants/skills";
 function Skillset() {
   return (
     <div className="w-full text-center">
-      <h2 className="text-5xl font-bold text-theme-color underline-animation">
+      <h2 className="text-4xl md:text-5xl font-bold text-theme-color underline-animation">
         {config.skillset}
       </h2>
       <div className="w-full my-8 px-16">
@@ -14,7 +14,7 @@ function Skillset() {
             skill.map((skillInfo, j: number) => (
               <div
                 key={skillInfo.name}
-                className="w-3/12 md:w-2/12 lg:w-1/12 aspect-square flex flex-col items-center justify-center gap-1"
+                className="w-3/12 md:w-2/12 lg:w-1/12 aspect-square flex flex-col items-center justify-end gap-1"
                 title={skillInfo.name}
               >
                 <Image
@@ -23,9 +23,9 @@ function Skillset() {
                   alt=""
                   width={70}
                   height={82}
-                  className="h-[10vh] w-auto"
+                  className="max-h-[5vh] md:max-h-[7vh] w-auto"
                 />
-                <div>{skillInfo.name}</div>
+                <div className="mt-2 text-sm md:text-md">{skillInfo.name}</div>
               </div>
             ))
           )}
