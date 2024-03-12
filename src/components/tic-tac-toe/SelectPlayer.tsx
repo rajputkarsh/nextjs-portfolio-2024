@@ -7,7 +7,7 @@ interface SelectPlayerProps {
 function SelectPlayer({ xClick, oClick, mode }: SelectPlayerProps) {
   return (
     <div className="w-full flex flex-col justify-center items-center">
-      <h1 className="text-3xl font-semibold mb-4">
+      <h1 className="text-2xl md:text-3xl font-semibold mb-4">
         {mode ? "Select Player" : "Select Character for Player 1"}
       </h1>
       <div className="flex flex-row gap-8 text-2xl font-bold capitalize">

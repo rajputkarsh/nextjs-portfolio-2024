@@ -14,7 +14,7 @@ function TicTacToe() {
   const [AI, setAI] = useState<"X" | "O" | null>(null);
   const [ScoreX, setScoreX] = useState<number>(0);
   const [ScoreO, setScoreO] = useState<number>(0);
-  const [Winner, setWinner] = useState<"X" | "O" | null>(null);
+  const [Winner, setWinner] = useState<"X" | "O" | "DRAW" | null>(null);
   const [WinningSquares, setWinningSquares] = useState<Array<number | null>>(
     []
   );
@@ -29,6 +29,10 @@ function TicTacToe() {
     if (winner && winner !== "draw") {
       setWinner(winner.player);
       setWinningSquares(winner.win);
+    }
+
+    if (winner === "draw") {
+      setWinner("DRAW");
     }
   }, [square]);
 
@@ -87,16 +91,6 @@ function TicTacToe() {
   const playAgain = () => {
     setSquare(Array(9).fill(null));
     setShowSquares(true);
-  };
-
-  const clickExit = () => {
-    setScoreO(0);
-    setScoreX(0);
-    setShowSquares(true);
-    setWinner(null);
-    setSquare(Array(9).fill(null));
-    setTurn(null);
-    setMode(null);
   };
 
   return (
