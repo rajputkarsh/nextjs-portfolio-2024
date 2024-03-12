@@ -15,7 +15,13 @@ const NavLink = ({ link, setOpen, mobile = false }: NavLinkProps) => {
   if (mobile) {
     return (
       <motion.div variants={listItemVariants} className="" key={link.title}>
-        <Link target={link.redirectNewTab ? "_blank" : "_self"} href={link.url}>
+        <Link
+          onClick={() => {
+            setOpen(false);
+          }}
+          target={link.redirectNewTab ? "_blank" : "_self"}
+          href={link.url}
+        >
           {link.title}
         </Link>
       </motion.div>
