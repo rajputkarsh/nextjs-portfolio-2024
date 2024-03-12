@@ -73,7 +73,7 @@ function GithubStats() {
         {config.githubStats}
       </h2>
       {githubStats ? (
-        <div className="w-full flex flex-row justify-center">
+        <div className="w-full flex flex-row justify-center pl-4 pr-6">
           <ActivityCalendar
             data={githubStats || []}
             renderBlock={(block, activity) => {
