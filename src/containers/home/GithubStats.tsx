@@ -69,7 +69,7 @@ function GithubStats() {
 
   return (
     <div className="w-full text-center">
-      <h2 className="text-5xl my-8 font-bold text-theme-color underline-animation">
+      <h2 className="text-4xl md:text-5xl my-8 font-bold text-theme-color underline-animation">
         {config.githubStats}
       </h2>
       {githubStats ? (
