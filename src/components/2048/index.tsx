@@ -296,17 +296,17 @@ function Game2048() {
     <div className="w-full">
       <div className="w-4/6 mx-auto mt-8">
         <div className="w-full flex flex-row gap-16 justify-center">
-          <div className="text-6xl font-bold">2048</div>
+          <div className="text-5xl md:text-6xl font-bold">2048</div>
           <div className="my-auto">
             <div
               onClick={resetGame}
-              className="p-2.5 bg-brown-200 text-brown-50 w-28 rounded-md font-bold mx-auto cursor-pointer"
+              className="p-2.5 bg-brown-200 text-gray-800 w-28 rounded-md font-bold mx-auto cursor-pointer"
             >
               {config.newGame}
             </div>
           </div>
         </div>
-        <div className="relative w-max h-max bg-brown-200 m-auto p-2 rounded-md mt-4">
+        <div className="relative w-full md:w-max h-max bg-brown-200 m-auto p-2 rounded-md mt-4">
           {gameOver && (
             <div className="absolute w-full h-full left-0 top-0 rounded-md bg-[rgba(238,228,218,0.5)] flex justify-center items-center">
               <div>
