@@ -20,13 +20,13 @@ function LatestProject() {
 
   return (
     <div className="w-full text-center">
-      <h2 className="text-4xl my-8 font-bold text-theme-color underline-animation">
+      <h2 className="text-3xl md:text-4xl my-8 font-bold text-theme-color underline-animation">
         {config.latestProject}
       </h2>
       {latestProject ? (
         <div className="flex flex-col-reverse md:flex-row gap-4">
           <div className="w-full md:w-1/2 flex flex-col gap-4 justify-center">
-            <h3 className="text-3xl font-semibold text-theme-color flex flex-row justify-center gap-2">
+            <h3 className="text-2xl md:text-3xl font-semibold text-theme-color flex flex-row justify-center gap-2">
               {latestProject.title}
               <Link
                 className="text-theme-color cursor-pointer"
@@ -36,7 +36,9 @@ function LatestProject() {
                 <Image src={arrow.src} alt="" width={20} height={20} />
               </Link>
             </h3>
-            <h4 className="text-xl font-semibold">{latestProject.body}</h4>
+            <h4 className="text-lg md:text-xl font-semibold">
+              {latestProject.body}
+            </h4>
           </div>
           <div className="w-full md:w-1/2">
             <Image

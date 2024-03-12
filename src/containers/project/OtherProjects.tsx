@@ -19,7 +19,7 @@ function OtherProject() {
 
   return (
     <div className="w-full text-center">
-      <h2 className="text-4xl my-8 font-bold text-theme-color underline-animation">
+      <h2 className="text-3xl md:text-4xl my-8 font-bold text-theme-color underline-animation">
         {config.otherProjects}
       </h2>
       {otherProjects ? (
