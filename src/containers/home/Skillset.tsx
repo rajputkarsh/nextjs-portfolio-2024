@@ -25,7 +25,7 @@ function Skillset() {
                   height={82}
                   className="max-h-[5vh] md:max-h-[7vh] w-auto"
                 />
-                <div className="mt-2 text-sm md:text-md">{skillInfo.name}</div>
+                <div className="mt-2 text-sm md:text-lg whitespace-nowrap">{skillInfo.name}</div>
               </div>
             ))
           )}
