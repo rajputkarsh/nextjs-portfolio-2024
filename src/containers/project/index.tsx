@@ -22,11 +22,11 @@ function ProjectContainer() {
     >
       <div className="w-full text-center">
         <Title title="Projects" />
-        <div className="mt-24"></div>
+        <div className="mt-12"></div>
         <ProjectIntroduction />
-        <div className="mt-24"></div>
+        <div className="mt-12"></div>
         <LatestProject />
-        <div className="mt-24"></div>
+        <div className="mt-12"></div>
         <OtherProjects />
       </div>
     </motion.div>
