@@ -20,7 +20,7 @@ function TileList({ list }: TileListProps) {
           href={isGame(item) ? item?.url : item?.demoUrl || item?.sourceUrl}
           target="_blank"
         >
-          <h4 className="text-theme-color font-semibold text:md md:text-xl mb-4">
+          <h4 className="text-theme-color font-semibold text:lg md:text-xl mb-4">
             {item.title}
           </h4>
           <Image
@@ -30,7 +30,7 @@ function TileList({ list }: TileListProps) {
             width={400}
             height={400}
           />
-          <p className="">{item.body}</p>
+          <p className="text:lg md:text-xl">{item.body}</p>
         </Link>
       ))}
     </>
