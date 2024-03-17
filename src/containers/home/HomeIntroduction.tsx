@@ -29,9 +29,9 @@ function HomeIntroduction() {
             />
           </span>
         </h1>
-        <ul className="text-lg md:text-2xl font-semi-bold">
+        <ul>
           {config.homeIintroductionTexts.map((text) => (
-            <li key={text} className="mt-2">
+            <li key={text} className="mt-2 text-xl md:text-2xl">
               {text}
             </li>
           ))}
