@@ -7,7 +7,7 @@ import "@/styles/index.scss";
 import "@/app/globals.scss";
 import Header from "@/components/header";
 import { Metadata } from "next";
-import { ThemeProvider } from "next-themes";
+import { ThemeProvider } from "@/components/themeProvider";
 
 const inter = Inter({ subsets: ["latin"] });
 

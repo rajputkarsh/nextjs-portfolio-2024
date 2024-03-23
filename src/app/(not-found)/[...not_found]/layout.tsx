@@ -4,10 +4,10 @@ import TransitionProvider from "@/wrappers/TransitionProvider";
 import { Inter } from "next/font/google";
 import { metadataObject } from "@/constants/common";
 import { Metadata } from "next";
+import { ThemeProvider } from "@/components/themeProvider";
 
 import "@/styles/index.scss";
 import "@/app/globals.scss";
-import { ThemeProvider } from "next-themes";
 
 const inter = Inter({ subsets: ["latin"] });
 

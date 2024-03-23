@@ -32,6 +32,7 @@ export const FULL_MONTHS: { [key: number]: FullMonth } = {
 };
 
 export const metadataObject: Metadata = {
+  metadataBase: new URL("https://utkarshrajput.com"),
   title: "Utkarsh Rajput: Full Stack Developer",
   description:
     "Utkarsh: Full Stack Developer - Typescript, ReactJS, NodeJS, NextJS, MongoDB, PostgreSQL, MERN Stack",
@@ -58,6 +59,6 @@ export const metadataObject: Metadata = {
     title: "Utkarsh Rajput: Full Stack Developer",
     description:
       "Utkarsh: Full Stack Developer - Typescript, ReactJS, NodeJS, NextJS, MongoDB, PostgreSQL, MERN Stack",
-    url: "https://utkarshrajput.com",
+    url: new URL("https://utkarshrajput.com"),
   },
 };
