@@ -7,7 +7,6 @@ import { Metadata } from "next";
 
 import "@/styles/index.scss";
 import "@/app/globals.scss";
-import ThemeButton from "@/components/themeButton";
 import { ThemeProvider } from "next-themes";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -29,7 +28,6 @@ export default function RootLayout({
         <Analytics />
       </head>
       <body className={`overflow-x-hidden ${inter.className}`}>
-        <ThemeButton />
         <TransitionProvider noNavbar={true}>
           <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
             {children}
