@@ -10,21 +10,18 @@ function ThemeButton() {
   const { theme, setTheme } = useCurrentTheme();
 
   const changeTheme = () => {
-    setTheme((prev) => {
-      if (prev == "light") {
-        return "dark";
-      }
-      return 'light';
-    })
+    let newTheme = 'dark';
+    if(theme == 'dark') {
+      newTheme = 'light';
+    }
+    setTheme(newTheme);
   }
-
-  console.log(`xx theme -- `, theme)
 
   return (
     <button onClick={() => changeTheme()} className="fixed z-50 bottom-8 right-8">
       <Image
         className="w-12"
-        src={theme == 'light' ? Moon.src : Sun.src}
+        src={theme == 'dark' ? Moon.src : Sun.src}
         width={50}
         height={50}
         alt={"Change Theme"}

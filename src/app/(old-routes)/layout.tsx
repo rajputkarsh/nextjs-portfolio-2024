@@ -27,7 +27,7 @@ export default function RootLayout({
       </head>
       <body className={`overflow-x-hidden ${inter.className}`}>
         <TransitionProvider>
-          <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+          <ThemeProvider attribute="class" defaultTheme="light" enableSystem>
             {children}
             <ThemeButton />
           </ThemeProvider>
