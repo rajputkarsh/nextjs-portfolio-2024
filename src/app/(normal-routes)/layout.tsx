@@ -7,6 +7,7 @@ import "@/styles/index.scss";
 import "@/app/globals.scss";
 import Header from "@/components/header";
 import { Metadata } from "next";
+import ThemeButton from "@/components/themeButton";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -24,6 +25,7 @@ export default function RootLayout({
         <Analytics />
       </head>
       <body className={`overflow-x-hidden ${inter.className}`}>
+        <ThemeButton />
         <TransitionProvider>{children}</TransitionProvider>
       </body>
     </html>
