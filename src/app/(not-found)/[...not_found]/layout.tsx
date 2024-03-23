@@ -8,6 +8,7 @@ import { ThemeProvider } from "@/components/themeProvider";
 
 import "@/styles/index.scss";
 import "@/app/globals.scss";
+import ThemeButton from "@/components/themeButton";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -29,9 +30,10 @@ export default function RootLayout({
       </head>
       <body className={`overflow-x-hidden ${inter.className}`}>
         <TransitionProvider noNavbar={true}>
-          <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+          {/* <ThemeProvider attribute="class" defaultTheme="system" enableSystem> */}
             {children}
-          </ThemeProvider>
+            {/* <ThemeButton />
+          </ThemeProvider> */}
         </TransitionProvider>
       </body>
     </html>
