@@ -1,3 +1,5 @@
+"use client";
+
 import { cloneElement, useEffect, useState } from "react";
 import Image from "next/image";
 import ActivityCalendar, {
@@ -10,6 +12,7 @@ import loader from "@/assets/loader.svg";
 
 import "react-tooltip/dist/react-tooltip.css";
 import { formatDate } from "@/utils/common";
+import useCurrentTheme from "@/hooks/useCurrentTheme";
 
 interface GithubDayActivity {
   date: string;
@@ -27,6 +30,7 @@ const GITHUB_LABEL = {
 };
 
 function GithubStats() {
+  const { theme } = useCurrentTheme() as { theme: "light" | "dark" };
   const [totalCommits, setTotalCommits] = useState<number>(0);
   const [githubStats, setGithubStats] = useState<
     Array<GithubDayActivity> | undefined
@@ -82,11 +86,11 @@ function GithubStats() {
                 "data-tooltip-html": `${activity.count} commits on ${formatDate(
                   activity.date,
                   true
-                )}`,
+                )}`,            
               });
             }}
             theme={GITHUB_CALENDAR_THEME}
-            colorScheme="light"
+            colorScheme={theme}
             labels={Object.assign({}, GITHUB_LABEL)}
             totalCount={totalCommits}
           />

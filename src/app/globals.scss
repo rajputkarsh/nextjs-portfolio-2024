@@ -81,3 +81,28 @@
 ::-webkit-scrollbar-thumb:hover {
   background: $themeColor;
 }
+
+html.dark {
+  .vertical-timeline::before {
+    background: #374151 !important;
+  }
+
+  .vertical-timeline-element-icon {
+    -webkit-box-shadow: none;
+    box-shadow: none;
+  }
+
+  .vertical-timeline-element-content {
+    background-color: #374151;
+  }
+  
+  .vertical-timeline-element--no-children {
+    .vertical-timeline-element-content {
+      background-color: transparent;
+    }
+  }
+  
+  .vertical-timeline-element-date {
+    color: #fff;
+  }
+}

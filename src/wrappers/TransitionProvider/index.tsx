@@ -48,7 +48,7 @@ const TransitionProvider = ({
     <AnimatePresence mode="wait">
       <div
         key={pathName}
-        className="w-screen bg-gradient-to-b from-blue-100 to-red-100 overflow-hidden"
+        className="w-screen bg-gradient-to-b from-blue-100 to-red-100 dark:from-zinc-800 dark:to-zinc-700 overflow-hidden"
       >
         <motion.div
           className="h-screen w-screen fixed bg-black rounded-b-[100px] z-40"
@@ -74,7 +74,7 @@ const TransitionProvider = ({
           animate={{ height: "0vh", transition: { delay: 0.5 } }}
         />
         {!noNavbar && (
-          <div className="h-16 bg-blue-100 fixed z-10">
+          <div className="h-16 bg-blue-100 dark:bg-zinc-800 fixed z-10">
             <Navbar />
           </div>
         )}

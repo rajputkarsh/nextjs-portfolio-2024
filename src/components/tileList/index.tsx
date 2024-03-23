@@ -16,7 +16,7 @@ function TileList({ list }: TileListProps) {
       {list.map((item) => (
         <Link
           key={item.title}
-          className="bg-slate-200 p-4 border-2 border-slate-500 rounded-2xl w-full md:w-3/12"
+          className="bg-slate-200 dark:bg-slate-800 p-4 border-2 border-slate-500 rounded-2xl w-full md:w-3/12"
           href={isGame(item) ? item?.url : item?.demoUrl || item?.sourceUrl}
           target="_blank"
         >
