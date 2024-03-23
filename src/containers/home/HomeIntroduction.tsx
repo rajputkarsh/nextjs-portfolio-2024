@@ -1,5 +1,5 @@
 import Image from "next/image";
-import CodingBoy from "@/assets/coding-boy.webp";
+import CodingBoy from "@/assets/page/coding-boy.webp";
 import config from "@/constants/config";
 import Typewriter from "typewriter-effect";
 import Socials from "@/components/socials";

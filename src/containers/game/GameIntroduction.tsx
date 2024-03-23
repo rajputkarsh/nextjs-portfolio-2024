@@ -1,5 +1,5 @@
 import Image from "next/image";
-import GamingBoy from "@/assets/gaming-boy.webp";
+import GamingBoy from "@/assets/page/gaming-boy.webp";
 import config from "@/constants/config";
 
 function GameIntroduction() {

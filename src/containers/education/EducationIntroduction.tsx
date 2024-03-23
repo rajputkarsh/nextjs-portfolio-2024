@@ -1,5 +1,5 @@
 import Image from "next/image";
-import GraduatingBoy from "@/assets/graduating-boy.webp";
+import GraduatingBoy from "@/assets/page/graduating-boy.webp";
 import config from "@/constants/config";
 
 function EducationIntroduction() {

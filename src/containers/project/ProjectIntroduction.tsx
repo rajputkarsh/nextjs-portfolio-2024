@@ -1,5 +1,5 @@
 import Image from "next/image";
-import ProjectWork from "@/assets/project-work.webp";
+import ProjectWork from "@/assets/page/project-work.webp";
 import config from "@/constants/config";
 
 function ProjectIntroduction() {
