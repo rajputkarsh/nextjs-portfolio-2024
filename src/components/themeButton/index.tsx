@@ -1,18 +1,36 @@
 "use client";
 
-import useCurrentTheme from '@/hooks/useCurrentTheme'
-import React, { useEffect } from 'react'
+import React from 'react';
+import Image from "next/image";
+import useCurrentTheme from '@/hooks/useCurrentTheme';
+import Moon from "@/assets/theme/moon.webp";
+import Sun from "@/assets/theme/sun.webp";
 
 function ThemeButton() {
   const { theme, setTheme } = useCurrentTheme();
 
-  useEffect(() => {
-    setTheme('dark');
-  }, [])
+  const changeTheme = () => {
+    setTheme((prev) => {
+      if (prev == "light") {
+        return "dark";
+      }
+      return 'light';
+    })
+  }
+
+  console.log(`xx theme -- `, theme)
 
   return (
-    <button className='fixed z-50 bottom-8 right-8'>Change Theme</button>
-  )
+    <button onClick={() => changeTheme()} className="fixed z-50 bottom-8 right-8">
+      <Image
+        className="w-12"
+        src={theme == 'light' ? Moon.src : Sun.src}
+        width={50}
+        height={50}
+        alt={"Change Theme"}
+      />
+    </button>
+  );
 }
 
 export default ThemeButton
