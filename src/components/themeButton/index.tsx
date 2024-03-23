@@ -18,10 +18,13 @@ function ThemeButton() {
   }
 
   return (
-    <button onClick={() => changeTheme()} className="fixed z-50 bottom-8 right-8">
+    <button
+      onClick={() => changeTheme()}
+      className="fixed z-50 bottom-4 right-4 md:bottom-8 md:right-8"
+    >
       <Image
         className="w-12"
-        src={theme == 'dark' ? Sun.src : Moon.src}
+        src={theme == "dark" ? Sun.src : Moon.src}
         width={50}
         height={50}
         alt={"Change Theme"}
