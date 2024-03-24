@@ -2,6 +2,7 @@
   "theme_color": "#e3405f",
   "background_color": "#dbeafe",
   "display": "browser",
+  "orientation": "any",
   "scope": "/",
   "start_url": "/",
   "name": "Utkarsh Rajput",
