@@ -1,7 +1,7 @@
 {
   "theme_color": "#e3405f",
   "background_color": "#dbeafe",
-  "display": "browser",
+  "display": "standalone",
   "scope": "/",
   "start_url": "/",
   "name": "Utkarsh Rajput",
