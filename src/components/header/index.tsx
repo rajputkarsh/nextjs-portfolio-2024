@@ -5,6 +5,7 @@ function Header() {
   const nonce = headers().get("x-nonce") || undefined;
   return (
     <>
+      <link rel="manifest" href="manifest.json" />
       <Script
         src="https://www.googletagmanager.com/gtag/js"
         strategy="afterInteractive"
