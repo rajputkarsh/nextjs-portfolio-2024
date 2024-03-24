@@ -10,6 +10,7 @@
 /public/fallback*
 /public/sw*
 /public/workbox*
+package-lock.json
 
 # testing
 /coverage
