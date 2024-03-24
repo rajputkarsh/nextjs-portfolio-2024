@@ -1,11 +1,19 @@
 /** @type {import('next').NextConfig} */
 const withPWA = require('next-pwa');
 
-const nextConfig = {
-    dest: "public",
-    swSrc: "sw.js",
+const pwa = withPWA({
+  dest: "public",
+  swSrc: "sw.js",
   cacheOnFrontEndNav: true,
   reloadOnOnline: true,
+  fallbacks: {
+    document: "/offline",
+  },
+});
+
+
+
+module.exports = pwa({
   reactStrictMode: false,
   swcMinify: true,
   images: {
@@ -17,9 +25,4 @@ const nextConfig = {
       },
     ],
   },
-  fallbacks: {
-    document: "/offline",
-  },
-};
-
-module.exports = withPWA(nextConfig);
+});
