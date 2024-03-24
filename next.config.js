@@ -1,8 +1,6 @@
 /** @type {import('next').NextConfig} */
-const withPWA = require("@ducanh2912/next-pwa");
-const path = require('path');
 
-const pwa = withPWA({
+const withPWA = require("@ducanh2912/next-pwa").default({
   dest: "public",
   swSrc: "/sw.js",
   cacheOnFrontEndNav: true,
@@ -11,7 +9,7 @@ const pwa = withPWA({
 
 
 
-module.exports = pwa({
+module.exports = withPWA({
   reactStrictMode: false,
   swcMinify: true,
   images: {
