@@ -1,9 +1,10 @@
 /** @type {import('next').NextConfig} */
 const withPWA = require('next-pwa');
+const path = require('path');
 
 const pwa = withPWA({
   dest: "public",
-  swSrc: "sw.js",
+  swSrc: "/sw.js",
   cacheOnFrontEndNav: true,
   reloadOnOnline: true,
   fallbacks: {
