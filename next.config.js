@@ -7,9 +7,6 @@ const pwa = withPWA({
   swSrc: "/sw.js",
   cacheOnFrontEndNav: true,
   reloadOnOnline: true,
-  fallbacks: {
-    document: "/offline",
-  },
 });
 
 
