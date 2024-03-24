@@ -5,7 +5,6 @@ const nextConfig = {
     dest: "public",
     swSrc: "sw.js",
   cacheOnFrontEndNav: true,
-  aggressiveFrontEndNavCaching: true,
   reloadOnOnline: true,
   reactStrictMode: false,
   swcMinify: true,
