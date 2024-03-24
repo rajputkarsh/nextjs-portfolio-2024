@@ -5,7 +5,7 @@ importScripts(
 workbox.core.clientsClaim();
 self.skipWaiting();
 
-self.__WB_MANIFEST;
+workbox.precaching.precacheAndRoute(self.__WB_MANIFEST);
 
 workbox.routing.registerRoute(
   ({ request }) => request.destination === "image",
