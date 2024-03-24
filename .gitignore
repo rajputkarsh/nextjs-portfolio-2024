@@ -6,6 +6,11 @@
 .pnp.js
 .yarn/install-state.gz
 
+# auto-generated files
+/public/fallback*
+/public/sw*
+/public/workbox*
+
 # testing
 /coverage
 
