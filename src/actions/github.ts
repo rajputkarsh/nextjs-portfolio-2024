@@ -39,16 +39,21 @@ export const fetchStats = async () => {
   const perPageLimit = 100;
   let currentPage = 1;
 
-  const initialCommitData = await _fetchCommitsPage(perPageLimit, currentPage);
-  const totalCount = initialCommitData.data.total_count;
-
-  _addDataToObject(commits, initialCommitData.data.items);
-
-  while(totalCount > perPageLimit * currentPage) {
-    currentPage += 1;
-    const commitData = await _fetchCommitsPage(perPageLimit, currentPage);
-    _addDataToObject(commits, commitData.data.items);
+  try {
+    const initialCommitData = await _fetchCommitsPage(perPageLimit, currentPage);
+    const totalCount = initialCommitData.data.total_count;
+  
+    _addDataToObject(commits, initialCommitData.data.items);
+  
+    while(totalCount > perPageLimit * currentPage) {
+      currentPage += 1;
+      const commitData = await _fetchCommitsPage(perPageLimit, currentPage);
+      _addDataToObject(commits, commitData.data.items);
+    }
+  } catch(error) {
+    console.log('error -- ', error)
   }
+
  
   return commits;
 }

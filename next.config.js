@@ -5,6 +5,9 @@ const withPWA = require("@ducanh2912/next-pwa").default({
   swSrc: "/sw.js",
   cacheOnFrontEndNav: true,
   reloadOnOnline: true,
+  fallbacks: {
+    document: "/offline",
+  },
 });
 
 
