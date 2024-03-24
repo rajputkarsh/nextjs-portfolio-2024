@@ -2,10 +2,8 @@
 const withPWA = require('next-pwa');
 
 const nextConfig = {
-  pwa: {
     dest: "public",
-    swSrc: "service-worker.js",
-  },
+    swSrc: "sw.js",
   cacheOnFrontEndNav: true,
   aggressiveFrontEndNavCaching: true,
   reloadOnOnline: true,
