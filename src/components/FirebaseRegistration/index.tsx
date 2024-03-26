@@ -1,3 +1,5 @@
+'use client';
+
 import Firebase from "@/utils/firebase";
 import { useEffect } from "react"
 
