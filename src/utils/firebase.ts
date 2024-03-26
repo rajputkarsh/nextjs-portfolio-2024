@@ -27,25 +27,23 @@ class Firebase {
   #messaging: Messaging | undefined;
 
   constructor(isServer: boolean) {
-      const app = initializeApp(FIREBASE_CONFIG);
-      const db = getFirestore(app);
-      
-      this.#app = app;
-      this.#db = db;
+    const app = initializeApp(FIREBASE_CONFIG);
+    const db = getFirestore(app);
 
-      if (!isServer) {
-        const messaging = getMessaging(app);
-        this.#messaging = messaging;
-      }
+    this.#app = app;
+    this.#db = db;
 
-
+    if (!isServer) {
+      const messaging = getMessaging(app);
+      this.#messaging = messaging;
+    }
   }
 
   async getDocuments<T>(name: string): Promise<Array<T>> {
     try {
-        const documents = await getDocs(
-          query(collection(this.#db, name), orderBy("index", "desc"))
-        );
+      const documents = await getDocs(
+        query(collection(this.#db, name), orderBy("index", "desc"))
+      );
       const documentArray: Array<T> = [];
       documents.forEach((doc: QueryDocumentSnapshot<DocumentData>) => {
         documentArray.push({ ...doc.data(), id: doc.id } as T);
@@ -57,22 +55,22 @@ class Firebase {
     }
   }
 
-  async getMessagingToken() {
+  async getMessagingToken(registration: ServiceWorkerRegistration) {
     try {
       if (!this.#messaging) return null;
-        return getToken(this.#messaging, {
-          vapidKey: process.env.VAPID_KEY,
-        });      
-    } catch(error) {
+      return getToken(this.#messaging, {
+        serviceWorkerRegistration: registration,
+        vapidKey: process.env.VAPID_KEY,
+      });
+    } catch (error) {
       throw error;
     }
   }
 
   onMessageCallback(callback: (payload: any) => void) {
-    if(!this.#messaging) return;
+    if (!this.#messaging) return;
     onMessage(this.#messaging, callback);
   }
-
 }
 
 export default Firebase;
