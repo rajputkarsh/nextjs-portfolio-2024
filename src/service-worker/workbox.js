@@ -14,9 +14,7 @@ export default function registerServiceWorker() {
     });
 
     wb.addEventListener("activated", (event) => {
-      wb.messageSW(
-        {type: 'message', event}
-      );
+      wb.messageSW({ type: "message", event: JSON.stringify(event) });
     });
 
     wb.addEventListener("push", (event) => {
