@@ -9,6 +9,7 @@ import registerServiceWorker from "@/service-worker/workbox";
 import { motion } from "framer-motion";
 import { removeHyphens } from "@/utils/common";
 import config from "@/constants/config";
+import Firebase from "@/utils/firebase";
 
 const TransitionProvider = ({
   children,
@@ -43,6 +44,23 @@ const TransitionProvider = ({
       }
     };
   }, []);
+
+  useEffect(() => {
+    let unsubscribe = null;
+    const fcmToken = window.localStorage.getItem("fcm_token");
+    console.log(`got fcm token -- `, fcmToken);
+    if(fcmToken) {
+    const firebase = new Firebase(false);
+    unsubscribe = firebase.onMessageCallback((payload) => {
+      console.log(`message received: payload`);
+    });      
+    }
+    
+    return () => {
+      console.log(`unsubscribing`);
+      unsubscribe && unsubscribe();
+    }
+  }, [window.localStorage.getItem('fcm_token')])
 
   return (
     <AnimatePresence mode="wait">

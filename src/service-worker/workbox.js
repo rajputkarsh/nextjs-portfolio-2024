@@ -70,9 +70,6 @@ export default function registerServiceWorker() {
         if (permission === "granted" && registration) {
           await navigator.serviceWorker.ready;
           const token = await firebase.getMessagingToken(registration);
-          firebase.onMessageCallback((payload) => {
-            console.log(`message received: payload`);
-          });
           console.log(`adding FCM token -- `, token);
           window.localStorage.setItem("fcm_token", token || "");
         }
