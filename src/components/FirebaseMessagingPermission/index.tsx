@@ -12,6 +12,7 @@ function FirebaseMessagingPermission() {
       if (permission === 'granted') {
         await navigator.serviceWorker.ready;
         const token = await firebase.getMessagingToken();
+        console.log(`adding FCM token -- `, token);
         window.localStorage.setItem("fcm_token", token || "");
       }
       });      
@@ -20,6 +21,7 @@ function FirebaseMessagingPermission() {
     }
 
     return () => {
+      console.log(`removing FCM token`);
       window.localStorage.removeItem("fcm_token");
     }
   }, []); 
