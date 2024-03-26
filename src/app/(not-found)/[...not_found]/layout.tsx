@@ -9,6 +9,7 @@ import { ThemeProvider } from "@/components/themeProvider";
 import "@/styles/index.scss";
 import "@/app/globals.scss";
 import ThemeButton from "@/components/themeButton";
+import ServiceWorkerEventHandler from "@/components/ServiceWorkerEventHandler";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -32,6 +33,7 @@ export default function RootLayout({
         <TransitionProvider noNavbar={true}>
           <ThemeProvider attribute="class" defaultTheme="light" enableSystem>
             {children}
+            <ServiceWorkerEventHandler />
             <ThemeButton />
           </ThemeProvider>
         </TransitionProvider>
