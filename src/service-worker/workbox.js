@@ -14,31 +14,38 @@ export default function registerServiceWorker() {
     });
 
     wb.addEventListener("push", (event) => {
+      try {
+        console.log(`event.data == `, event.data);
+        const data = JSON.parse(event.data);
+        console.log(`data == `, data);
 
-      console.log(`event.data == `, event.data);
-      const data = JSON.parse(event.data);
-      console.log(`data == `, data);
+        const title = data?.title || "Utkarsh";
 
-      const title = data?.title || "Utkarsh";
-
-      const options = {
-        body: data.body,
-        icon: data.icon,
-        data: {
-          url: data.url,
-        }
-      };
-      event.waitUntil(self.registration.showNotification(title, options));
+        const options = {
+          body: data.body,
+          icon: data.icon,
+          data: {
+            url: data.url,
+          }
+        };
+        event.waitUntil(self.registration.showNotification(title, options));        
+      } catch(error) {
+        console.log('Error in SW "PUSH" - ', error);
+      }
     });
 
     wb.addEventListener("notificationclick", (event) => {
-      const notificationData = event.notification.data;
+      try {
+        const notificationData = event.notification.data;
 
-      if (notificationData.url) {
-        clients.openWindow(notificationData.url);
+        if (notificationData.url) {
+          clients.openWindow(notificationData.url);
+        }
+
+        event.notification.close();
+      } catch (error) {
+        console.log('Error in SW "PUSH" - ', error);
       }
-
-      event.notification.close();
     });
 
     wb.register();
