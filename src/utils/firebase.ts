@@ -55,11 +55,10 @@ class Firebase {
     }
   }
 
-  async getMessagingToken(registration: ServiceWorkerRegistration) {
+  async getMessagingToken() {
     try {
       if (!this.#messaging) return null;
       return getToken(this.#messaging, {
-        serviceWorkerRegistration: registration,
         vapidKey: process.env.VAPID_KEY,
       });
     } catch (error) {

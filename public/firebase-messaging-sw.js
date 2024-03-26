@@ -1,20 +1,8 @@
-import Firebase from "@/utils/firebase";
 
 if ("serviceWorker" in navigator) {
   navigator.serviceWorker
     .register("../firebase-messaging-sw.js")
     .then(function (registration) {
-      const firebase = new Firebase(false);
-      Notification.requestPermission().then(async (permission) => {
-        if (permission === "granted" && registration) {
-          await navigator.serviceWorker.ready;
-          const token = await firebase.getMessagingToken(registration);
-          console.log(`adding FCM token -- `, token);
-          firebase.onMessageCallback((payload) => {
-            console.log(`message received: payload : `, payload);
-          });
-        }
-      });
     })
     .catch(function (err) {});
 }
