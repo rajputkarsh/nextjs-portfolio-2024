@@ -8,26 +8,15 @@ export default function registerServiceWorker() {
 
     wb.addEventListener("installed", (event) => {
       if (event.isUpdate) {
-        console.log(`event -- `, event);
-        console.log(`self -- `, self);
-        console.log(`self.clients -- `, self.clients);
-        console.log(`self.windowClientId -- `, self.windowClientId);
-        self.clients
-          .get(self.windowClientId)
-          .postMessage({ type: "installed" });
+        wb.messageSW({ type: "installed" });
+
       }
     });
 
-    wb.addEventListener("activate", (event) => {
-      event.waitUntil(
-        self.clients.matchAll().then((clients) => {
-          clients.forEach((client) => {
-            client.postMessage(
-              `Log from service worker: ${JSON.stringify(event)}`
-            );
-          });
-        })
-      );      
+    wb.addEventListener("activated", (event) => {
+      wb.messageSW(
+        {type: 'message', event}
+      );
     });
 
     wb.addEventListener("push", (event) => {
@@ -43,10 +32,10 @@ export default function registerServiceWorker() {
           icon: data.icon,
           data: {
             url: data.url,
-          }
+          },
         };
-        event.waitUntil(self.registration.showNotification(title, options));        
-      } catch(error) {
+        event.waitUntil(self.registration.showNotification(title, options));
+      } catch (error) {
         console.log('Error in SW "PUSH" - ', error);
       }
     });
