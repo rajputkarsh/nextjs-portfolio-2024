@@ -1,9 +1,11 @@
 "use server";
 
 import { Game } from "@/interfaces/game";
-import firebase from "@/utils/firebase";
+import Firebase from "@/utils/firebase";
 
 const COLLECTION_NAME = "games";
+
+const firebase = new Firebase(true);
 
 export const fetchGameList = async (): Promise<Array<Game>> => {
   const data = await firebase.getDocuments<Game>(COLLECTION_NAME);

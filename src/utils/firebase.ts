@@ -22,27 +22,27 @@ const FIREBASE_CONFIG = {
 };
 
 class Firebase {
-  #app: FirebaseApp | undefined;
-  #db: Firestore | undefined;
+  #app: FirebaseApp;
+  #db: Firestore;
   #messaging: Messaging | undefined;
 
-  constructor() {
-    try {
+  constructor(isServer: boolean) {
       const app = initializeApp(FIREBASE_CONFIG);
       const db = getFirestore(app);
-      const messaging = getMessaging(app);
-
+      
       this.#app = app;
       this.#db = db;
-      this.#messaging = messaging;
-    } catch(error) {
-      console.log('Error in initializing Firebase');
-    }
+
+      if (!isServer) {
+        const messaging = getMessaging(app);
+        this.#messaging = messaging;
+      }
+
+
   }
 
   async getDocuments<T>(name: string): Promise<Array<T>> {
     try {
-      if (!this.#db) return [];
         const documents = await getDocs(
           query(collection(this.#db, name), orderBy("index", "desc"))
         );
@@ -57,16 +57,16 @@ class Firebase {
     }
   }
 
-  getMessagingToken() {
+  async getMessagingToken() {
     try {
       if (!this.#messaging) return null;
-      return getToken(this.#messaging, {
-        vapidKey: process.env.VAPID_KEY,
-      });      
+        return getToken(this.#messaging, {
+          vapidKey: process.env.VAPID_KEY,
+        });      
     } catch(error) {
       throw error;
     }
   }
 }
 
-export default new Firebase();
+export default Firebase;
