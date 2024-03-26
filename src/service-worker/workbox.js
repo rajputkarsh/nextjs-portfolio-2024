@@ -7,9 +7,7 @@ export default function registerServiceWorker() {
 
     wb.addEventListener('installed', event => {
       if (event.isUpdate) {
-        if (window.confirm(`New app update is available!. Click OK to refresh`)) {
-          window.location.reload();
-        }
+        self.clients.get(self.windowClientId).postMessage({ type: 'installed' });
       }
     });
     wb.register();
