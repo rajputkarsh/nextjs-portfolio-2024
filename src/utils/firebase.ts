@@ -67,7 +67,6 @@ class Firebase {
   }
 
   onMessageCallback(callback: (payload: any) => void) {
-    console.log("this.#messaging == ", this.#messaging);
     if (!this.#messaging) return;
     return onMessage(this.#messaging, callback);
   }

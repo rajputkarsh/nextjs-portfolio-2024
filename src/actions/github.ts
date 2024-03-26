@@ -51,7 +51,6 @@ export const fetchStats = async () => {
       _addDataToObject(commits, commitData.data.items);
     }
   } catch(error) {
-    console.log('error -- ', error)
   }
 
  
