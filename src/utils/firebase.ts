@@ -1,5 +1,5 @@
 import { FirebaseApp, initializeApp, } from "firebase/app";
-import { Messaging, getMessaging, getToken } from "firebase/messaging";
+import { Messaging, getMessaging, onMessage, getToken } from "firebase/messaging";
 import {
   Firestore,
   getFirestore,
@@ -67,6 +67,12 @@ class Firebase {
       throw error;
     }
   }
+
+  onMessageCallback(callback: (payload: any) => void) {
+    if(!this.#messaging) return;
+    onMessage(this.#messaging, callback);
+  }
+
 }
 
 export default Firebase;

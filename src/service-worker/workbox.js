@@ -7,6 +7,9 @@ export default function registerServiceWorker() {
 
     wb.addEventListener("installed", (event) => {
       if (event.isUpdate) {
+        console.log(`self -- `, self);
+        console.log(`self.clients -- `, self.clients);
+        console.log(`self.windowClientId -- `, self.windowClientId);
         self.clients
           .get(self.windowClientId)
           .postMessage({ type: "installed" });

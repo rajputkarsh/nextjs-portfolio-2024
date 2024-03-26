@@ -12,6 +12,9 @@ function FirebaseMessagingPermission() {
       if (permission === 'granted') {
         await navigator.serviceWorker.ready;
         const token = await firebase.getMessagingToken();
+        firebase.onMessageCallback((payload: any) => {
+          console.log(`message received: payload`);
+        })
         console.log(`adding FCM token -- `, token);
         window.localStorage.setItem("fcm_token", token || "");
       }
