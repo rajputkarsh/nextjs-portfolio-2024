@@ -8,20 +8,19 @@ function FirebaseMessagingPermission() {
   useEffect(() => {
     try {
       const firebase = new Firebase(false);
-      console.log(
-        `window.location.hostname !== "localhost" == `,
-        window.location.hostname !== "localhost"
-      );
-      console.log(`navigator -- `, navigator)
       Notification.requestPermission().then(async (permission) => {
       if (permission === 'granted') {
         await navigator.serviceWorker.ready;
         const token = await firebase.getMessagingToken();
-        console.log(`token == `, token)
+        window.localStorage.setItem("fcm_token", token || "");
       }
       });      
     } catch(error) {
       console.log(`Error -- `, error)
+    }
+
+    return () => {
+      window.localStorage.removeItem("fcm_token");
     }
   }, []); 
 
