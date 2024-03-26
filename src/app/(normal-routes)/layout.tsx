@@ -10,6 +10,7 @@ import { Metadata } from "next";
 import { ThemeProvider } from "@/components/themeProvider";
 import ThemeButton from "@/components/themeButton";
 import ServiceWorkerEventHandler from "@/components/ServiceWorkerEventHandler";
+import FirebaseMessagingPermission from "@/components/FirebaseMessagingPermission";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -31,6 +32,7 @@ export default function RootLayout({
           <ThemeProvider attribute="class" defaultTheme="light" enableSystem>
             {children}
             <ServiceWorkerEventHandler />
+            <FirebaseMessagingPermission />
             <ThemeButton />
           </ThemeProvider>
         </TransitionProvider>
