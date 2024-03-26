@@ -16,6 +16,18 @@ export default function registerServiceWorker() {
       }
     });
 
+    wb.addEventListener("activate", (event) => {
+      event.waitUntil(
+        self.clients.matchAll().then((clients) => {
+          clients.forEach((client) => {
+            client.postMessage(
+              `Log from service worker: ${JSON.stringify(event)}`
+            );
+          });
+        })
+      );      
+    });
+
     wb.addEventListener("push", (event) => {
       try {
         console.log(`event.data == `, event.data);
