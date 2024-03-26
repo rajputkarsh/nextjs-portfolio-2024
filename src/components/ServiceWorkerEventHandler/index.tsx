@@ -1,12 +1,14 @@
+'use client';
+
 import { useEffect, useState } from "react"
+import ServiceWorkerUpdateDialog from "../Dialogs/ServiceWorkerUpdate";
 
 function ServiceWorkerEventHandler() {
 
-  const [showDialog, setShowDialog] = useState<string>('');
+  const [showDialog, setShowDialog] = useState<string>("");
 
   useEffect(() =>{
     navigator.serviceWorker.addEventListener("message", (event) => {
-
       if (event.data) {
         setShowDialog(event.data.type);
       }
@@ -16,7 +18,7 @@ function ServiceWorkerEventHandler() {
   const renderDialog = () => {
     switch (showDialog) {
       case 'installed' : {
-        break;
+        return <ServiceWorkerUpdateDialog />
       }
       default: {
         return null;
@@ -31,4 +33,4 @@ function ServiceWorkerEventHandler() {
   )
 }
 
-export default ServiceWorkerEventHandler
+export default ServiceWorkerEventHandler;
