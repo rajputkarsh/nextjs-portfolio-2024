@@ -47,6 +47,7 @@ const TransitionProvider = ({
 
   useEffect(() => {
     let unsubscribe = null;
+    console.log(`checking`)
     const fcmToken = window.localStorage.getItem("fcm_token");
     console.log(`got fcm token -- `, fcmToken);
     if(fcmToken) {
