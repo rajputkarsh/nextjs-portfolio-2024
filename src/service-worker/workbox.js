@@ -8,6 +8,7 @@ export default function registerServiceWorker() {
 
     wb.addEventListener("installed", (event) => {
       if (event.isUpdate) {
+        console.log(`event -- `, event);
         console.log(`self -- `, self);
         console.log(`self.clients -- `, self.clients);
         console.log(`self.windowClientId -- `, self.windowClientId);
@@ -71,7 +72,9 @@ export default function registerServiceWorker() {
           await navigator.serviceWorker.ready;
           const token = await firebase.getMessagingToken(registration);
           console.log(`adding FCM token -- `, token);
-          window.localStorage.setItem("fcm_token", token || "");
+          firebase.onMessageCallback((payload) => {
+            console.log(`message received: payload : `, payload);
+          });
         }
       });        
     });
