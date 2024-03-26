@@ -10,9 +10,14 @@ function FirebaseRegistration() {
           await navigator.serviceWorker.ready;
           const token = await firebase.getMessagingToken();
           console.log(`adding FCM token -- `, token);
-          firebase.onMessageCallback((payload) => {
+          const unsubscribe = firebase.onMessageCallback((payload) => {
             console.log(`message received: payload : `, payload);
           });
+
+          return () => {
+            console.log(`unsubscribing`);
+            unsubscribe && unsubscribe(); 
+          }
         }
       });
   }, []);
