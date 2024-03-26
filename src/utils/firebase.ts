@@ -1,5 +1,5 @@
-import { Project } from "@/interfaces/project";
-import { FirebaseApp, initializeApp } from "firebase/app";
+import { FirebaseApp, initializeApp, } from "firebase/app";
+import { Messaging, getMessaging, getToken } from "firebase/messaging";
 import {
   Firestore,
   getFirestore,
@@ -24,10 +24,12 @@ const FIREBASE_CONFIG = {
 class Firebase {
   #app: FirebaseApp;
   #db: Firestore;
+  #messaging: Messaging;
 
   constructor() {
     this.#app = initializeApp(FIREBASE_CONFIG);
     this.#db = getFirestore(this.#app);
+    this.#messaging = getMessaging(this.#app);
   }
 
   async getDocuments<T>(name: string): Promise<Array<T>> {
@@ -44,6 +46,12 @@ class Firebase {
     } catch (error) {
       throw error;
     }
+  }
+
+  getMessagingToken() {
+    return getToken(this.#messaging, {
+      vapidKey: process.env.VAPID_KEY,
+    });
   }
 }
 
