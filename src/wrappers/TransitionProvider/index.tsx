@@ -10,6 +10,7 @@ import { motion } from "framer-motion";
 import { removeHyphens } from "@/utils/common";
 import config from "@/constants/config";
 import Firebase from "@/utils/firebase";
+import { Unsubscribe } from "firebase/messaging";
 
 const TransitionProvider = ({
   children,
@@ -38,30 +39,31 @@ const TransitionProvider = ({
       }
     }, 800);
 
+    let unsubscribe: undefined | Unsubscribe;
+    window.addEventListener("storage", () => {
+      const checkFCM = () => {
+        console.log(`checking`);
+        const fcmToken = window.localStorage.getItem("fcm_token");
+        console.log(`got fcm token -- `, fcmToken);
+        if (fcmToken) {
+          console.log(`here`);
+          const firebase = new Firebase(false);
+          unsubscribe = firebase.onMessageCallback((payload) => {
+            console.log(`message received: payload`);
+          });
+        }        
+      }
+      
+      checkFCM();
+    });
+
     return () => {
       if (motionDivRef.current) {
         motionDivRef.current.style.display = "block";
       }
+      unsubscribe && unsubscribe(); 
     };
   }, []);
-
-  useEffect(() => {
-    let unsubscribe = null;
-    console.log(`checking`)
-    const fcmToken = window.localStorage.getItem("fcm_token");
-    console.log(`got fcm token -- `, fcmToken);
-    if(fcmToken) {
-    const firebase = new Firebase(false);
-    unsubscribe = firebase.onMessageCallback((payload) => {
-      console.log(`message received: payload`);
-    });      
-    }
-    
-    return () => {
-      console.log(`unsubscribing`);
-      unsubscribe && unsubscribe();
-    }
-  }, [window.localStorage.getItem('fcm_token')])
 
   return (
     <AnimatePresence mode="wait">
