@@ -7,10 +7,9 @@ export default function registerServiceWorker() {
     const wb = new Workbox('/sw.js', { scope: '/' });
 
     wb.addEventListener("installed", (event) => {
-      if (event.isUpdate) {
+      // if (event.isUpdate) {
         wb.messageSW({ type: "installed" });
-
-      }
+      // }
     });
 
     wb.addEventListener("activated", (event) => {
