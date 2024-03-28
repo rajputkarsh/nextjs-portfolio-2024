@@ -42,7 +42,7 @@ if ("serviceWorker" in navigator) {
                 url: data.url,
               },
             };
-            // event.waitUntil(self.registration.showNotification(title, options));
+            event.waitUntil(self.registration.showNotification(title, options));
           } catch (error) {
             console.log('Error in SW "PUSH" - ', error);
           }
