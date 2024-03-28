@@ -6,6 +6,7 @@ import Navbar from "@/components/navbar";
 import Footer from "@/components/footer";
 import { AnimatePresence } from "framer-motion";
 import registerServiceWorker from "@/service-worker/workbox";
+import registerFirebaseServiceWorker from '@/service-worker/firebase';
 import { motion } from "framer-motion";
 import { removeHyphens } from "@/utils/common";
 import config from "@/constants/config";
@@ -30,6 +31,7 @@ const TransitionProvider = ({
   }
 
   useEffect(() => {
+    registerFirebaseServiceWorker();
     registerServiceWorker();
     setTimeout(() => {
       if (motionDivRef.current) {

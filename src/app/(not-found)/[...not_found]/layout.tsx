@@ -10,7 +10,6 @@ import "@/styles/index.scss";
 import "@/app/globals.scss";
 import ThemeButton from "@/components/themeButton";
 import ServiceWorkerEventHandler from "@/components/ServiceWorkerEventHandler";
-import FirebaseRegistration from "@/components/FirebaseRegistration";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -35,7 +34,6 @@ export default function RootLayout({
           <ThemeProvider attribute="class" defaultTheme="light" enableSystem>
             {children}
             <ServiceWorkerEventHandler />
-            <FirebaseRegistration />
             <ThemeButton />
           </ThemeProvider>
         </TransitionProvider>
