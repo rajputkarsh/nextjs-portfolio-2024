@@ -6,6 +6,8 @@ import {
   collection,
   query,
   getDocs,
+  doc,
+  setDoc,
   QueryDocumentSnapshot,
   DocumentData,
   orderBy,
@@ -51,6 +53,15 @@ class Firebase {
 
       return documentArray as Array<T>;
     } catch (error) {
+      throw error;
+    }
+  }
+
+  async saveDocument(collectionName: string, data: {[key: string]: any}) {
+    try {
+      const documentRef = doc(this.#db, collectionName);
+      const result = await setDoc(documentRef, data);
+    } catch(error) {
       throw error;
     }
   }
