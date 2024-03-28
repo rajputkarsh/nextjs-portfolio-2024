@@ -8,7 +8,6 @@ workbox.routing.registerRoute(
 );
 
 self.addEventListener("install", (event) => {
- console.log(`event.isUpdate -- `, event.isUpdate);
   if (event.isUpdate) {
     self.clients.matchAll().then((clients) => {
       clients.forEach((client) => {
