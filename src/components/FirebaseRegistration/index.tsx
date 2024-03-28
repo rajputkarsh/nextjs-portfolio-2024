@@ -6,6 +6,12 @@ import { useEffect } from "react"
 function FirebaseRegistration() {
 
   useEffect(() => {
+    if ("serviceWorker" in navigator) {
+      navigator.serviceWorker.register("/firebase-messaging-sw.js");
+      navigator.serviceWorker
+    .register("../firebase-messaging-sw.js")
+    .then(function (registration) {
+      navigator.serviceWorker.ready.then((serviceWorker) => {
       const firebase = new Firebase(false);
       Notification.requestPermission().then(async (permission) => {
         if (permission === "granted") {
@@ -18,10 +24,13 @@ function FirebaseRegistration() {
 
           return () => {
             console.log(`unsubscribing`);
-            unsubscribe && unsubscribe(); 
-          }
+            unsubscribe && unsubscribe();
+          };
         }
       });
+      });
+    });
+    }
   }, []);
 
   return (
