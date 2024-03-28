@@ -57,16 +57,36 @@ class Firebase {
     }
   }
 
-  async saveDocument(collectionName: string, data: {[key: string]: any}) {
+  async saveDocument(
+    collectionName: string,
+    data: { [key: string]: any }
+  ): Promise<void> {
     try {
       const documentRef = doc(this.#db, collectionName);
       const result = await setDoc(documentRef, data);
-    } catch(error) {
+      return result;
+    } catch (error) {
       throw error;
     }
   }
 
-  async getMessagingToken(registration: ServiceWorkerRegistration) {
+  async saveToken(token: string): Promise<void> {
+    try {
+      const TOKEN_COLLECTION: string = "fcmTokens";
+      const data = {
+        token: token,
+        added: new Date().toISOString(),
+      }
+
+      return this.saveDocument(TOKEN_COLLECTION, data);
+    } catch (error) {
+      throw error;
+    }
+  }
+
+  async getMessagingToken(
+    registration: ServiceWorkerRegistration
+  ): Promise<string | null> {
     try {
       if (!this.#messaging) return null;
       return getToken(this.#messaging, {
