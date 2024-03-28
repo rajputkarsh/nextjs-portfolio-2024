@@ -62,7 +62,7 @@ class Firebase {
     data: { [key: string]: any }
   ): Promise<void> {
     try {
-      const documentRef = doc(this.#db, collectionName);
+      const documentRef = doc(this.#db, collectionName, crypto.randomUUID());
       const result = await setDoc(documentRef, data);
       return result;
     } catch (error) {
