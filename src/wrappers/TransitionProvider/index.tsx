@@ -5,7 +5,7 @@ import { usePathname } from "next/navigation";
 import Navbar from "@/components/navbar";
 import Footer from "@/components/footer";
 import { AnimatePresence } from "framer-motion";
-import registerServiceWorker from "@/service-worker/workbox";
+import registerServiceWorkers from "@/service-worker";
 import { motion } from "framer-motion";
 import { removeHyphens } from "@/utils/common";
 import config from "@/constants/config";
@@ -30,7 +30,7 @@ const TransitionProvider = ({
   }
 
   useEffect(() => {
-    registerServiceWorker();
+    registerServiceWorkers();
     setTimeout(() => {
       if (motionDivRef.current) {
         motionDivRef.current.style.display = "none";

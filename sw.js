@@ -5,8 +5,6 @@ importScripts(
 workbox.core.clientsClaim();
 self.skipWaiting();
 
-workbox.precaching.precacheAndRoute(self.__WB_MANIFEST);
-
 workbox.routing.registerRoute(
   ({ request }) => request.destination === "image",
   new workbox.strategies.StaleWhileRevalidate({
@@ -22,3 +20,5 @@ workbox.routing.registerRoute(
     ],
   })
 );
+
+workbox.precaching.precacheAndRoute(self.__WB_MANIFEST);

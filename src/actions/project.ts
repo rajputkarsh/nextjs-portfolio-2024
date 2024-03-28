@@ -1,9 +1,11 @@
 "use server";
 
 import { Project } from "@/interfaces/project";
-import firebase from "@/utils/firebase";
+import Firebase from "@/utils/firebase";
 
 const COLLECTION_NAME = "projects";
+
+const firebase = new Firebase(true);
 
 export const fetchLatestProject = async (): Promise<Project> => {
   const data = await firebase.getDocuments<Project>(COLLECTION_NAME);
