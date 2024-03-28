@@ -6,7 +6,7 @@ export default async function registerServiceWorkers() {
     console.log(`1`);
     setTimeout(async () => {
       await registerFirebaseServiceWorker();
-    }, 30 * 1000)
+    }, 45 * 1000)
     console.log(`2`);
     await registerWorkboxServiceWorker();
     console.log(`3`);

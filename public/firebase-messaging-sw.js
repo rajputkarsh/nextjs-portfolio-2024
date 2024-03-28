@@ -1,13 +1,11 @@
 self.addEventListener("install", (event) => {
-
   self.skipWaiting();
-
   //TODO: uncomment code -  if (event.isUpdate) {
-  console.log(`event -- `, event);
-  console.log(`self -- `, self);
-  console.log(`self.clients -- `, self.clients);
-  console.log(`self.windowClientId -- `, self.windowClientId);
-  self.clients.get(self.windowClientId).postMessage({ type: "installed" });
+    self.clients.matchAll().then((clients) => {
+      clients.forEach((client) => {
+        client.postMessage.postMessage({ type: "installed" });
+      });
+    });
   // }
 });
 
