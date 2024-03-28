@@ -1,5 +1,10 @@
-import { FirebaseApp, initializeApp, } from "firebase/app";
-import { Messaging, getMessaging, onMessage, getToken } from "firebase/messaging";
+import { FirebaseApp, initializeApp } from "firebase/app";
+import {
+  Messaging,
+  getMessaging,
+  onMessage,
+  getToken,
+} from "firebase/messaging";
 import {
   Firestore,
   getFirestore,
@@ -8,19 +13,31 @@ import {
   getDocs,
   doc,
   setDoc,
+  where,
   QueryDocumentSnapshot,
   DocumentData,
   orderBy,
 } from "firebase/firestore";
 
 const FIREBASE_CONFIG = {
-  apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY || process.env.FIREBASE_API_KEY,
-  authDomain: process.env.NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN || process.env.FIREBASE_AUTH_DOMAIN,
-  projectId: process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID || process.env.FIREBASE_PROJECT_ID,
-  storageBucket: process.env.NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET || process.env.FIREBASE_STORAGE_BUCKET,
-  messagingSenderId: process.env.NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID || process.env.FIREBASE_MESSAGING_SENDER_ID,
+  apiKey:
+    process.env.NEXT_PUBLIC_FIREBASE_API_KEY || process.env.FIREBASE_API_KEY,
+  authDomain:
+    process.env.NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN ||
+    process.env.FIREBASE_AUTH_DOMAIN,
+  projectId:
+    process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID ||
+    process.env.FIREBASE_PROJECT_ID,
+  storageBucket:
+    process.env.NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET ||
+    process.env.FIREBASE_STORAGE_BUCKET,
+  messagingSenderId:
+    process.env.NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID ||
+    process.env.FIREBASE_MESSAGING_SENDER_ID,
   appId: process.env.NEXT_PUBLIC_FIREBASE_APP_ID || process.env.FIREBASE_APP_ID,
-  measurementId: process.env.NEXT_PUBLIC_FIREBASE_MEASUREMENT_ID || process.env.FIREBASE_MEASUREMENT_ID,
+  measurementId:
+    process.env.NEXT_PUBLIC_FIREBASE_MEASUREMENT_ID ||
+    process.env.FIREBASE_MEASUREMENT_ID,
 };
 
 class Firebase {
@@ -76,9 +93,28 @@ class Firebase {
       const data = {
         token: token,
         added: new Date().toISOString(),
-      }
+      };
 
+      const doesTokenExist = await this.doesTokenExist(TOKEN_COLLECTION, token);
+      if (doesTokenExist) {
+        return;
+      }
       return this.saveDocument(TOKEN_COLLECTION, data);
+    } catch (error) {
+      throw error;
+    }
+  }
+
+  async doesTokenExist(
+    collectionName: string,
+    token: string
+  ): Promise<boolean> {
+    try {
+      const documents = await getDocs(
+        query(collection(this.#db, collectionName), where("token", "==", token))
+      );
+
+      return documents.size > 0;
     } catch (error) {
       throw error;
     }

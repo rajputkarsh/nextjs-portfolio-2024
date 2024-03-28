@@ -9,7 +9,6 @@ function ServiceWorkerEventHandler() {
 
   useEffect(() =>{
     navigator.serviceWorker.addEventListener("message", (event) => {
-      console.log(`message from SW - `, event);      
       if (event.data) {
         setShowDialog(event.data.type);
       }
