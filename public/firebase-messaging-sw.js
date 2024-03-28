@@ -1,12 +1,12 @@
 self.addEventListener("install", (event) => {
   self.skipWaiting();
-  //TODO: uncomment code -  if (event.isUpdate) {
+  if (event.isUpdate) {
     self.clients.matchAll().then((clients) => {
       clients.forEach((client) => {
         client.postMessage.postMessage({ type: "installed" });
       });
     });
-  // }
+  }
 });
 
 self.addEventListener("activate", (event) => {
@@ -14,7 +14,7 @@ self.addEventListener("activate", (event) => {
   event.waitUntil(
     self.clients.matchAll().then((clients) => {
       clients.forEach((client) => {
-        client.postMessage(`Log from service worker: ${JSON.stringify(event)}`);
+        client.postMessage({ type: "activated" });
       });
     })
   );
