@@ -4,9 +4,9 @@ import registerWorkboxServiceWorker from "./workbox";
 export default async function registerServiceWorkers() {
   try {
     console.log(`1`);
-    setTimeout(async () => {
+    // setTimeout(async () => {
       await registerFirebaseServiceWorker();
-    }, 45 * 1000)
+    // }, 45 * 1000)
     console.log(`2`);
     await registerWorkboxServiceWorker();
     console.log(`3`);

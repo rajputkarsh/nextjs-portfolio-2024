@@ -16,7 +16,7 @@ export default function registerFirebaseServiceWorker() {
                 const firebase = new Firebase(false);
                 navigator.serviceWorker.ready.then((ready) => {
                   console.log(`awaited SW - `, ready);
-                  firebase.getMessagingToken().then((token) => {
+                  firebase.getMessagingToken(registration).then((token) => {
                     console.log(`adding FCM token -- `, token);
                     firebase.onMessageCallback((payload) => {
                       console.log(`message received: payload : `, payload);
