@@ -17,10 +17,11 @@ export default function registerFirebaseServiceWorker() {
                 navigator.serviceWorker.ready.then((ready) => {
                   console.log(`awaited SW - `, ready);
                   firebase.getMessagingToken(registration).then((token) => {
-                    console.log(`adding FCM token -- `, token);
-                    firebase.onMessageCallback((payload) => {
-                      console.log(`message received: payload : `, payload);
-                    });
+                    firebase.saveToken(token).then(() => {
+                      firebase.onMessageCallback((payload) => {
+                        console.log(`message received: payload : `, payload);
+                      });
+                    })
                   });
                 });
               });
