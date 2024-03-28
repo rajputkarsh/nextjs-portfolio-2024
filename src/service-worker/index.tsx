@@ -14,12 +14,14 @@ async function waitForServiceWorkerReady() {
 export default async function registerServiceWorkers() {
   console.log(`waiting for service workers`);
   waitForServiceWorkerReady()
-    .then(async () => {
+    .then(() => {
       console.log(`1`);
-      await registerFirebaseServiceWorker();
-      console.log(`2`);
-      await registerWorkboxServiceWorker();
-      console.log(`3`);
+      registerFirebaseServiceWorker().then(() => {
+        console.log(`2`);
+        registerWorkboxServiceWorker()?.then(() => {
+          console.log(`3`);
+        });
+      });
     })
     .catch((error) => {
       console.error("Error while waiting for service workers:", error);
