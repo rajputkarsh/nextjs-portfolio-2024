@@ -1,5 +1,8 @@
-self.addEventListener("installed", (event) => {
-  // if (event.isUpdate) {
+self.addEventListener("install", (event) => {
+
+  self.skipWaiting();
+
+  //TODO: uncomment code -  if (event.isUpdate) {
   console.log(`event -- `, event);
   console.log(`self -- `, self);
   console.log(`self.clients -- `, self.clients);
@@ -8,7 +11,8 @@ self.addEventListener("installed", (event) => {
   // }
 });
 
-self.addEventListener("activated", (event) => {
+self.addEventListener("activate", (event) => {
+  event.waitUntil(clients.claim());
   event.waitUntil(
     self.clients.matchAll().then((clients) => {
       clients.forEach((client) => {
