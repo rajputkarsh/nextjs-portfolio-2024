@@ -1,20 +1,14 @@
+importScripts(
+  "https://storage.googleapis.com/workbox-cdn/releases/6.4.1/workbox-sw.js"
+);
+
+workbox.routing.registerRoute(
+  ({ request }) => request.destination === "image",
+  new workbox.strategies.StaleWhileRevalidate()
+);
+
 self.addEventListener("install", (event) => {
-  self.skipWaiting();
-
-  event.waitUntil(
-    caches.open("static").then((cache) => {
-      return cache.addAll([
-        "/",
-        "/education",
-        "/games",
-        "/games-2048",
-        "/games/tic-tac-toe",
-        "/offline",
-        "/projects",
-      ]);
-    })
-  );
-
+ console.log(`event.isUpdate -- `, event.isUpdate);
   if (event.isUpdate) {
     self.clients.matchAll().then((clients) => {
       clients.forEach((client) => {
