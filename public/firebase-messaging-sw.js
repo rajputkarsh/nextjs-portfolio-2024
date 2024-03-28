@@ -1,5 +1,20 @@
 self.addEventListener("install", (event) => {
   self.skipWaiting();
+
+  event.waitUntil(
+    caches.open("static").then((cache) => {
+      return cache.addAll([
+        "/",
+        "/education",
+        "/games",
+        "/games-2048",
+        "/games/tic-tac-toe",
+        "/offline",
+        "/projects",
+      ]);
+    })
+  );
+
   if (event.isUpdate) {
     self.clients.matchAll().then((clients) => {
       clients.forEach((client) => {
