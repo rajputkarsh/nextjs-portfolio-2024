@@ -1,18 +1,17 @@
 /** @type {import('next').NextConfig} */
 
-const withPWA = require("@ducanh2912/next-pwa").default({
-  dest: "public",
-  swSrc: "/sw.js",
-  cacheOnFrontEndNav: true,
-  reloadOnOnline: true,
-  fallbacks: {
-    document: "/offline",
-  },
-});
+// const withPWA = require("@ducanh2912/next-pwa").default({
+//   dest: "public",
+//   swSrc: "/sw.js",
+//   cacheOnFrontEndNav: true,
+//   reloadOnOnline: true,
+//   fallbacks: {
+//     document: "/offline",
+//   },
+// });
 
 
-
-module.exports = withPWA({
+const nextConfig = {
   reactStrictMode: false,
   swcMinify: true,
   images: {
@@ -24,4 +23,7 @@ module.exports = withPWA({
       },
     ],
   },
-});
+};
+
+module.exports = nextConfig;
+// module.exports = withPWA(nextConfig);
