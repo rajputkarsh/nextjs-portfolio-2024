@@ -2,11 +2,13 @@ import Firebase from '../utils/firebase';
 
 export default function registerFirebaseServiceWorker() {
 if ("serviceWorker" in navigator) {
-  navigator.serviceWorker.register("/firebase-messaging-sw.js");
+  console.log(`registering service worker`);
   navigator.serviceWorker
     .register("../firebase-messaging-sw.js")
     .then(function (registration) {
+     console.log(`fb sw registered`);
       navigator.serviceWorker.ready.then((serviceWorker) => {
+        console.log(`fb sw ready`)
         const firebase = new Firebase(false);
         Notification.requestPermission().then(async (permission) => {
           if (permission === "granted") {
