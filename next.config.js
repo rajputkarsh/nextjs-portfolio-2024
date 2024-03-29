@@ -11,8 +11,7 @@ const withPWA = require("@ducanh2912/next-pwa").default({
 });
 
 
-
-module.exports = withPWA({
+const nextConfig = {
   reactStrictMode: false,
   swcMinify: true,
   images: {
@@ -24,4 +23,6 @@ module.exports = withPWA({
       },
     ],
   },
-});
+};
+
+module.exports = withPWA(nextConfig);
