@@ -1,4 +1,4 @@
-# NextJS 14 Portfolio
+# NextJS 14 (Typescript) Portfolio
 
 ### Checkout Demo [here](https://utkarshrajput.com/)
 
