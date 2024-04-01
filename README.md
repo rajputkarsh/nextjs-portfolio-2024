@@ -19,9 +19,12 @@
 - [x] Auto refresh on network resume
 - [x] Google Analytics
 - [x] Framer Motion Animations
+- [x] Mobile Responsive
 
  ## Coming Soon
  - [ ] Push Notifications
  - [ ] Multiple Service Worker Integration
+
+### Please give it a star if you like it
 
 ### Built with ❤️ by [Utkarsh](https://www.linkedin.com/in/utkarsh-rajput/)
