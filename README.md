@@ -1,4 +1,7 @@
 # NextJS 14 Portfolio
+
+### [Demo](https://utkarshrajput.com/)
+
 ## Features
 - [x] NextJS 14
 - [x] App Router
@@ -15,7 +18,10 @@
 - [x] Offline mode
 - [x] Auto refresh on network resume
 - [x] Google Analytics
-- [x] Games
+- [x] Framer Motion Animations
 
- # Coming Soon
+ ## Coming Soon
  - [ ] Push Notifications
+ - [ ] Multiple Service Worker Integration
+
+### Built with ❤️ by [Utkarsh](https://www.linkedin.com/in/utkarsh-rajput/)
