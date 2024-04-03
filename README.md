@@ -24,9 +24,10 @@
 - [x] Multiple Service Worker Integration
 
  ## Coming Soon
-- [] Update Icon and Photo 😵‍💫
-- [] WASM Support
-- [] Three.JS Components
+- [ ] Update Icon and Photo 😵‍💫
+- [ ] CMS for administrative actions
+- [ ] WASM Support
+- [ ] Three.JS Components
 
 ### Please give it a star if you like it
 
