@@ -140,8 +140,6 @@ class Firebase {
   }
 
   foregroundNotificationHandler(payload: any): void {
-    console.log(`payload -- `, payload);
-
     const title = payload?.notification?.title || "Utkarsh";
 
     const options = {

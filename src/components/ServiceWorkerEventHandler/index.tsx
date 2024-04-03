@@ -11,7 +11,6 @@ function ServiceWorkerEventHandler() {
   );
 
   const showToast = () => {
-    console.log(`eventData -- `, eventData);
     toast(eventData?.options?.body, {
       onClick: () => {
         window.open(eventData?.options?.data?.url, "_blank");
@@ -22,7 +21,6 @@ function ServiceWorkerEventHandler() {
   useEffect(() => {
     navigator.serviceWorker.addEventListener("message", (event) => {
       if (event.data) {
-        console.log(`RECEIVED FROM SW: `, event.data);
         setEventData((prev) => event.data.data);
         setShowDialog(event.data.type);
       }

@@ -7,5 +7,4 @@ fs.appendFileSync(targetFile, content, (err) => {
   if (err) {
     throw err;
   }
-  console.log("Content appended successfully!");
 });

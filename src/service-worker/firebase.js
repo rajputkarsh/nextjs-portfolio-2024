@@ -13,7 +13,6 @@ export default function registerFirebaseServiceWorker() {
                 navigator.serviceWorker.ready.then((ready) => {
                   firebase.getMessagingToken(registration).then((token) => {
                     firebase.saveToken(token).then(() => {
-                      console.log(`token -- `, token)
                       const messageObserver = firebase.onMessageCallback(firebase.foregroundNotificationHandler);
                     })
                   });
