@@ -20,10 +20,12 @@
 - [x] Google Analytics
 - [x] Framer Motion Animations
 - [x] Mobile Responsive
+- [x] Push Notifications
+- [x] Multiple Service Worker Integration
 
  ## Coming Soon
- - [ ] Push Notifications
- - [ ] Multiple Service Worker Integration
+- [] WASM Support
+- [] Three.JS Components
 
 ### Please give it a star if you like it
 
