@@ -1,6 +1,16 @@
-# NextJS 14 (Typescript) Portfolio
+# NextJS 14 (Typescript) based Developer Portfolio
+#### Checkout Demo [here](https://utkarshrajput.com/)
 
-### Checkout Demo [here](https://utkarshrajput.com/)
+## Description
+This project is a NextJS 14 based portfolio PWA. It has all the PWA capabilities such as offline fallback, service workers, installability, app shell, etc. Further, it is integrated with Firebase for fetching data via Server Actions.
+
+## Getting Started
+Use the following steps to get started with your project
+1. Clone the project
+2. Make sure you're running Node 18 or higher.
+3. Use `npm install` to install dependencies.
+4. Update .env file as per .env.example.
+5. Use `npm run dev` to start project in development server.
 
 ## Features
 - [x] NextJS 14
