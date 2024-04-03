@@ -32,6 +32,6 @@ self.addEventListener("notificationclick", (event) => {
 
     event.notification.close();
   } catch (error) {
-    console.log('Error in SW "PUSH" - ', error);
+    console.log('Error in SW "notificationclick" - ', error);
   }
 });
