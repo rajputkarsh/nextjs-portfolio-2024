@@ -23,6 +23,7 @@
     "react-activity-calendar": "2.2.7",
     "react-dom": "18",
     "react-easy-swipe": "0.0.23",
+    "react-toastify": "10.0.5",
     "react-tooltip": "5.26.3",
     "react-vertical-timeline-component": "3.6.0",
     "typewriter-effect": "2.21.0",

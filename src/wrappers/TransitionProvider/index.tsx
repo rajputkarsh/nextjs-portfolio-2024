@@ -9,6 +9,8 @@ import registerServiceWorkers from "@/service-worker";
 import { motion } from "framer-motion";
 import { removeHyphens } from "@/utils/common";
 import config from "@/constants/config";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const TransitionProvider = ({
   children,
@@ -84,6 +86,7 @@ const TransitionProvider = ({
           {children}
         </div>
         <Footer />
+        <ToastContainer />
       </div>
     </AnimatePresence>
   );
