@@ -4,8 +4,7 @@
 
 self.addEventListener("push", (event) => {
   try {
-    console.log(`event.data == `, event.data);
-    const data = JSON.parse(event.data);
+    const data = event.data.json();
     console.log(`data == `, data);
 
     const title = data?.title || "Utkarsh";
