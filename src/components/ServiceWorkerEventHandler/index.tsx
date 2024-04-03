@@ -12,9 +12,9 @@ function ServiceWorkerEventHandler() {
 
   const showToast = () => {
     console.log(`eventData -- `, eventData);
-    toast(eventData?.title, {
+    toast(eventData?.options?.body, {
       onClick: () => {
-        window.open(eventData?.data?.url, "_blank");
+        window.open(eventData?.options?.data?.url, "_blank");
       },
     });
   };
