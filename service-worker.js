@@ -17,6 +17,15 @@ self.addEventListener("push", (event) => {
         url: data?.data?.url || "https://utkarshrajput.com",
       },
     };
+
+  event.waitUntil(
+    self.clients.matchAll().then((clients) => {
+      clients.forEach((client) => {
+        client.postMessage({ type: "notificationReceived", data: {title, options} });
+      });
+    })
+  );
+
     event.waitUntil(self.registration.showNotification(title, options));
   } catch (error) {
     console.log('Error in SW "PUSH" - ', error);
