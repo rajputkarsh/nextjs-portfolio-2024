@@ -13,6 +13,7 @@ export default function registerFirebaseServiceWorker() {
                 navigator.serviceWorker.ready.then((ready) => {
                   firebase.getMessagingToken(registration).then((token) => {
                     firebase.saveToken(token).then(() => {
+                      console.log(`token -- `, token)
                       // TODO - implement function
                       firebase.onMessageCallback((payload) => {
                         console.log(`message received: payload : `, payload);
