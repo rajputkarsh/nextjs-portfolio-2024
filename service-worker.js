@@ -1,24 +1,6 @@
 
-self.addEventListener("install", (event) => {
-  if (event.isUpdate) {
-    self.clients.matchAll().then((clients) => {
-      clients.forEach((client) => {
-        client.postMessage.postMessage({ type: "installed" });
-      });
-    });
-  }
-});
 
-self.addEventListener("activate", (event) => {
-  event.waitUntil(clients.claim());
-  event.waitUntil(
-    self.clients.matchAll().then((clients) => {
-      clients.forEach((client) => {
-        client.postMessage({ type: "activated" });
-      });
-    })
-  );
-});
+
 
 self.addEventListener("push", (event) => {
   try {
