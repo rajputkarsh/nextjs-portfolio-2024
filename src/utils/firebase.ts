@@ -157,7 +157,7 @@ class Firebase {
     const notification = new Notification(title, options);
 
     notification.onclick = () => {
-      window.open(payload?.data?.url || "https://utkarshrajput.com");
+      window.open(payload?.data?.url || "https://utkarshrajput.com", "_blank");
     }
   }
 }

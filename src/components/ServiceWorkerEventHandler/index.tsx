@@ -1,18 +1,25 @@
-'use client';
+"use client";
 
-import { useEffect, useState } from "react"
+import { useEffect, useState } from "react";
 import ServiceWorkerUpdateDialog from "../Dialogs/ServiceWorkerUpdate";
+import { toast } from "react-toastify";
 
 function ServiceWorkerEventHandler() {
-
   const [showDialog, setShowDialog] = useState<string>("");
-  const [eventData, setEventData] = useState<{ [key: string]: any } | null>(null);
+  const [eventData, setEventData] = useState<{ [key: string]: any } | null>(
+    null
+  );
 
   const showToast = () => {
     console.log(`eventData -- `, eventData);
-  }
+    toast(eventData?.title, {
+      onClick: () => {
+        window.open(eventData?.data?.url, "_blank");
+      },
+    });
+  };
 
-  useEffect(() =>{
+  useEffect(() => {
     navigator.serviceWorker.addEventListener("message", (event) => {
       if (event.data) {
         console.log(`RECEIVED FROM SW: `, event.data);
@@ -24,10 +31,10 @@ function ServiceWorkerEventHandler() {
 
   const renderDialog = () => {
     switch (showDialog) {
-      case 'installed' : {
-        return <ServiceWorkerUpdateDialog />
+      case "installed": {
+        return <ServiceWorkerUpdateDialog />;
       }
-      case 'notificationReceived' : {
+      case "notificationReceived": {
         showToast();
         return <></>;
       }
@@ -35,13 +42,9 @@ function ServiceWorkerEventHandler() {
         return null;
       }
     }
-  }
+  };
 
-  return (
-    <>
-      {renderDialog()}
-    </>
-  )
+  return <>{renderDialog()}</>;
 }
 
 export default ServiceWorkerEventHandler;
