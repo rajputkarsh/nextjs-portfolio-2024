@@ -7,13 +7,15 @@ self.addEventListener("push", (event) => {
     const data = event.data.json();
     console.log(`data == `, data);
 
-    const title = data?.title || "Utkarsh";
+    const title = data?.notification?.title || "Utkarsh";
 
     const options = {
-      body: data.body,
-      icon: data.icon,
+      body: data?.notification?.body || "",
+      icon:
+        data?.notification?.icon ||
+        "https://utkarshrajput.com/icon-192x192.png",
       data: {
-        url: data.url,
+        url: data?.notification?.url || "https://utkarshrajput.com",
       },
     };
     event.waitUntil(self.registration.showNotification(title, options));
@@ -25,6 +27,7 @@ self.addEventListener("push", (event) => {
 self.addEventListener("notificationclick", (event) => {
   try {
     const notificationData = event.notification.data;
+    console.log(`notificationData -- `, notificationData);
 
     if (notificationData.url) {
       clients.openWindow(notificationData.url);
