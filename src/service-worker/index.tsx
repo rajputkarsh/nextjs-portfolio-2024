@@ -1,8 +1,8 @@
-import registerWorkboxServiceWorker from "./workbox";
+import registerFirebaseServiceWorker from "./firebase";
 
 export default async function registerServiceWorkers() {
   try {
-    await registerWorkboxServiceWorker();
+    await registerFirebaseServiceWorker();
   } catch(error) {
     console.log(`error while adding service worker - `, error);
   }

@@ -6,7 +6,7 @@ export default function registerFirebaseServiceWorker() {
       Notification.requestPermission().then((permission) => {
         if (permission === "granted") {
           navigator.serviceWorker
-            .register("../firebase-messaging-sw.js")
+            .register("/sw.js")
             .then(function (registration) {
               navigator.serviceWorker.ready.then((serviceWorker) => {
                 const firebase = new Firebase(false);
