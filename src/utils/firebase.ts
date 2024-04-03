@@ -138,6 +138,28 @@ class Firebase {
     if (!this.#messaging) return;
     return onMessage(this.#messaging, callback);
   }
+
+  foregroundNotificationHandler(payload: any): void {
+    console.log(`payload -- `, payload);
+
+    const title = payload?.notification?.title || "Utkarsh";
+
+    const options = {
+      body: payload?.notification?.body || "",
+      icon:
+        payload?.notification?.icon ||
+        "https://utkarshrajput.com/icon-192x192.png",
+      data: {
+        url: payload?.data?.url || "https://utkarshrajput.com",
+      },
+    };
+
+    const notification = new Notification(title, options);
+
+    notification.onclick = () => {
+      window.open(payload?.data?.url || "https://utkarshrajput.com");
+    }
+  }
 }
 
 export default Firebase;

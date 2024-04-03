@@ -14,10 +14,7 @@ export default function registerFirebaseServiceWorker() {
                   firebase.getMessagingToken(registration).then((token) => {
                     firebase.saveToken(token).then(() => {
                       console.log(`token -- `, token)
-                      // TODO - implement function
-                      firebase.onMessageCallback((payload) => {
-                        console.log(`message received: payload : `, payload);
-                      });
+                      const messageObserver = firebase.onMessageCallback(firebase.foregroundNotificationHandler);
                     })
                   });
                 });
