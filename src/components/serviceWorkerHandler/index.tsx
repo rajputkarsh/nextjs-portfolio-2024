@@ -27,10 +27,14 @@ function ServiceWorkerEventHandler() {
     });
   }, []);
 
+  const closeDialog = () => {
+    setShowDialog("");
+  };
+
   const renderDialog = () => {
     switch (showDialog) {
       case "installed": {
-        return <ServiceWorkerUpdateDialog />;
+        return <ServiceWorkerUpdateDialog closeDialog={closeDialog} />;
       }
       case "notificationReceived": {
         showToast();
