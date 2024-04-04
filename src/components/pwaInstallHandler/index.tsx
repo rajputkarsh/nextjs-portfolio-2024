@@ -9,6 +9,9 @@ const POPUP_TIME = 30;
 function PWAInstallHandler() {
   const [time, setTime] = useState<number>(POPUP_TIME);
   const [showDialog, setShowDialog] = useState<boolean>(false);
+  const isInstalledPWA = window.matchMedia("(display-mode: standalone)").matches;
+  const isAlreadyShownDialog =
+    window.localStorage.getItem("installDialogShown");
 
   const handler = (e: Event) => {
     e.preventDefault();
@@ -30,22 +33,22 @@ function PWAInstallHandler() {
       });
     }, 1000);
 
-        return () => {
-          window.removeEventListener("beforeinstallprompt", handler);
-        };
+    return () => {
+      window.removeEventListener("beforeinstallprompt", handler);
+    };
   }, []);
 
   const installPWA = async () => {
-    if(deferredPrompt) {
+    if (deferredPrompt) {
       const outcome = await deferredPrompt.prompt();
     }
-  }
+  };
 
   const closeDialog = () => {
     setShowDialog(false);
-  }
+  };
 
-  if (showDialog && time < 1) {
+  if (showDialog && time < 1 && !isAlreadyShownDialog && !isInstalledPWA) {
     return (
       <InstallPWADialog installPWA={installPWA} closeDialog={closeDialog} />
     );

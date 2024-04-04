@@ -1,11 +1,17 @@
 "use client";
 
+import { useEffect } from "react";
+
 interface InstallPWADialogProps {
-  installPWA: () => void,
-  closeDialog: () => void,
+  installPWA: () => void;
+  closeDialog: () => void;
 }
 
 function InstallPWADialog({ installPWA, closeDialog }: InstallPWADialogProps) {
+  useEffect(() => {
+    window.localStorage.setItem("installDialogShown", "1");
+  }, []);
+
   return (
     <div
       className={`fixed inset-0 z-50 overflow-y-auto px-4 md:px-8 opacity-100 visible top-[10%]  rounded-lg`}
@@ -16,7 +22,9 @@ function InstallPWADialog({ installPWA, closeDialog }: InstallPWADialogProps) {
           <h2 className="w-full text-center">
             <p> You can actually install this application</p>
             <p>
-              with just the <span className="text-theme-color font-semibold">click</span> of a button.
+              with just the{" "}
+              <span className="text-theme-color font-semibold">click</span> of a
+              button.
             </p>
           </h2>
           <div className="w-full flex flex-row justify-evenly mt-4">
