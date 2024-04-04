@@ -7,11 +7,8 @@ let deferredPrompt: any;
 const POPUP_TIME = 30;
 function PWAInstallHandler() {
   const [showDialog, setShowDialog] = useState<boolean>(false);
-  const isInstalledPWA = window.matchMedia(
-    "(display-mode: standalone)"
-  ).matches;
-  const isAlreadyShownDialog =
-    window.localStorage.getItem("installDialogShown");
+  const [isInstalledPWA, setIsInstalledPWA] = useState<boolean>(false); 
+  const [isAlreadyShownDialog, setIsAlreadyShownDialog] = useState<boolean>(false); 
 
   const handler = (e: Event) => {
     e.preventDefault();
@@ -20,7 +17,10 @@ function PWAInstallHandler() {
 
   useEffect(() => {
     window.addEventListener("beforeinstallprompt", handler);
-
+    setIsInstalledPWA(() => window.matchMedia(
+    "(display-mode: standalone)"
+  ).matches);
+  setIsAlreadyShownDialog(() => window.localStorage.getItem("installDialogShown") == '1')
     setTimeout(() => {
       setShowDialog(true);
     }, POPUP_TIME * 1000);
