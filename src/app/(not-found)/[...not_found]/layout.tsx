@@ -10,6 +10,7 @@ import "@/styles/index.scss";
 import "@/app/globals.scss";
 import ThemeButton from "@/components/themeButton";
 import ServiceWorkerEventHandler from "@/components/serviceWorkerEventHandler";
+import PWAInstallHandler from "@/components/pwaInstallHandler";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -34,6 +35,7 @@ export default function RootLayout({
           <ThemeProvider attribute="class" defaultTheme="light" enableSystem>
             {children}
             <ServiceWorkerEventHandler />
+            <PWAInstallHandler />
             <ThemeButton />
           </ThemeProvider>
         </TransitionProvider>
