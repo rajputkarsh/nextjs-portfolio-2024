@@ -19,6 +19,7 @@ Use the following steps to get started with your project
 - [x] Dark Mode
 - [x] PWA
 - [x] Installable Web Application
+- [x] Customized Install PWA Dialog
 - [x] Server Components
 - [x] Server Actions
 - [x] Firebase Integration
