@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import InstallPWADialog from "../Dialogs/InstallPWA";
+import { pageView } from "@/utils/analyticsEvents";
 
 let deferredPrompt: any;
 const POPUP_TIME = 30;
@@ -33,9 +34,10 @@ function PWAInstallHandler() {
   const installPWA = async () => {
     if (deferredPrompt) {
       const { outcome } = await deferredPrompt.prompt();
-      if (outcome) {
-        closeDialog();
+      if (outcome === "accepted") {
+        pageView('PWA Installed');
       }
+      closeDialog();
     }
   };
 
