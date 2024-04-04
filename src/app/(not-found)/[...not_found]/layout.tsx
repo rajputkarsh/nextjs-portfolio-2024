@@ -9,7 +9,7 @@ import { ThemeProvider } from "@/components/themeProvider";
 import "@/styles/index.scss";
 import "@/app/globals.scss";
 import ThemeButton from "@/components/themeButton";
-import ServiceWorkerEventHandler from "@/components/serviceWorkerEventHandler";
+import ServiceWorkerEventHandler from "@/components/serviceWorkerHandler";
 import PWAInstallHandler from "@/components/pwaInstallHandler";
 
 const inter = Inter({ subsets: ["latin"] });

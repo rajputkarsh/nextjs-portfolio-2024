@@ -9,7 +9,7 @@ import Header from "@/components/header";
 import { Metadata } from "next";
 import { ThemeProvider } from "@/components/themeProvider";
 import ThemeButton from "@/components/themeButton";
-import ServiceWorkerEventHandler from "@/components/serviceWorkerEventHandler";
+import ServiceWorkerEventHandler from "@/components/serviceWorkerHandler";
 import PWAInstallHandler from "@/components/pwaInstallHandler";
 
 const inter = Inter({ subsets: ["latin"] });
