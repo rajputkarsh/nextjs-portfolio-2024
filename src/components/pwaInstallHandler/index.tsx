@@ -5,7 +5,7 @@ import InstallPWADialog from "../Dialogs/InstallPWA";
 import { pageView } from "@/utils/analyticsEvents";
 
 let deferredPrompt: any;
-const POPUP_TIME = 30;
+const POPUP_TIME = 10;
 function PWAInstallHandler() {
   const [showDialog, setShowDialog] = useState<boolean>(false);
   const [isInstalledPWA, setIsInstalledPWA] = useState<boolean>(false); 
