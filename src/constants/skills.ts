@@ -22,6 +22,7 @@ import redisLogo from "@/assets/logos/redis.webp";
 import kafkaLogo from "@/assets/logos/kafka.webp";
 import rabbitmqLogo from "@/assets/logos/rabbitmq.webp";
 import firebaseLogo from "@/assets/logos/firebase.webp";
+import elasticsearchLogo from "@/assets/logos/elasticsearch.webp";
 
 export default {
   language: [
@@ -128,6 +129,10 @@ export default {
     {
       name: "RabbitMQ",
       icon: rabbitmqLogo.src,
+    },
+    {
+      name: "ElasticSearch",
+      icon: elasticsearchLogo.src,
     },
     {
       name: "Firebase",
