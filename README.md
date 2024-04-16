@@ -40,6 +40,7 @@ Use the following steps to get started with your project
 - [ ] WASM Support
 - [ ] Three.JS Components
 - [ ] Redux Toolkit for API Response persistance
+- [ ] Websocket Support
 
 ### Please give it a star if you like it
 
