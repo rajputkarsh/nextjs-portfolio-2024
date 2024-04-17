@@ -21,7 +21,7 @@ function InstallPWADialog({ installPWA, closeDialog }: InstallPWADialogProps) {
           <h1>Did you know ?</h1>
           <span className="cursor-pointer" onClick={closeDialog}>X</span>
         </div>
-        <div className="p-4">
+        <div className="p-4 dark:bg-slate-800">
           <h2 className="w-full text-center">
             <p> You can actually install this application</p>
             <p>
