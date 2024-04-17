@@ -8,7 +8,7 @@ function Skillset() {
       <h2 className="text-4xl md:text-5xl font-bold text-theme-color underline-animation">
         {config.skillset}
       </h2>
-      <div className="w-full my-8 px-16">
+      <div className="w-full my-8 px-8 md:px-16">
         <div className="flex flex-row gap-4 flex-wrap justify-center items-center py-4 bg-slate-200 dark:bg-slate-800 border-2 border-slate-500 rounded-2xl">
           {Object.entries(skills).map(([skillType, skill], i) =>
             skill.map((skillInfo, j: number) => (
