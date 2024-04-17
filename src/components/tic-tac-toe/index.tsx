@@ -1,20 +1,20 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect } from 'react';
 
-import Board from "./Board";
-import Mode from "./Mode";
-import SelectPlayer from "./SelectPlayer";
-import { checkWinner, AImove } from "./helper";
+import Board from './Board';
+import Mode from './Mode';
+import SelectPlayer from './SelectPlayer';
+import { checkWinner, AImove } from './helper';
 
 function TicTacToe() {
-  const [square, setSquare] = useState<Array<"X" | "O" | null>>(
+  const [square, setSquare] = useState<Array<'X' | 'O' | null>>(
     Array(9).fill(null)
   );
   const [mode, setMode] = useState<boolean | null>(false);
-  const [Turn, setTurn] = useState<"X" | "O" | null>(null);
-  const [AI, setAI] = useState<"X" | "O" | null>(null);
+  const [Turn, setTurn] = useState<'X' | 'O' | null>(null);
+  const [AI, setAI] = useState<'X' | 'O' | null>(null);
   const [ScoreX, setScoreX] = useState<number>(0);
   const [ScoreO, setScoreO] = useState<number>(0);
-  const [Winner, setWinner] = useState<"X" | "O" | "DRAW" | null>(null);
+  const [Winner, setWinner] = useState<'X' | 'O' | 'DRAW' | null>(null);
   const [WinningSquares, setWinningSquares] = useState<Array<number | null>>(
     []
   );
@@ -22,18 +22,19 @@ function TicTacToe() {
 
   useEffect(() => {
     if (mode && AI && AI === Turn) {
-      const AIMove = AImove(square, AI, AI === "X" ? "O" : "X");
+      const AIMove = AImove(square, AI, AI === 'X' ? 'O' : 'X');
       handleClick(AIMove);
     }
     const winner = checkWinner(square);
-    if (winner && winner !== "draw") {
+    if (winner && winner !== 'draw') {
       setWinner(winner.player);
       setWinningSquares(winner.win);
     }
 
-    if (winner === "draw") {
-      setWinner("DRAW");
+    if (winner === 'draw') {
+      setWinner('DRAW');
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [square]);
 
   const countDown = () => {
@@ -45,17 +46,18 @@ function TicTacToe() {
   };
 
   useEffect(() => {
-    if (Winner === "X") {
+    if (Winner === 'X') {
       setScoreX((ScoreX) => ScoreX + 1);
-    } else if (Winner === "O") {
+    } else if (Winner === 'O') {
       setScoreO((ScoreO) => ScoreO + 1);
     }
     Winner !== null && countDown();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [Winner]);
 
   let changeTurn = () => {
-    if (Turn === "X") setTurn("O");
-    else if (Turn === "O") setTurn("X");
+    if (Turn === 'X') setTurn('O');
+    else if (Turn === 'O') setTurn('X');
   };
 
   const handleClick = (i: number | undefined) => {
@@ -79,13 +81,13 @@ function TicTacToe() {
   };
 
   const oPlayerSelect = () => {
-    setTurn("O");
-    setAI("X");
+    setTurn('O');
+    setAI('X');
   };
 
   const xPlayerSelect = () => {
-    setTurn("X");
-    setAI("O");
+    setTurn('X');
+    setAI('O');
   };
 
   const playAgain = () => {

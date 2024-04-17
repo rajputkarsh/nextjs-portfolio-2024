@@ -1,18 +1,18 @@
-import React, { useState, useEffect } from "react";
-import { cloneDeep } from "@/utils/common";
-import { useEvent } from "./helper";
-import Swipe from "react-easy-swipe";
-import { INITIAL_DATA } from "@/constants/game_2048";
-import config from "@/constants/config";
-import Block from "./Block";
+import React, { useState, useEffect } from 'react';
+import { cloneDeep } from '@/utils/common';
+import { useEvent } from './helper';
+import Swipe from 'react-easy-swipe';
+import { INITIAL_DATA } from '@/constants/game_2048';
+import config from '@/constants/config';
+import Block from './Block';
 
 type Grid = Array<Array<number>>;
 
 enum ARROW {
-  LEFT = "ArrowLeft",
-  UP = "ArrowUp",
-  RIGHT = "ArrowRight",
-  DOWN = "ArrowDown",
+  LEFT = 'ArrowLeft',
+  UP = 'ArrowUp',
+  RIGHT = 'ArrowRight',
+  DOWN = 'ArrowDown',
 }
 
 function Game2048() {
@@ -288,9 +288,10 @@ function Game2048() {
 
   useEffect(() => {
     initialize();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  useEvent("keydown", handleKeyDown);
+  useEvent('keydown', handleKeyDown);
 
   return (
     <div className="w-full">
@@ -347,7 +348,7 @@ function Game2048() {
 
         <p className="mt-8 w-full text-center">
           <strong>How to play:</strong> Use your <strong>arrow keys</strong> to
-          move the tiles. When two tiles with the same number touch, they{" "}
+          move the tiles. When two tiles with the same number touch, they{' '}
           <strong>merge into one!</strong>
         </p>
       </div>
