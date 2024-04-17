@@ -151,6 +151,12 @@ function GithubStats() {
           height={200}
         />
       )}
+      {githubStats && (
+        <div className="w-full flex flex-row gap-4 text-sm justify-around mt-4 pl-4 pr-6">
+          <span>Current Streak - {streak.currentStreak}</span>
+          <span>Max Streak - {streak.maxStreak}</span>
+        </div>
+      )}      
     </div>
   );
 }
