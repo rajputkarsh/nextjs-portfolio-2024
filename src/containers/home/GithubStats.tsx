@@ -1,18 +1,18 @@
-"use client";
+'use client';
 
-import { cloneElement, useEffect, useState } from "react";
-import Image from "next/image";
+import { cloneElement, useEffect, useState } from 'react';
+import Image from 'next/image';
 import ActivityCalendar, {
   ThemeInput as ReactCalendarThemeInput,
-} from "react-activity-calendar";
-import { Tooltip as ReactTooltip } from "react-tooltip";
-import { fetchStats } from "@/actions/github";
-import config from "@/constants/config";
-import loader from "@/assets/loader.svg";
+} from 'react-activity-calendar';
+import { Tooltip as ReactTooltip } from 'react-tooltip';
+import { fetchStats } from '@/actions/github';
+import config from '@/constants/config';
+import loader from '@/assets/loader.svg';
 
-import "react-tooltip/dist/react-tooltip.css";
-import { formatDate } from "@/utils/common";
-import useCurrentTheme from "@/hooks/useCurrentTheme";
+import 'react-tooltip/dist/react-tooltip.css';
+import { formatDate } from '@/utils/common';
+import useCurrentTheme from '@/hooks/useCurrentTheme';
 
 interface GithubDayActivity {
   date: string;
@@ -21,8 +21,8 @@ interface GithubDayActivity {
 }
 
 const GITHUB_CALENDAR_THEME: ReactCalendarThemeInput = {
-  light: ["#ebedf0", "#9be9a8", "#40c463", "#30a14e", "#216e39"],
-  dark: ["#161b22", "#0e4429", "#006d32", "#26a641", "#39d353"],
+  light: ['#ebedf0', '#9be9a8', '#40c463', '#30a14e', '#216e39'],
+  dark: ['#161b22', '#0e4429', '#006d32', '#26a641', '#39d353'],
 };
 
 const GITHUB_LABEL = {
@@ -30,7 +30,14 @@ const GITHUB_LABEL = {
 };
 
 function GithubStats() {
-  const { theme } = useCurrentTheme() as { theme: "light" | "dark" };
+  const { theme } = useCurrentTheme() as { theme: 'light' | 'dark' };
+  const [streak, setStreak] = useState<{
+    currentStreak: number;
+    maxStreak: number;
+  }>({
+    currentStreak: 0,
+    maxStreak: 0,
+  });
   const [totalCommits, setTotalCommits] = useState<number>(0);
   const [githubStats, setGithubStats] = useState<
     Array<GithubDayActivity> | undefined
@@ -49,9 +56,47 @@ function GithubStats() {
     return level;
   };
 
+  const getStreak = (
+    dates: Array<string>
+  ): { maxStreak: number; currentStreak: number } => {
+    const today = new Date();
+    today.setHours(0, 0, 0, 0);
+
+    let currentStreak = 0,
+      maxStreak = 0;
+    let lastDate;
+
+    for (const date of dates) {
+      const currentDate = new Date(date);
+      currentDate.setHours(0, 0, 0, 0);
+      if (lastDate && currentDate.getTime() - lastDate.getTime() === 86400000) {
+        currentStreak++;
+        if (currentStreak > maxStreak) {
+          maxStreak = currentStreak;
+        }
+      } else {
+        currentStreak = 1;
+      }
+      lastDate = currentDate;
+    }
+
+    if (lastDate && today.getTime() === lastDate.getTime() + 86400000) {
+      currentStreak++;
+      if (currentStreak > maxStreak) {
+        maxStreak = currentStreak;
+      }
+    }
+
+    return { currentStreak, maxStreak };
+  };
+
   useEffect(() => {
     const fetchData = async () => {
       const data = await fetchStats();
+      const activityDateArray: Array<string> = Object.keys(data).sort(
+        (date1, date2) => new Date(date1).getTime() - new Date(date2).getTime()
+      );
+      const currentStreak = getStreak(activityDateArray);
       const activityData: Array<GithubDayActivity> = Object.entries(data).map(
         ([date, count]) => ({
           date,
@@ -63,6 +108,7 @@ function GithubStats() {
         (obj1, obj2) =>
           new Date(obj1.date).getTime() - new Date(obj2.date).getTime()
       );
+      setStreak((_) => currentStreak);
       setGithubStats(activityData);
       setTotalCommits(
         Object.values(data).reduce((prev, curr) => prev + curr, 0)
@@ -82,11 +128,11 @@ function GithubStats() {
             data={githubStats || []}
             renderBlock={(block, activity) => {
               return cloneElement(block, {
-                "data-tooltip-id": "react-tooltip",
-                "data-tooltip-html": `${activity.count} commits on ${formatDate(
+                'data-tooltip-id': 'react-tooltip',
+                'data-tooltip-html': `${activity.count} commits on ${formatDate(
                   activity.date,
                   true
-                )}`,            
+                )}`,
               });
             }}
             theme={GITHUB_CALENDAR_THEME}
