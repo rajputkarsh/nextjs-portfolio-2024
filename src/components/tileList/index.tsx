@@ -1,16 +1,18 @@
-import Image from "next/image";
-import { Game } from "@/interfaces/game";
-import { Project } from "@/interfaces/project";
-import Link from "next/link";
+import Image from 'next/image';
+import { Game } from '@/interfaces/game';
+import { Project } from '@/interfaces/project';
+import Link from 'next/link';
 
 interface TileListProps {
   list: Array<Game | Project>;
 }
 
-const isGame = (data: Game | Project): data is Game => "url" in data;
-const isProject = (data: Game | Project): data is Project => "demoUrl" in data;
+const isGame = (data: Game | Project): data is Game => 'url' in data;
+const isProject = (data: Game | Project): data is Project => 'demoUrl' in data;
 
 function TileList({ list }: TileListProps) {
+  const shouldAddHeight =
+    list.filter((data) => data.title.length >= 16).length > 0 ? true : false;
   return (
     <>
       {list.map((item) => (
@@ -20,7 +22,11 @@ function TileList({ list }: TileListProps) {
           href={isGame(item) ? item?.url : item?.demoUrl || item?.sourceUrl}
           target="_blank"
         >
-          <h4 className="text-theme-color font-semibold text:lg md:text-xl mb-4">
+          <h4
+            className={`text-theme-color font-semibold text:lg md:text-xl mb-2 ${
+              shouldAddHeight ? 'md:h-[3rem]' : ''
+            }`}
+          >
             {item.title}
           </h4>
           <Image
