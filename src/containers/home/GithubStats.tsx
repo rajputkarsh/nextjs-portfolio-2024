@@ -152,7 +152,7 @@ function GithubStats() {
         />
       )}
       {(githubStats || []).length > 0 && (
-        <div className="w-full flex flex-row font-semibold gap-4 text-sm justify-around mt-4 pl-4 pr-6">
+        <div className="w-full flex flex-row font-semibold gap-4 text-sm justify-around mt-8 pl-4 pr-6">
           <span>Current Streak - {streak.currentStreak}</span>
           <span>Max Streak - {streak.maxStreak}</span>
         </div>
