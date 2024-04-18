@@ -33,7 +33,7 @@ Use the following steps to get started with your project
 - [x] Mobile Responsive
 - [x] Push Notifications
 - [x] Multiple Service Worker Integration
-- [x] Eslint integration 
+- [x] Eslint integration
 
  ## Coming Soon
 - [ ] Update Icon and Photo 😵‍💫
@@ -42,6 +42,7 @@ Use the following steps to get started with your project
 - [ ] Three.JS Components
 - [ ] Redux Toolkit for API Response persistance
 - [ ] Websocket Support
+- [ ] Pre commit hooks
 
 ### Please give it a star if you like it
 
