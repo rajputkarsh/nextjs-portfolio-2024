@@ -43,6 +43,7 @@ Use the following steps to get started with your project
 - [ ] Redux Toolkit for API Response persistance
 - [ ] Websocket Support
 - [ ] Pre commit hooks
+- [ ] Caching github commit data
 
 ### Please give it a star if you like it
 
