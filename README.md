@@ -34,6 +34,7 @@ Use the following steps to get started with your project
 - [x] Push Notifications
 - [x] Multiple Service Worker Integration
 - [x] Eslint integration
+- [x] Multi service worker support
 
  ## Coming Soon
 - [ ] Update Icon and Photo 😵‍💫
