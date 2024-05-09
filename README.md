@@ -2,7 +2,7 @@
 #### Checkout Demo [here](https://utkarshrajput.com/)
 
 ## Description
-This project is a NextJS 14 based portfolio PWA. It has all the PWA capabilities such as offline fallback, service workers, installability, app shell, etc. Further, it is integrated with Firebase for fetching data via Server Actions.
+This project is a NextJS 14 based portfolio PWA. It has all PWA capabilities such as offline fallback, service workers, installability, app shell, etc. Further, it is integrated with Firebase for fetching data via Server Actions & automatic API patching for improved API performance.
 
 ## Getting Started
 Use the following steps to get started with your project
