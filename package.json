@@ -12,6 +12,8 @@
   "dependencies": {
     "@ducanh2912/next-pwa": "10.2.5",
     "@octokit/rest": "20.0.2",
+    "@react-three/drei": "9.105.6",
+    "@react-three/fiber": "8.16.6",
     "@tailwindcss/typography": "0.5.10",
     "dayjs": "1.11.10",
     "firebase": "10.8.0",
