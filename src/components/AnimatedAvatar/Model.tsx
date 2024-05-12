@@ -28,7 +28,7 @@ type ActionName = "standing happy" | "stumble";
 const MODEL_FILE = "utkarsh.glb";
 
 export default function Model(props: JSX.IntrinsicElements["group"]) {
-  const group = useRef<THREE.Group>();
+  const group = useRef<THREE.Group | null>(null);
   const { nodes, materials, animations } = useGLTF(MODEL_FILE) as GLTFResult;
   const { actions } = useAnimations(animations, group);
   return (
