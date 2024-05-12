@@ -29,8 +29,9 @@ const MODEL_FILE = "utkarsh.glb";
 
 export default function Model(props: JSX.IntrinsicElements["group"]) {
   const group = useRef<THREE.Group | null>(null);
-  const { nodes, materials, animations } = useGLTF(MODEL_FILE) as GLTFResult;
+  const { scene, nodes, materials, animations } = useGLTF(MODEL_FILE) as GLTFResult;
   const { actions } = useAnimations(animations, group);
+  
   return (
     <group ref={group} {...props} dispose={null}>
       <group name="Scene">
