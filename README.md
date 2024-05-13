@@ -42,6 +42,7 @@ Use the following steps to get started with your project
 - [ ] CMS for administrative actions
 - [ ] WASM Support
 - [ ] Three.JS Components
+- [ ] 3D Avatar with interactibility
 - [ ] Redux Toolkit for API Response persistance
 - [ ] Websocket Support
 - [ ] Pre commit hooks
