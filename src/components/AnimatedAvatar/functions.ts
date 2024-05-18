@@ -11,14 +11,7 @@ export function loadModel() {
       (document.getElementById("avatar-loading") as HTMLElement).style.display =
         "none";
     },
-    (xhr) => {
-      const percentCompletion = Math.round((xhr.loaded / xhr.total) * 100);
-      (
-        document.getElementById("avatar-loading") as HTMLElement
-      ).innerText = `LOADING... ${
-        percentCompletion == Infinity ? 0 : percentCompletion
-      }%`;
-    },
+    (xhr) => {},
     (error) => {}
   );
 }
@@ -31,7 +24,7 @@ export function setupScene(gltf: GLTF) {
   renderer.outputColorSpace = THREE.SRGBColorSpace;
 
   const container = document.getElementById("avatar-container") as HTMLElement;
-  renderer.setSize(container.clientWidth, 600);
+  renderer.setSize(container.clientWidth, window.innerWidth <= 800 ? 400 : 600);
   renderer.setPixelRatio(window.devicePixelRatio);
 
   renderer.shadowMap.enabled = true;
