@@ -63,4 +63,4 @@ export const metadataObject: Metadata = {
   },
 };
 
-export const HOVER_MODEL_TEXT = `Yes, That's me.\nClick on me to make me stumble`
+export const HOVER_MODEL_TEXT = [`Yep, That's me!`, `Click on me to make me stumble or drag the disc.`]
