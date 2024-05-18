@@ -62,3 +62,5 @@ export const metadataObject: Metadata = {
     url: new URL("https://utkarshrajput.com"),
   },
 };
+
+export const HOVER_MODEL_TEXT = `Yes, That's me.\nClick on me to make me stumble`
