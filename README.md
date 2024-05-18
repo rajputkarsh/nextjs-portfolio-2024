@@ -36,14 +36,14 @@ Use the following steps to get started with your project
 - [x] Eslint integration
 - [x] Prettier integration
 - [x] Multi service worker support
+- [x] Three.JS Components
+- [x] 3D Avatar with interactibility
 
  ## Coming Soon
 - [ ] Update Icon and Photo 😵‍💫
 - [ ] Remove text caret entirely from PWA
 - [ ] CMS for administrative actions
 - [ ] WASM Support
-- [ ] Three.JS Components
-- [ ] 3D Avatar with interactibility
 - [ ] Redux Toolkit for API Response persistance
 - [ ] Websocket Support
 - [ ] Pre commit hooks
