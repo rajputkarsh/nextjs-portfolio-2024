@@ -5,7 +5,7 @@ import { OrbitControls } from "three/addons/controls/OrbitControls.js";
 export function loadModel() {
   const loader = new GLTFLoader();
   loader.load(
-    "utkarsh.glb",
+    "compressed_utkarsh.glb",
     (gltf) => {
       setupScene(gltf);
       (document.getElementById("avatar-loading") as HTMLElement).style.display =
