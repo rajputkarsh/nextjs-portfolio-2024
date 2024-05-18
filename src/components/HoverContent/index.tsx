@@ -26,7 +26,7 @@ function HoverContent({ text }: IHoverContentProps) {
         position: "absolute",
         top: `${position.y}px`,
         left: `${position.x}px`,
-        transform: "translate(-50%, -50%)", // Center the div on the cursor
+        transform: "translate(-50%, -50%)",
         padding: "10px",
         backgroundColor: "rgba(0, 0, 0, 0.5)",
         color: "white",
