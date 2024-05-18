@@ -1,11 +1,13 @@
 import { useRef, useState, useEffect } from "react";
-function useHover() {
-  const ref = useRef<HTMLElement>(null);
+
+export default function useHover() {
+  const hoverRef = useRef<HTMLDivElement>(null);
   const [isHovered, setIsHovered] = useState(false);
   const enter = () => setIsHovered(true);
   const leave = () => setIsHovered(false);
+
   useEffect(() => {
-    const refCopy = ref;
+    const refCopy = hoverRef;
     if (refCopy.current) {
       refCopy.current.addEventListener("mouseenter", enter);
       refCopy.current.addEventListener("mouseleave", leave);
@@ -17,5 +19,6 @@ function useHover() {
       }
     };
   }, []);
-  return [ref, isHovered];
+
+  return { hoverRef, isHovered };
 }
