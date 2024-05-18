@@ -39,7 +39,7 @@ function HoverContent({ text }: IHoverContentProps) {
         ? (
           text[0]
         ) : (
-          text.map(line => <p>{line}</p>)
+          text.map((line, index) => <p key={`hover_text_${index}`}>{line}</p>)
         )
       }
     </div>
