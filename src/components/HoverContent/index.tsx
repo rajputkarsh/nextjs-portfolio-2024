@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 
 interface IHoverContentProps {
-  text: string;
+  text: Array<string>;
 }
 
 function HoverContent({ text }: IHoverContentProps) {
@@ -34,7 +34,14 @@ function HoverContent({ text }: IHoverContentProps) {
         width: "20rem",
       }}
     >
-      {text}
+      {
+        text.length === 1
+        ? (
+          text[0]
+        ) : (
+          text.map(line => <p>{line}</p>)
+        )
+      }
     </div>
   );
 }
