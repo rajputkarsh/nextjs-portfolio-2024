@@ -2,17 +2,20 @@ import * as THREE from "three";
 import { GLTF, GLTFLoader } from "three/addons/loaders/GLTFLoader.js";
 import { OrbitControls } from "three/addons/controls/OrbitControls.js";
 
-export function loadModel() {
+export function loadModel(callback: () => void) {
   const loader = new GLTFLoader();
   loader.load(
     "utkarsh.glb",
     (gltf) => {
+      callback();
       setupScene(gltf);
       (document.getElementById("avatar-loading") as HTMLElement).style.display =
         "none";
     },
     (xhr) => {},
-    (error) => {}
+    (error) => {
+      console.log(`error in showing Animated Model -- `, error)
+    }
   );
 }
 
@@ -24,7 +27,10 @@ export function setupScene(gltf: GLTF) {
   renderer.outputColorSpace = THREE.SRGBColorSpace;
 
   const container = document.getElementById("avatar-container") as HTMLElement;
-  renderer.setSize(container.clientWidth, window.innerWidth <= 800 ? 400 : 600);
+  renderer.setSize(
+    window.innerWidth <= 800 ? 350 : container.clientWidth,
+    window.innerWidth <= 800 ? 400 : 600
+  );
   renderer.setPixelRatio(window.devicePixelRatio);
 
   renderer.shadowMap.enabled = true;
