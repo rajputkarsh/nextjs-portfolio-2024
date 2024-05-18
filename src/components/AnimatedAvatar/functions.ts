@@ -15,7 +15,9 @@ export function loadModel() {
       const percentCompletion = Math.round((xhr.loaded / xhr.total) * 100);
       (
         document.getElementById("avatar-loading") as HTMLElement
-      ).innerText = `LOADING... ${percentCompletion}%`;
+      ).innerText = `LOADING... ${
+        percentCompletion == Infinity ? 0 : percentCompletion
+      }%`;
     },
     (error) => {}
   );
