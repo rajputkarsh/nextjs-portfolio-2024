@@ -33,34 +33,6 @@ const _addDataToObject = <T>(
   });
 };
 
-const savePreviousStats = async () => {
-  const commits: { [key: string]: number } = {};
-  const perPageLimit = 100;
-  let currentPage = 1;
-
-  try {
-    const initialCommitData = await _fetchCommitsPage(
-      perPageLimit,
-      currentPage
-    );
-    const totalCount = initialCommitData.data.total_count;
-
-    _addDataToObject(commits, initialCommitData.data.items);
-
-    while (totalCount > perPageLimit * currentPage) {
-      currentPage += 1;
-      const commitData = await _fetchCommitsPage(perPageLimit, currentPage);
-      _addDataToObject(commits, commitData.data.items);
-    }
-  } catch (error) {
-    console.log(`error -- `, error);
-  }
-
-  await _saveStats(commits);
-
-  return commits;
-};
-
 const _getDates = () => {
   const LAST_DAYS = 10;
 
@@ -108,8 +80,35 @@ const _saveStats = async (data: { [key: string]: number }): Promise<void> => {
   }
 };
 
+export const savePreviousStats = async () => {
+  const commits: { [key: string]: number } = {};
+  const perPageLimit = 100;
+  let currentPage = 1;
+
+  try {
+    const initialCommitData = await _fetchCommitsPage(
+      perPageLimit,
+      currentPage
+    );
+    const totalCount = initialCommitData.data.total_count;
+
+    _addDataToObject(commits, initialCommitData.data.items);
+
+    while (totalCount > perPageLimit * currentPage) {
+      currentPage += 1;
+      const commitData = await _fetchCommitsPage(perPageLimit, currentPage);
+      _addDataToObject(commits, commitData.data.items);
+    }
+  } catch (error) {
+    console.log(`error -- `, error);
+  }
+
+  await _saveStats(commits);
+
+  return commits;
+};
+
 export const fetchStats = async () => {
-  await savePreviousStats();
 
   const commits: { [key: string]: number } = {};
   const firebase = new Firebase(true);

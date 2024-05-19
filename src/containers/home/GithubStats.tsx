@@ -6,7 +6,7 @@ import ActivityCalendar, {
   ThemeInput as ReactCalendarThemeInput,
 } from 'react-activity-calendar';
 import { Tooltip as ReactTooltip } from 'react-tooltip';
-import { fetchStats } from '@/actions/github';
+import { fetchStats, savePreviousStats } from "@/actions/github";
 import config from '@/constants/config';
 import loader from '@/assets/loader.svg';
 
@@ -92,6 +92,7 @@ function GithubStats() {
 
   useEffect(() => {
     const fetchData = async () => {
+      const previousCommits = await savePreviousStats();
       const data = await fetchStats() || [];
       console.log(`data -- `, data);
       const activityDateArray: Array<string> = Object.keys(data).sort(
