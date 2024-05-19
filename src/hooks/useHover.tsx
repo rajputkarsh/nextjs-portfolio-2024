@@ -2,9 +2,13 @@ import { useRef, useState, useEffect } from "react";
 
 export default function useHover() {
   const hoverRef = useRef<HTMLDivElement>(null);
-  const [isHovered, setIsHovered] = useState(false);
-  const enter = () => setIsHovered(true);
-  const leave = () => setIsHovered(false);
+  const [isHovered, setIsHovered] = useState<boolean>(false);
+  const enter = () => {
+    !isHovered && setIsHovered(true);
+  };
+  const leave = () => {
+    isHovered && setIsHovered(true);
+  };
 
   useEffect(() => {
     const refCopy = hoverRef;
