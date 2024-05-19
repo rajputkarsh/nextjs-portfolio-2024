@@ -5,15 +5,29 @@ import Socials from "@/components/socials";
 import AnimatedAvatar from "@/components/AnimatedAvatar";
 import CodingBoy from "@/assets/page/coding-boy.webp";
 
+const FALLBACK_TEXT = "Loading Something Awesome";
+
 function HomeIntroduction() {
   const fallback = (
-    <Image
-      src={CodingBoy.src}
-      alt=""
-      width={700}
-      height={700}
-      loading="eager"
-    />
+    <>
+      <Image
+        src={CodingBoy.src}
+        alt=""
+        width={700}
+        height={700}
+        loading="eager"
+      />
+      <h3 className="mt-8 text-xl font-semibold flex justify-center flex-row gap-1">
+        {FALLBACK_TEXT}
+        <Typewriter
+          options={{
+            strings: "...",
+            autoStart: true,
+            loop: true,
+          }}
+        />
+      </h3>
+    </>
   );
 
   return (
