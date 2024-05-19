@@ -34,8 +34,8 @@ export default function AnimatedAvatar({ fallback }: IAnimatedAvatarProps) {
         <div id="avatar-loading">
           {!!fallback ? fallback : null}
         </div>
+        {shouldShowHover ? <HoverContent text={HOVER_MODEL_TEXT} /> : null}
       </div>
-      {shouldShowHover ? <HoverContent text={HOVER_MODEL_TEXT} /> : null}
     </>
   );
 }

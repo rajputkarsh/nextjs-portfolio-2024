@@ -7,7 +7,7 @@ export default function useHover() {
     !isHovered && setIsHovered(true);
   };
   const leave = () => {
-    isHovered && setIsHovered(true);
+    setIsHovered(false);
   };
 
   useEffect(() => {
