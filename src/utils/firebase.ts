@@ -17,6 +17,8 @@ import {
   QueryDocumentSnapshot,
   DocumentData,
   orderBy,
+  WhereFilterOp,
+  updateDoc,
 } from "firebase/firestore";
 
 const FIREBASE_CONFIG = {
@@ -58,6 +60,28 @@ class Firebase {
     }
   }
 
+  async searchDocuments<T>(
+    name: string,
+    search: { param: string; condition: WhereFilterOp; value: unknown }
+  ): Promise<Array<T>> {
+    try {
+      const documents = await getDocs(
+        query(
+          collection(this.#db, name),
+          where(search.param, search.condition, search.value)
+        )
+      );
+      const documentArray: Array<T> = [];
+      documents.forEach((doc: QueryDocumentSnapshot<DocumentData>) => {
+        documentArray.push({ ...doc.data(), id: doc.id } as T);
+      });
+
+      return documentArray as Array<T>;
+    } catch (error) {
+      throw error;
+    }
+  }
+
   async getDocuments<T>(name: string): Promise<Array<T>> {
     try {
       const documents = await getDocs(
@@ -81,6 +105,20 @@ class Firebase {
     try {
       const documentRef = doc(this.#db, collectionName, crypto.randomUUID());
       const result = await setDoc(documentRef, data);
+      return result;
+    } catch (error) {
+      throw error;
+    }
+  }
+
+  async updateDocument(
+    collectionName: string,
+    condition: {id: string},
+    data: { [key: string]: any }
+  ): Promise<void> {
+    try {
+      const documentRef = doc(this.#db, collectionName, condition.id);
+      const result = await updateDoc(documentRef, data);
       return result;
     } catch (error) {
       throw error;
@@ -156,7 +194,7 @@ class Firebase {
 
     notification.onclick = () => {
       window.open(payload?.data?.url || "https://utkarshrajput.com", "_blank");
-    }
+    };
   }
 }
 
