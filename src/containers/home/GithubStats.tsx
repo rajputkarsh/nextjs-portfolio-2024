@@ -94,7 +94,6 @@ function GithubStats() {
     const fetchData = async () => {
       const previousCommits = await savePreviousStats();
       const data = await fetchStats() || [];
-      console.log(`data -- `, data);
       const activityDateArray: Array<string> = Object.keys(data).sort(
         (date1, date2) => new Date(date1).getTime() - new Date(date2).getTime()
       );
