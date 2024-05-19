@@ -19,6 +19,7 @@ import {
   orderBy,
   WhereFilterOp,
   updateDoc,
+  deleteDoc,
 } from "firebase/firestore";
 
 const FIREBASE_CONFIG = {
@@ -113,12 +114,25 @@ class Firebase {
 
   async updateDocument(
     collectionName: string,
-    condition: {id: string},
+    condition: { id: string },
     data: { [key: string]: any }
   ): Promise<void> {
     try {
       const documentRef = doc(this.#db, collectionName, condition.id);
       const result = await updateDoc(documentRef, data);
+      return result;
+    } catch (error) {
+      throw error;
+    }
+  }
+
+  async deleteDocument(
+    collectionName: string,
+    condition: { id: string }
+  ): Promise<void> {
+    try {
+      const documentRef = doc(this.#db, collectionName, condition.id);
+      const result = await deleteDoc(documentRef);
       return result;
     } catch (error) {
       throw error;
