@@ -31,7 +31,7 @@ export default function AnimatedAvatar({ fallback }: IAnimatedAvatarProps) {
         ref={hoverRef}
         className="w-full h-full flex flex-row justify-center"
       >
-        <div id="avatar-loading">
+        <div id="avatar-loading" className="mb-10">
           {!!fallback ? fallback : null}
         </div>
         {shouldShowHover ? <HoverContent text={HOVER_MODEL_TEXT} /> : null}

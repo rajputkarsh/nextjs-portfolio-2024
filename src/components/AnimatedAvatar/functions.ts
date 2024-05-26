@@ -37,8 +37,8 @@ export function setupScene(
 
   const container = document.getElementById("avatar-container") as HTMLElement;
   renderer.setSize(
-    window.innerWidth <= 800 ? 350 : container.clientWidth,
-    window.innerWidth <= 800 ? 400 : 600
+    window.innerWidth <= 800 ? 320 : container.clientWidth,
+    window.innerWidth <= 800 ? 380 : 600
   );
   renderer.setPixelRatio(window.devicePixelRatio);
 
