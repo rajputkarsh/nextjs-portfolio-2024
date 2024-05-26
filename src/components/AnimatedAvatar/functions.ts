@@ -4,6 +4,7 @@ import { OrbitControls } from "three/addons/controls/OrbitControls.js";
 
 const AVATAR_MODEL = "models/utkarsh.glb";
 const SCANDI_MODEL = "models/scandi.glb";
+const COFFEE_MODEL = "models/coffee.glb";
 
 export function loadModel(callback: () => void) {
   const loader = new GLTFLoader();
@@ -13,11 +14,20 @@ export function loadModel(callback: () => void) {
       loader.load(
         SCANDI_MODEL,
         (scandi) => {
-          callback();
-          setupScene(avatar, scandi);
-          (
-            document.getElementById("avatar-loading") as HTMLElement
-          ).style.display = "none";
+          loader.load(
+            COFFEE_MODEL,
+            (coffee) => {
+              callback();
+              setupScene(avatar, scandi, coffee);
+              (
+                document.getElementById("avatar-loading") as HTMLElement
+              ).style.display = "none";
+            },
+            () => {},
+            (error) => {
+              console.log(`error in showing Animated Model -- `, error);
+            }
+          );
         },
         () => {},
         (error) => {
@@ -32,7 +42,7 @@ export function loadModel(callback: () => void) {
   );
 }
 
-export function setupScene(avatarGltf: GLTF, scandiGltf: GLTF) {
+export function setupScene(avatarGltf: GLTF, scandiGltf: GLTF, coffeeGltf: GLTF) {
   const renderer = new THREE.WebGLRenderer({
     antialias: true,
     alpha: true,
@@ -97,15 +107,27 @@ export function setupScene(avatarGltf: GLTF, scandiGltf: GLTF) {
   scene.add(avatar);
 
   // load scandi
-    const scandi = scandiGltf.scene;
-    scandi.traverse((child: any) => {
-      if (child.isMesh) {
-        child.castShadow = true;
-        child.receiveShadow = true;
-      }
-    });
-    scandi.position.x += 0.45;
-    scene.add(scandi);
+  const scandi = scandiGltf.scene;
+  scandi.traverse((child: any) => {
+    if (child.isMesh) {
+      child.castShadow = true;
+      child.receiveShadow = true;
+    }
+  });
+  scandi.position.x += 0.45;
+  scene.add(scandi);
+
+  // load coffee
+  const coffee = coffeeGltf.scene;
+  coffee.traverse((child: any) => {
+    if (child.isMesh) {
+      child.castShadow = true;
+      child.receiveShadow = true;
+    }
+  });
+  coffee.position.x += 0.75;
+  coffee.position.y += 0.75;
+  scene.add(coffee);
 
   // Create floor
   const groundGeometry = new THREE.BoxGeometry(2, 0.1, 1.2);
