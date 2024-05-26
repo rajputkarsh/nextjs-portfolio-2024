@@ -5,6 +5,7 @@ import { OrbitControls } from "three/addons/controls/OrbitControls.js";
 const AVATAR_MODEL = "models/utkarsh.glb";
 const SCANDI_MODEL = "models/scandi.glb";
 const COFFEE_MODEL = "models/coffee.glb";
+const LAPTOP_MODEL = "models/laptop.glb";
 
 export function loadModel(callback: () => void) {
   const loader = new GLTFLoader();
@@ -17,11 +18,20 @@ export function loadModel(callback: () => void) {
           loader.load(
             COFFEE_MODEL,
             (coffee) => {
-              callback();
-              setupScene(avatar, scandi, coffee);
-              (
-                document.getElementById("avatar-loading") as HTMLElement
-              ).style.display = "none";
+              loader.load(
+                LAPTOP_MODEL,
+                (laptop) => {
+                  callback();
+                  setupScene(avatar, scandi, coffee, laptop);
+                  (
+                    document.getElementById("avatar-loading") as HTMLElement
+                  ).style.display = "none";
+                },
+                () => {},
+                (error) => {
+                  console.log(`error in showing Animated Model -- `, error);
+                }
+              );
             },
             () => {},
             (error) => {
@@ -42,7 +52,12 @@ export function loadModel(callback: () => void) {
   );
 }
 
-export function setupScene(avatarGltf: GLTF, scandiGltf: GLTF, coffeeGltf: GLTF) {
+export function setupScene(
+  avatarGltf: GLTF,
+  scandiGltf: GLTF,
+  coffeeGltf: GLTF,
+  laptopGltf: GLTF
+) {
   const renderer = new THREE.WebGLRenderer({
     antialias: true,
     alpha: true,
@@ -128,6 +143,21 @@ export function setupScene(avatarGltf: GLTF, scandiGltf: GLTF, coffeeGltf: GLTF)
   coffee.position.x += 0.75;
   coffee.position.y += 0.75;
   scene.add(coffee);
+
+  // load laptop
+  const laptop = laptopGltf.scene;
+  laptop.traverse((child: any) => {
+    if (child.isMesh) {
+      child.castShadow = true;
+      child.receiveShadow = true;
+    }
+  });
+  laptop.scale.set(0.15, 0.15, 0.15);
+  laptop.position.x += 0.35;
+  laptop.position.y += 0.7;
+  laptop.position.z += 0.1;
+  laptop.rotation.y = -(Math.PI / 16);
+  scene.add(laptop);
 
   // Create floor
   const groundGeometry = new THREE.BoxGeometry(2, 0.1, 1.2);
