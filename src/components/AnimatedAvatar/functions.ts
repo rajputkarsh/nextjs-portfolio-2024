@@ -6,20 +6,30 @@ export function loadModel(callback: () => void) {
   const loader = new GLTFLoader();
   loader.load(
     "utkarsh.glb",
-    (gltf) => {
-      callback();
-      setupScene(gltf);
-      (document.getElementById("avatar-loading") as HTMLElement).style.display =
-        "none";
+    (avatar) => {
+      loader.load(
+        "scandi.glb",
+        (scandi) => {
+          callback();
+          setupScene(avatar, scandi);
+          (
+            document.getElementById("avatar-loading") as HTMLElement
+          ).style.display = "none";
+        },
+        (xhr) => {},
+        (error) => {
+          console.log(`error in showing Animated Model -- `, error);
+        }
+      );
     },
     (xhr) => {},
     (error) => {
-      console.log(`error in showing Animated Model -- `, error)
+      console.log(`error in showing Animated Model -- `, error);
     }
   );
 }
 
-export function setupScene(gltf: GLTF) {
+export function setupScene(avatarGltf: GLTF, scandiGltf: GLTF) {
   const renderer = new THREE.WebGLRenderer({
     antialias: true,
     alpha: true,
@@ -73,17 +83,29 @@ export function setupScene(gltf: GLTF) {
   scene.add(keyLight);
 
   // Load avatar
-  const avatar = gltf.scene;
+  const avatar = avatarGltf.scene;
   avatar.traverse((child: any) => {
     if (child.isMesh) {
       child.castShadow = true;
       child.receiveShadow = true;
     }
   });
+  avatar.position.x -= 0.45;
   scene.add(avatar);
 
-  // Create pedestal
-  const groundGeometry = new THREE.CylinderGeometry(0.6, 0.6, 0.1, 64);
+  // load scandi
+    const scandi = scandiGltf.scene;
+    scandi.traverse((child: any) => {
+      if (child.isMesh) {
+        child.castShadow = true;
+        child.receiveShadow = true;
+      }
+    });
+    scandi.position.x += 0.45;
+    scene.add(scandi);
+
+  // Create floor
+  const groundGeometry = new THREE.BoxGeometry(2, 0.1, 1.2);
   const groundMaterial = new THREE.MeshStandardMaterial();
   const groundMesh = new THREE.Mesh(groundGeometry, groundMaterial);
   groundMesh.castShadow = false;
@@ -93,7 +115,7 @@ export function setupScene(gltf: GLTF) {
 
   // Load animations
   const mixer = new THREE.AnimationMixer(avatar);
-  const clips = gltf.animations;
+  const clips = avatarGltf.animations;
   const waveClip = THREE.AnimationClip.findByName(clips, "standing happy");
   const stumbleClip = THREE.AnimationClip.findByName(clips, "stumble");
   const waveAction = mixer.clipAction(waveClip);
