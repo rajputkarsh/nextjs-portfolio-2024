@@ -178,7 +178,7 @@ export function setupScene(
   laptopScreenMesh.position.set(
     laptop.position.x + 0.04,
     laptop.position.y + 0.24,
-    laptop.position.z - 0.2
+    laptop.position.z - 0.202
   );
   laptopScreenMesh.rotation.x = -(Math.PI / 13);
   laptopScreenMesh.rotation.y = -(Math.PI / 16);
