@@ -7,49 +7,56 @@ const SCANDI_MODEL = "models/scandi.glb";
 const COFFEE_MODEL = "models/coffee.glb";
 const LAPTOP_MODEL = "models/laptop.glb";
 
-export function loadModel(callback: () => void) {
+const IFRAME_URL = "models/laptop-screen.png";
+
+export async function loadModel(callback: () => void) {
   const loader = new GLTFLoader();
-  loader.load(
-    AVATAR_MODEL,
-    (avatar) => {
-      loader.load(
-        SCANDI_MODEL,
-        (scandi) => {
-          loader.load(
-            COFFEE_MODEL,
-            (coffee) => {
-              loader.load(
-                LAPTOP_MODEL,
-                (laptop) => {
-                  callback();
-                  setupScene(avatar, scandi, coffee, laptop);
-                  (
-                    document.getElementById("avatar-loading") as HTMLElement
-                  ).style.display = "none";
-                },
-                () => {},
-                (error) => {
-                  console.log(`error in showing Animated Model -- `, error);
-                }
-              );
-            },
-            () => {},
-            (error) => {
-              console.log(`error in showing Animated Model -- `, error);
-            }
-          );
-        },
-        () => {},
-        (error) => {
-          console.log(`error in showing Animated Model -- `, error);
-        }
-      );
-    },
-    () => {},
-    (error) => {
-      console.log(`error in showing Animated Model -- `, error);
-    }
-  );
+
+  const avatar = await loader.loadAsync(AVATAR_MODEL);
+  const scandi = await loader.loadAsync(SCANDI_MODEL);
+  const coffee = await loader.loadAsync(COFFEE_MODEL);
+  const laptop = await loader.loadAsync(LAPTOP_MODEL);
+
+  callback();
+  setupScene(avatar, scandi, coffee, laptop);
+  (document.getElementById("avatar-loading") as HTMLElement).style.display =
+    "none";
+  //   AVATAR_MODEL,
+  //   (avatar) => {
+  //     loader.load(
+  //       SCANDI_MODEL,
+  //       (scandi) => {
+  //         loader.load(
+  //           COFFEE_MODEL,
+  //           (coffee) => {
+  //             loader.load(
+  //               LAPTOP_MODEL,
+  //               (laptop) => {
+
+  //               },
+  //               () => {},
+  //               (error) => {
+  //                 console.log(`error in showing Animated Model -- `, error);
+  //               }
+  //             );
+  //           },
+  //           () => {},
+  //           (error) => {
+  //             console.log(`error in showing Animated Model -- `, error);
+  //           }
+  //         );
+  //       },
+  //       () => {},
+  //       (error) => {
+  //         console.log(`error in showing Animated Model -- `, error);
+  //       }
+  //     );
+  //   },
+  //   () => {},
+  //   (error) => {
+  //     console.log(`error in showing Animated Model -- `, error);
+  //   }
+  // );
 }
 
 export function setupScene(
@@ -157,7 +164,28 @@ export function setupScene(
   laptop.position.y += 0.7;
   laptop.position.z += 0.1;
   laptop.rotation.y = -(Math.PI / 16);
+
+  // add website on the laptop screen
+  const laptopScreenGeometry = new THREE.PlaneGeometry(0.45, 0.25);
+  const laptopScreenMaterial = new THREE.MeshBasicMaterial({
+    opacity: 1,
+    map: new THREE.TextureLoader().load(IFRAME_URL),
+  });
+  const laptopScreenMesh = new THREE.Mesh(
+    laptopScreenGeometry,
+    laptopScreenMaterial
+  );
+  laptopScreenMesh.position.set(
+    laptop.position.x + 0.04,
+    laptop.position.y + 0.24,
+    laptop.position.z - 0.2
+  );
+  laptopScreenMesh.rotation.x = -(Math.PI / 13);
+  laptopScreenMesh.rotation.y = -(Math.PI / 16);
+  laptopScreenMesh.rotation.z = -(Math.PI / 64);
+
   scene.add(laptop);
+  scene.add(laptopScreenMesh);
 
   // Create floor
   const groundGeometry = new THREE.BoxGeometry(2, 0.1, 1.2);
