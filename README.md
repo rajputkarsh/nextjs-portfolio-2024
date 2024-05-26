@@ -42,6 +42,7 @@ Use the following steps to get started with your project
 
  ## Coming Soon
 - [ ] Update Icon and Photo 😵‍💫
+- [ ] Update ThreeJS code to react components
 - [ ] Remove text caret entirely from PWA
 - [ ] CMS for administrative actions
 - [ ] WASM Support
