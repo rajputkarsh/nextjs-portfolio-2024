@@ -2,13 +2,16 @@ import * as THREE from "three";
 import { GLTF, GLTFLoader } from "three/addons/loaders/GLTFLoader.js";
 import { OrbitControls } from "three/addons/controls/OrbitControls.js";
 
+const AVATAR_MODEL = "models/utkarsh.glb";
+const SCANDI_MODEL = "models/scandi.glb";
+
 export function loadModel(callback: () => void) {
   const loader = new GLTFLoader();
   loader.load(
-    "utkarsh.glb",
+    AVATAR_MODEL,
     (avatar) => {
       loader.load(
-        "scandi.glb",
+        SCANDI_MODEL,
         (scandi) => {
           callback();
           setupScene(avatar, scandi);
@@ -16,13 +19,13 @@ export function loadModel(callback: () => void) {
             document.getElementById("avatar-loading") as HTMLElement
           ).style.display = "none";
         },
-        (xhr) => {},
+        () => {},
         (error) => {
           console.log(`error in showing Animated Model -- `, error);
         }
       );
     },
-    (xhr) => {},
+    () => {},
     (error) => {
       console.log(`error in showing Animated Model -- `, error);
     }
