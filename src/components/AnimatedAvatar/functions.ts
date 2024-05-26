@@ -21,41 +21,6 @@ export async function loadModel(callback: () => void) {
   setupScene(avatar, scandi, coffee, laptop);
   (document.getElementById("avatar-loading") as HTMLElement).style.display =
     "none";
-  //   (avatar) => {
-  //     loader.load(
-  //       SCANDI_MODEL,
-  //       (scandi) => {
-  //         loader.load(
-  //           COFFEE_MODEL,
-  //           (coffee) => {
-  //             loader.load(
-  //               LAPTOP_MODEL,
-  //               (laptop) => {
-
-  //               },
-  //               () => {},
-  //               (error) => {
-  //                 console.log(`error in showing Animated Model -- `, error);
-  //               }
-  //             );
-  //           },
-  //           () => {},
-  //           (error) => {
-  //             console.log(`error in showing Animated Model -- `, error);
-  //           }
-  //         );
-  //       },
-  //       () => {},
-  //       (error) => {
-  //         console.log(`error in showing Animated Model -- `, error);
-  //       }
-  //     );
-  //   },
-  //   () => {},
-  //   (error) => {
-  //     console.log(`error in showing Animated Model -- `, error);
-  //   }
-  // );
 }
 
 export function setupScene(
