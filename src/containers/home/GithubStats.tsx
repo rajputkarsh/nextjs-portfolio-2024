@@ -129,8 +129,8 @@ function GithubStats() {
             data={githubStats || []}
             renderBlock={(block, activity) => {
               return cloneElement(block, {
-                'data-tooltip-id': 'react-tooltip',
-                'data-tooltip-html': `${activity.count} commits on ${formatDate(
+                "data-tooltip-id": "react-tooltip",
+                "data-tooltip-html": `${activity.count} commits on ${formatDate(
                   activity.date,
                   true
                 )}`,
@@ -157,7 +157,7 @@ function GithubStats() {
           <span>Current Streak - {streak.currentStreak}</span>
           <span>Max Streak - {streak.maxStreak}</span>
         </div>
-      )}      
+      )}
     </div>
   );
 }
