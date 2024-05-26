@@ -7,7 +7,7 @@ const SCANDI_MODEL = "models/scandi.glb";
 const COFFEE_MODEL = "models/coffee.glb";
 const LAPTOP_MODEL = "models/laptop.glb";
 
-const IFRAME_URL = "models/laptop-screen.png";
+const IFRAME_URL = "models/laptop-screen.webp";
 
 export async function loadModel(callback: () => void) {
   const loader = new GLTFLoader();
@@ -21,7 +21,6 @@ export async function loadModel(callback: () => void) {
   setupScene(avatar, scandi, coffee, laptop);
   (document.getElementById("avatar-loading") as HTMLElement).style.display =
     "none";
-  //   AVATAR_MODEL,
   //   (avatar) => {
   //     loader.load(
   //       SCANDI_MODEL,
