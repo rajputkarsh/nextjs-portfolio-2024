@@ -56,7 +56,7 @@ export const metadataObject: Metadata = {
   publisher: "Utkarsh",
 
   openGraph: {
-    name: "Utkarsh Rajput: Full Stack Developer",
+    siteName: "Utkarsh Rajput: Full Stack Developer",
     title: "Utkarsh Rajput: Full Stack Developer",
     description:
       "Utkarsh: Full Stack Developer - Typescript, ReactJS, NodeJS, NextJS, MongoDB, PostgreSQL, MERN Stack",
