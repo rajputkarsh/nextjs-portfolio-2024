@@ -14,7 +14,7 @@ const EDUCATION_TIMELINE = [
     index: 1,
     event: "BIRTH",
     icon: BabyFace.src,
-    date: "1997",
+    date: "1996",
     content: "",
     contentIcon: "",
   },
@@ -22,7 +22,7 @@ const EDUCATION_TIMELINE = [
     index: 2,
     event: "Became Matriculate",
     icon: School.src,
-    date: "2013",
+    date: "2012",
     content:
       "Completed my matriculation examination in 2015 with a score of 9.6 CGPA",
     contentIcon: BcmLogo.src,
@@ -31,7 +31,7 @@ const EDUCATION_TIMELINE = [
     index: 3,
     event: "Became a High School Graduate",
     icon: College.src,
-    date: "2015",
+    date: "2014",
     content:
       "Completed my AISSCE (12th Standard) examination in 2015 with a score of 83.4%",
     contentIcon: BcmLogo.src,
@@ -40,7 +40,7 @@ const EDUCATION_TIMELINE = [
     index: 4,
     event: "Became an Engineer",
     icon: GraduationHat.src,
-    date: "2019",
+    date: "2018",
     content:
       "Completed my Bachelors in Technology (Information Technology) in 2021 with an accumulative score of 8.48 CGPA",
     contentIcon: DavietLogo.src,
