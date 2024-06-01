@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect } from "react";
-import GameHearts from "@/components/Hearts";
+import GameHearts from "@/components/hearts";
 import { motion } from "framer-motion";
 import { pageView } from "@/utils/analyticsEvents";
 
