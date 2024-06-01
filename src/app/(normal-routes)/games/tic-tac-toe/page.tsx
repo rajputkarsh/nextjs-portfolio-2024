@@ -5,7 +5,7 @@ import { Metadata } from "next";
 
 export const metadata: Metadata = {
   ...metadataObject,
-  title: `Tic-Tac-Toe | ${metadataObject.title}`,
+  title: `Play Tic-Tac-Toe | ${metadataObject.title}`,
 };
 
 export default function page() {

@@ -5,7 +5,7 @@ import { Metadata } from "next";
 
 export const metadata: Metadata = {
   ...metadataObject,
-  title: `2048 | ${metadataObject.title}`,
+  title: `Play 2048 | ${metadataObject.title}`,
 };
 
 export default function page() {
