@@ -2,7 +2,7 @@ import Image from "next/image";
 import config from "@/constants/config";
 import Typewriter from "typewriter-effect";
 import Socials from "@/components/socials";
-import AnimatedAvatar from "@/components/AnimatedAvatar";
+import AnimatedAvatar from "@/components/animatedAvatar";
 import CodingBoy from "@/assets/page/coding-boy.webp";
 
 const FALLBACK_TEXT = "Loading Something Awesome";
