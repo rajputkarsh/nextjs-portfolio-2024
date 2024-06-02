@@ -158,6 +158,7 @@ export function setupScene(
   groundMesh.castShadow = false;
   groundMesh.receiveShadow = true;
   groundMesh.position.y -= 0.05;
+  groundMesh.position.x += 0.05;
   scene.add(groundMesh);
 
   // Load animations
