@@ -575,7 +575,7 @@
 }
 
 .card>.back{
-	background-image:url('assets/flip.png');
+	background-image:url('./assets/flip.png');
 	background-repeat:repeat;
 	box-sizing: border-box;
 	moz-box-sizing: border-box;
@@ -609,19 +609,19 @@
 }
 
 .card.heart .front, .card.heart .icon{
-	background-image:url('assets/heart.png');
+	background-image:url('./assets/heart.png');
 }
 
 .card.club .front, .card.club .icon{
-	background-image:url('assets/club.png');
+	background-image:url('./assets/club.png');
 }
 
 .card.spade .front, .card.spade .icon{
-	background-image:url('assets/spade.png');
+	background-image:url('./assets/spade.png');
 }
 
 .card.diamond .front, .card.diamond .icon{
-	background-image:url('assets/diamond.png');
+	background-image:url('./assets/diamond.png');
 }
 
 .card .icon{
