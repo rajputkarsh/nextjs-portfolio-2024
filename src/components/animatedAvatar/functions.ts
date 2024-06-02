@@ -6,6 +6,7 @@ const AVATAR_MODEL = "models/utkarsh.glb";
 const SCANDI_MODEL = "models/scandi.glb";
 const COFFEE_MODEL = "models/coffee.glb";
 const LAPTOP_MODEL = "models/laptop.glb";
+const PLANT_MODEL = "models/plant.glb";
 
 const IFRAME_URL = "models/laptop-screen.webp";
 
@@ -16,9 +17,10 @@ export async function loadModel(callback: () => void) {
   const scandi = await loader.loadAsync(SCANDI_MODEL);
   const coffee = await loader.loadAsync(COFFEE_MODEL);
   const laptop = await loader.loadAsync(LAPTOP_MODEL);
+  const plant = await loader.loadAsync(PLANT_MODEL);
 
   callback();
-  setupScene(avatar, scandi, coffee, laptop);
+  setupScene(avatar, scandi, coffee, laptop, plant);
   (document.getElementById("avatar-loading") as HTMLElement).style.display =
     "none";
 }
@@ -27,7 +29,8 @@ export function setupScene(
   avatarGltf: GLTF,
   scandiGltf: GLTF,
   coffeeGltf: GLTF,
-  laptopGltf: GLTF
+  laptopGltf: GLTF,
+  plantGltf: GLTF
 ) {
   const renderer = new THREE.WebGLRenderer({
     antialias: true,
@@ -151,6 +154,23 @@ export function setupScene(
   scene.add(laptop);
   scene.add(laptopScreenMesh);
 
+  // load plant
+  const plant = plantGltf.scene;
+  plant.traverse((child: any) => {
+    if (child.isMesh) {
+      child.castShadow = true;
+      child.receiveShadow = true;
+    }
+  });
+  plant.scale.set(
+    0.4 * plant.scale.x,
+    0.4 * plant.scale.y,
+    0.4 * plant.scale.z
+  );
+  plant.position.x -= 0.8;
+  plant.position.z += 0.8;
+  scene.add(plant);
+
   // Create floor
   const groundGeometry = new THREE.BoxGeometry(2, 0.1, 1.2);
   const groundMaterial = new THREE.MeshStandardMaterial();
@@ -158,6 +178,7 @@ export function setupScene(
   groundMesh.castShadow = false;
   groundMesh.receiveShadow = true;
   groundMesh.position.y -= 0.05;
+  groundMesh.position.x += 0.05;
   scene.add(groundMesh);
 
   // Load animations
