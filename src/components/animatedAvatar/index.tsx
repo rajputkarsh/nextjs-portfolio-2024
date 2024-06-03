@@ -1,6 +1,6 @@
 "use client";
 import { ReactNode, useEffect, useState } from "react";
-import HoverContent from "../HoverContent";
+import HoverContent from "../hoverContent";
 import { loadModel } from "./functions";
 import useHover from "@/hooks/useHover";
 import { HOVER_MODEL_TEXT } from "@/constants/common";

@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import InstallPWADialog from "../Dialogs/InstallPWA";
+import InstallPWADialog from "../dialogs/InstallPWA";
 import { pageView } from "@/utils/analyticsEvents";
 
 let deferredPrompt: any;

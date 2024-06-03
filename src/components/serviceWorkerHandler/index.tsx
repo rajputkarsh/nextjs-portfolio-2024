@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import ServiceWorkerUpdateDialog from "../Dialogs/ServiceWorkerUpdate";
+import ServiceWorkerUpdateDialog from "../dialogs/ServiceWorkerUpdate";
 import { toast } from "react-toastify";
 
 function ServiceWorkerEventHandler() {
