@@ -24,7 +24,7 @@ const EDUCATION_TIMELINE = [
     icon: School.src,
     date: "2012",
     content:
-      "Completed my matriculation examination in 2015 with a score of 9.6 CGPA",
+      "Completed my matriculation examination in 2012 with a score of 9.6 CGPA",
     contentIcon: BcmLogo.src,
   },
   {
@@ -33,7 +33,7 @@ const EDUCATION_TIMELINE = [
     icon: College.src,
     date: "2014",
     content:
-      "Completed my AISSCE (12th Standard) examination in 2015 with a score of 83.4%",
+      "Completed my AISSCE (12th Standard) examination in 2014 with a score of 83.4%",
     contentIcon: BcmLogo.src,
   },
   {
@@ -42,7 +42,7 @@ const EDUCATION_TIMELINE = [
     icon: GraduationHat.src,
     date: "2018",
     content:
-      "Completed my Bachelors in Technology (Information Technology) in 2021 with an accumulative score of 8.48 CGPA",
+      "Completed my Bachelors in Technology (Information Technology) in 2018 with an accumulative score of 8.48 CGPA",
     contentIcon: DavietLogo.src,
   },
   {
