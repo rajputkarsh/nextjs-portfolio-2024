@@ -1,13 +1,13 @@
 "use client";
 
 import { useEffect } from "react";
-import GameHearts from "@/components/hearts";
+import GameSolitaire from "@/components/solitaire";
 import { motion } from "framer-motion";
 import { pageView } from "@/utils/analyticsEvents";
 
-function GameHeartsContainer() {
+function GameSolitaireContainer() {
   useEffect(() => {
-    pageView("Game - Hearts");
+    pageView("Game - Solitaire");
   }, []);
 
   return (
@@ -18,10 +18,10 @@ function GameHeartsContainer() {
       transition={{ duration: 1 }}
     >
       <div className="w-full">
-        <GameHearts />
+        <GameSolitaire />
       </div>
     </motion.div>
   );
 }
 
-export default GameHeartsContainer;
+export default GameSolitaireContainer;
