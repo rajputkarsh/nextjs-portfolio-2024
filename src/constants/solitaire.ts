@@ -109,7 +109,7 @@ export const DIMENSIONS: Dimensions = {
 
 const sidePadding = 10 as const;
 
-export const CardsLayouts = {
+export const CARDS_LAYOUTS = {
   A: [{ top: 62.5, left: 37.5 }],
   2: [
     { top: 20, left: 37.5 },
