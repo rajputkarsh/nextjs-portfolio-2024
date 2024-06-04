@@ -6,7 +6,7 @@ const RankSymbol = ({
   symbol,
   style,
 }: {
-  symbol: ReactNode;
+  symbol: ReactNode | string;
   style: CSSProperties;
 }) => {
   return (
