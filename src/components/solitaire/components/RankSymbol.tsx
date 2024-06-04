@@ -2,7 +2,13 @@
 
 import { CSSProperties, ReactNode } from "react";
 
-const RankSymbol = ({ symbol, style }: {symbol: ReactNode, style: CSSProperties}) => {
+const RankSymbol = ({
+  symbol,
+  style,
+}: {
+  symbol: ReactNode;
+  style: CSSProperties;
+}) => {
   return (
     <div
       style={{

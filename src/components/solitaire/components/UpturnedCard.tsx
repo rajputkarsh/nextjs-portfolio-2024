@@ -1,11 +1,11 @@
-'use client';
+"use client";
 
 import { ReactNode } from "react";
 import { COLORS, DIMENSIONS } from "@/constants/solitaire";
 import ReactSymbol from "./ReactSymbol";
 import { prefix } from "inline-style-prefixer";
 
-const UpturnedCard = ({ children }: {children: ReactNode}) => {
+const UpturnedCard = ({ children }: { children: ReactNode }) => {
   return (
     <div
       style={prefix({

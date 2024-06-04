@@ -1,10 +1,16 @@
-'use client';
+"use client";
 
 import { CSSProperties } from "react";
 import { SUITS } from "@/constants/solitaire";
 import { SuitCards } from "@/interfaces/solitaire";
 
-const SuitSymbol = ({ suit, style }: {suit: SuitCards, style: CSSProperties}) => {
+const SuitSymbol = ({
+  suit,
+  style,
+}: {
+  suit: SuitCards;
+  style: CSSProperties;
+}) => {
   return (
     <div
       style={{
