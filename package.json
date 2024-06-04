@@ -26,7 +26,6 @@
     "next": "14.1.0",
     "next-themes": "0.3.0",
     "octokit": "3.1.2",
-    "prop-types": "15.8.1",
     "react": "18",
     "react-activity-calendar": "2.2.7",
     "react-dom": "18",
