@@ -1,3 +1,6 @@
+
+export type SuitCards = "SPADES" | "HEARTS" | "DIAMONDS" | "CLUBS";
+
 export type Suits = {
   SPADES: "♠";
   HEARTS: "♥";
