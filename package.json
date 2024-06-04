@@ -21,10 +21,12 @@
     "firebase": "10.8.0",
     "framer-motion": "11.0.5",
     "immutable": "4.3.6",
+    "inline-style-prefixer": "^7.0.0",
     "lodash": "4.17.21",
     "next": "14.1.0",
     "next-themes": "0.3.0",
     "octokit": "3.1.2",
+    "prop-types": "15.8.1",
     "react": "18",
     "react-activity-calendar": "2.2.7",
     "react-dom": "18",
@@ -39,7 +41,8 @@
     "workbox-window": "7.0.0"
   },
   "devDependencies": {
-    "@types/lodash": "^4.17.4",
+    "@types/inline-style-prefixer": "^5.0.3",
+    "@types/lodash": "4.17.4",
     "@types/node": "20",
     "@types/react": "18",
     "@types/react-dom": "18",
