@@ -1,6 +1,6 @@
-import React from "react";
+"use client";
 
-const ReactSymbol = ({ color }: {color: string}) => {
+const ReactSymbol = ({ color }: { color: string }) => {
   return (
     <div
       style={{

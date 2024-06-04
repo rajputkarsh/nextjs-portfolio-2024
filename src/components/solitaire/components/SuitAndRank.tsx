@@ -1,6 +1,8 @@
+"use client";
+
+import { CSSProperties } from "react";
 import { SUITS } from "@/constants/solitaire";
 import { Ranks, SuitCards } from "@/interfaces/solitaire";
-import React, { CSSProperties } from "react";
 
 const SuitAndRank = ({
   suit,
@@ -18,7 +20,7 @@ const SuitAndRank = ({
         display: "inline-block",
         position: "absolute",
         textAlign: "center",
-        transform: "bottom" in position ? "rotate(180deg)" : '',
+        transform: "bottom" in position ? "rotate(180deg)" : "",
       }}
     >
       <div>{rank}</div>
