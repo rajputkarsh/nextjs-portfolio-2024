@@ -1,6 +1,5 @@
 "use client";
 
-import React from 'react';
 import Image from "next/image";
 import useCurrentTheme from '@/hooks/useCurrentTheme';
 import Moon from "@/assets/theme/moon.webp";
