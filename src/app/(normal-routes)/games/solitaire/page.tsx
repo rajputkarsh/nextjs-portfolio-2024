@@ -1,13 +1,13 @@
-import GameHeartsContainer from "@/containers/hearts";
+import GameSolitaireContainer from "@/containers/solitaire";
 
 import { metadataObject } from "@/constants/common";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
   ...metadataObject,
-  title: `Play Hearts | ${metadataObject.title}`,
+  title: `Play Solitaire | ${metadataObject.title}`,
 };
 
 export default function page() {
-  return <GameHeartsContainer />;
+  return <GameSolitaireContainer />;
 }
