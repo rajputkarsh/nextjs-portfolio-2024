@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { cloneDeep } from '@/utils/common';
 import { useEvent } from './helper';
 import Swipe from 'react-easy-swipe';
