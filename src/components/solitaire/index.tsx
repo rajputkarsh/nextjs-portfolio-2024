@@ -1,36 +1,36 @@
-import React, { useState, useEffect } from "react";
+'use client';
+import { AppState } from "@/redux";
+import { useSelector, useDispatch } from "react-redux";
 import SmartDeck from "./SmartDeck";
 import SmartPile from "./SmartPile";
 import SmartFoundation from "./SmartFoundation";
 import { DndProvider } from "react-dnd";
 import {HTML5Backend} from "react-dnd-html5-backend";
 import range from "lodash/range";
-import { useDrag, useDrop } from "react-dnd"; // Import hooks
+import { getSolitaireGame, getSolitaireScore, moveCard, turnCard } from "@/redux/slices/solitaire.slice";
+import { COLORS, DIMENSIONS } from "@/constants/solitaire";
 
-const Game = ({ game, score, turnCard, moveCards }) => {
-  // No need for mapStateToProps/mapDispatchToProps with hooks
+const Game = () => {
+  const dispatch = useDispatch();
 
-  const [currentScore, setCurrentScore] = useState(score); // Manage score state
-
-  useEffect(() => {
-    setCurrentScore(score); // Update score on prop change
-  }, [score]);
+  const game = useSelector<AppState, { [key: string]: any }>(getSolitaireGame);
+  const score = useSelector<AppState, { [key: string]: any }>(getSolitaireScore);
 
   const handleTurnCard = () => {
-    turnCard();
+    dispatch(turnCard({}));
   };
 
-  const handleMoveCards = (cards, where) => {
-    moveCards(cards, where);
+  const handleMoveCards = (cards: any, where: any) => {
+    dispatch(moveCard({ cards, where }));
   };
 
   return (
     <DndProvider backend={HTML5Backend}>
       <div
         style={{
-          width: Dimensions.Game.width,
-          height: Dimensions.Game.height,
-          backgroundColor: Colors.Game.backgroundColor,
+          width: DIMENSIONS.Game.width,
+          height: DIMENSIONS.Game.height,
+          backgroundColor: COLORS.Game.backgroundColor,
           padding: 10,
         }}
       >
