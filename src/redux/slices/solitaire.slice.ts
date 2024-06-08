@@ -154,5 +154,5 @@ export const getSolitaireScore = createSelector<
   (solitaireState) => solitaireState?.data?.score || {}
 );
 
-export const { scoreMoveCard } = solitaireSlice.actions;
+export const { scoreMoveCard, turnCard, moveCard } = solitaireSlice.actions;
 export default solitaireSlice.reducer;
