@@ -1,21 +1,26 @@
 import React from "react";
 import { useDrag, useDrop } from "react-dnd";
-import Card from "../display/Card.jsx";
-import { Ranks, Suits, RanksValues, Places, Colors } from "../../constants";
-import ActionCreators from "../../actions";
+import Card from "./components/Card";
+import {
+  RANKS,
+  SUITS,
+  RANKS_VALUES,
+  PLACES,
+  COLORS,
+} from "@/constants/solitaire";
 
 const cardType = "DraggableCard";
 
-function useCardDrag() {
+function useCardDrag({ suit, rank, where, upturned, isLast, index }) {
   const [{ isDragging }, drag] = useDrag(() => ({
     type: cardType,
     item: {
-      suit: props.suit,
-      rank: props.rank,
-      where: props.where,
-      upturned: props.upturned,
-      isLast: props.isLast,
-      index: props.index,
+      suit,
+      rank,
+      where,
+      upturned,
+      isLast,
+      index,
     },
     collect: (monitor) => ({
       isDragging: monitor.isDragging(),
@@ -35,18 +40,18 @@ function useCardDrop(props, dispatch) {
 
       const { suit, rank } = props;
 
-      if (destination === Places.FOUNDATION) {
+      if (destination === PLACES.FOUNDATION) {
         return (
           draggedCard.suit === suit &&
-          RanksValues[draggedCard.rank] === RanksValues[rank] + 1 &&
-          ((draggedCard.where[0] === Places.PILE && draggedCard.isLast) ||
-            draggedCard.where[0] === Places.DECK)
+          RANKS_VALUES[draggedCard.rank] === RANKS_VALUES[rank] + 1 &&
+          ((draggedCard.where[0] === PLACES.PILE && draggedCard.isLast) ||
+            draggedCard.where[0] === PLACES.DECK)
         );
-      } else if (destination === Places.PILE) {
+      } else if (destination === PLACES.PILE) {
         return (
           props.isLast &&
-          Colors[draggedCard.suit] !== Colors[suit] &&
-          RanksValues[draggedCard.rank] === RanksValues[rank] - 1
+          COLORS[draggedCard.suit] !== COLORS[suit] &&
+          RANKS_VALUES[draggedCard.rank] === RANKS_VALUES[rank] - 1
         );
       }
 
@@ -94,12 +99,6 @@ const DraggableCard = ({ rank, suit, upturned, dispatch }) => {
       )}
     </div>
   );
-};
-
-DraggableCard.propTypes = {
-  rank: React.PropTypes.oneOf(Ranks),
-  suit: React.PropTypes.oneOf(Object.keys(Suits)),
-  upturned: React.PropTypes.bool,
 };
 
 export default DraggableCard;
