@@ -28,6 +28,7 @@
     "octokit": "3.1.2",
     "react": "18",
     "react-activity-calendar": "2.2.7",
+    "react-dnd": "^16.0.1",
     "react-dom": "18",
     "react-easy-swipe": "0.0.23",
     "react-redux": "9.1.2",
