@@ -65,6 +65,14 @@ html {
   transform-origin: bottom left;
 }
 
+.react-activity-calendar {
+  svg: {
+    width: 850px;
+    height: 140px;
+    padding: 0.2rem;
+  }
+}
+
 .vertical-timeline {
   .vertical-timeline-element-icon {
     display: flex;
