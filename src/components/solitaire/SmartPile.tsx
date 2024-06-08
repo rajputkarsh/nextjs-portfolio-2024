@@ -58,4 +58,16 @@ const SmartPile = ({ cards, moveCards, index }) => {
   );
 };
 
+SmartPile.propTypes = {
+  cards: PropTypes.arrayOf(
+    PropTypes.shape({
+      rank: PropTypes.oneOf(RANKS),
+      suit: PropTypes.oneOf(Object.keys(SUITS)),
+      upturned: PropTypes.bool,
+    })
+  ),
+  moveCards: PropTypes.func,
+  index: PropTypes.number,
+};
+
 export default SmartPile;
