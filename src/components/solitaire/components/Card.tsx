@@ -1,9 +1,9 @@
 import React, { CSSProperties } from "react";
-import Overlay from "./Overlay.jsx";
-import SuitAndRank from "./SuitAndRank.jsx";
-import SuitSymbol from "./SuitSymbol.jsx";
-import RankSymbol from "./RankSymbol.jsx";
-import ReactSymbol from "./ReactSymbol.jsx";
+import Overlay from "./Overlay";
+import SuitAndRank from "./SuitAndRank";
+import SuitSymbol from "./SuitSymbol";
+import RankSymbol from "./RankSymbol";
+import ReactSymbol from "./ReactSymbol";
 import {
   SHADOWS,
   COLORS,
@@ -12,6 +12,17 @@ import {
 } from "@/constants/solitaire.js";
 import { prefix } from "inline-style-prefixer";
 import { Ranks, SuitCards } from "@/interfaces/solitaire.js";
+
+interface ICardProps {
+  rank?: Ranks;
+  suit?: SuitCards;
+  upturned?: boolean | string | null;
+  style?: CSSProperties;
+  isOver?: boolean;
+  canDrop?: boolean;
+  isMouseOver?: boolean;
+  isDragging?: boolean;
+};
 
 const Card = ({
   rank,
@@ -22,16 +33,7 @@ const Card = ({
   canDrop,
   isMouseOver,
   isDragging,
-}: {
-  rank: Ranks;
-  suit: SuitCards;
-  upturned: boolean | string | null;
-  style: CSSProperties;
-  isOver: boolean;
-  canDrop: boolean;
-  isMouseOver: boolean;
-  isDragging: boolean;
-}) => {
+}: ICardProps) => {
   let suitSymbols;
   let rankSymbol;
   let _style = prefix({
@@ -39,7 +41,7 @@ const Card = ({
     borderRadius: DIMENSIONS.Card.borderRadius,
     boxShadow: SHADOWS.Level1,
     boxSizing: "border-box",
-    color: COLORS[suit],
+    color: COLORS[suit || 'SPADES'],
     fontFamily: "Arial",
     padding: 4,
     position: "relative",

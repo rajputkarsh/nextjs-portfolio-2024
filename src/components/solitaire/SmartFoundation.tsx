@@ -1,10 +1,9 @@
 import React, { useState, useEffect } from "react";
 import T from "prop-types";
-import Foundation from "../display/Foundation.jsx";
-import ActionCreators, { Directions } from "../../actions";
-import DraggableCard from "./DraggableCard.jsx";
+import Foundation from "./components/Foundation";
+import DraggableCard from "./DraggableCard";
 import first from "lodash/first";
-import { Suits } from "../../constants";
+import { SUITS } from "@/constants/solitaire";
 import { useDrop } from "react-dnd";
 
 const foundationTarget = {
@@ -57,7 +56,7 @@ const SmartFoundation = ({ cards, suit, moveCards }) => {
 
 SmartFoundation.propTypes = {
   cards: T.array,
-  suit: T.oneOf(Object.keys(Suits)),
+  suit: T.oneOf(Object.keys(SUITS)),
   moveCards: T.func.isRequired,
 };
 

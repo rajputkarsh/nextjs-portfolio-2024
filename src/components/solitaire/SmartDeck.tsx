@@ -1,22 +1,28 @@
 import React, { useState } from "react";
-import T from "prop-types";
-import Card from "../display/Card.jsx";
-import { Suits, Ranks } from "../../constants";
-import UpturnedCard from "../display/UpturnedCard.jsx";
-import Deck from "../display/Deck.jsx";
-import { List } from "immutable";
-import DraggableCard from "./DraggableCard.jsx";
+import Card from "./components/Card";
+import UpturnedCard from "./components/UpturnedCard";
+import Deck from "./components/Deck";
+import DraggableCard from "./DraggableCard";
 import last from "lodash/last";
-import { Places } from "../../constants";
 
-const SmartDeck = ({ deck, turnCard }) => {
+import { PLACES } from "@/constants/solitaire";
+
+interface IDeckProps {
+  deck: {
+    upturned: any;
+    downturned: any;
+  };
+  turnCard: () => void
+}
+
+const SmartDeck = ({ deck, turnCard }: IDeckProps) => {
   const [lastUpturnedCard, setLastUpturnedCard] = useState(
     last(deck.upturned) || { rank: null, suit: null, upturned: false }
   );
 
   const handleTurnCard = () => {
     turnCard();
-    const newLastCard = last(deck.upturned);
+    const newLastCard: any = last(deck.upturned);
     setLastUpturnedCard(newLastCard);
   };
 
@@ -35,30 +41,11 @@ const SmartDeck = ({ deck, turnCard }) => {
         <DraggableCard
           {...lastUpturnedCard}
           upturned
-          where={[Places.DECK, "upturned"]}
+          where={[PLACES.DECK, "upturned"]}
         />
       </UpturnedCard>
     </div>
   );
-};
-
-SmartDeck.propTypes = {
-  deck: T.shape({
-    upturned: T.arrayOf(
-      T.shape({
-        rank: T.oneOf(Ranks),
-        suit: T.oneOf(Object.keys(Suits)),
-        upturned: T.bool,
-      })
-    ),
-    downturned: T.arrayOf(
-      T.shape({
-        rank: T.oneOf(Ranks),
-        suit: T.oneOf(Object.keys(Suits)),
-        upturned: T.bool,
-      })
-    ),
-  }),
 };
 
 export default SmartDeck;

@@ -74,7 +74,7 @@ function useCardDrop(props, dispatch) {
   return { canDrop, isOver };
 }
 
-const DraggableCard = ({ rank, suit, upturned, dispatch }) => {
+const DraggableCard = ({ rank, suit, upturned, where }) => {
   const { drag, isDragging } = useCardDrag();
   const { canDrop, isOver } = useCardDrop(
     { rank, suit, where: props.where },

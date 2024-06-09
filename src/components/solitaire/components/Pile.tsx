@@ -2,7 +2,7 @@
 
 import { Children, cloneElement, ReactElement } from "react";
 import T from "prop-types";
-import RankSymbol from "./RankSymbol.jsx";
+import RankSymbol from "./RankSymbol";
 import { CARDS_LAYOUTS, COLORS, DIMENSIONS } from "@/constants/solitaire.js";
 
 const Pile = ({
