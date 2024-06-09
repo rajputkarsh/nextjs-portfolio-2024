@@ -1,49 +1,71 @@
-import { useState, useEffect } from "react";
-import CARD_INFO from "@/constants/klondikeSolitaire";
+import { FC, DragEvent } from "react";
+import { observer } from "mobx-react-lite";
+import styled, { css } from "styled-components";
+import { noop } from "lodash";
 
-import "./index.css";
-import { ICard } from "@/interfaces/klonditeSolitaire";
+import {
+  BORDER_RADIUS,
+  CARD_HEIGHT,
+  CARD_WIDTH,
+  RANK,
+  SUIT,
+} from "@/constants/klondikeSolitaire";
+
+import { CardModel } from "@/store/models/Card.model";
 
 interface CardProps {
-  card: ICard;
-  isDown: boolean;
-  isHighlighted: boolean;
-  isSelected: boolean;
+  card: CardModel;
+  index?: number;
+  onClick?: (card: CardModel) => void;
+  onDragStart?: (event: DragEvent) => void;
+  isTurned?: boolean;
 }
 
-function Card({ card, isSelected, isDown, isHighlighted }: CardProps) {
-  const [down, setdown] = useState("");
-  const [select, setselect] = useState("");
-  const [highlight, sethighlight] = useState("");
-  useEffect(() => {
-    if (isDown) {
-      setdown(" card__down");
-    } else {
-      setdown(" " + card.suit);
-    }
-    if (isSelected) {
-      setselect(" card__selected");
-    } else {
-      setselect("");
-    }
-    if (isHighlighted) {
-      sethighlight(" card__highlighted");
-    } else {
-      sethighlight("");
-    }
-  }, [isDown, isSelected, isHighlighted, card.suit]);
-  return (
-    <div className={"card" + down + select + highlight}>
-      <div className="card__content card__rank-left">{card.rank}</div>
-      <div className="card__content card__suite-left">
-        {CARD_INFO["symbol"][card.suit]}
-      </div>
-      <div className="card__content card__suite-right">
-        {CARD_INFO["symbol"][card.suit]}
-      </div>
-      <div className="card__content card__rank-right">{card.rank}</div>
-    </div>
-  );
+export const Card: FC<CardProps> = observer(
+  ({ card, onClick = noop, onDragStart = noop, index, isTurned }) => (
+    <Wrapper
+      draggable
+      data-index={index}
+      data-testid={`${card.rank}-${card.suit}`}
+      isTurned={Boolean(card.isTurned || isTurned)}
+      isBlack={card.isBlack}
+      onClick={onClick}
+      onDragStart={onDragStart}
+      rank={card.rank}
+      suit={card.suit}
+    />
+  )
+);
+
+Card.displayName = "Card";
+
+interface WrapperProps {
+  isTurned: boolean;
+  isBlack: boolean;
+  rank: RANK;
+  suit: SUIT;
 }
 
-export default Card;
+export const Wrapper = styled.div<WrapperProps>`
+  border-radius: ${BORDER_RADIUS};
+  width: ${CARD_WIDTH};
+  height: ${CARD_HEIGHT};
+  display: flex;
+  margin-bottom: 1vw;
+  margin-right: 1vw;
+
+  ${(props) => css`
+    color: ${props.isBlack ? "#000" : "#f00"};
+
+    ${props.isTurned
+      ? css`
+          background-image: url("cards/${props.rank}-${props.suit}.svg");
+          background-size: cover;
+          box-shadow: inset 0 0 0 0.15vw #1e0c7d;
+        `
+      : css`
+          background-image: url("cards/back.svg");
+          background-size: cover;
+        `}
+  `}
+`;
