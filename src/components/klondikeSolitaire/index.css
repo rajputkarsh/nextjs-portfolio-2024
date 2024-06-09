@@ -1,0 +1,22 @@
+.klondike__bottom {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  padding-top: 5vh;
+}
+
+.klondike__upper {
+  padding-top: 8vh;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
+.klondike__upper__row {
+  display: flex;
+  flex-direction: row;
+}
+
+.spacer {
+  margin-left: 20px;
+}

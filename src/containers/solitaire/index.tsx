@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect } from "react";
-import GameSolitaire from "@/components/solitaire";
+import GameKlondikeSolitaire from "@/components/klondikeSolitaire";
 import { motion } from "framer-motion";
 import { pageView } from "@/utils/analyticsEvents";
 
@@ -18,7 +18,7 @@ function GameSolitaireContainer() {
       transition={{ duration: 1 }}
     >
       <div className="w-full">
-        <GameSolitaire />
+        <GameKlondikeSolitaire />
       </div>
     </motion.div>
   );
