@@ -1,4 +1,4 @@
-import { action, computed, observable } from "mobx";
+import { makeAutoObservable } from "mobx";
 import { DragEvent } from "react";
 
 import { CardModel } from "./Card.model";
@@ -6,42 +6,45 @@ import { RANK, RANK_VALUES } from "@/constants/klondikeSolitaire";
 import { TOnCardDropFn } from "@/interfaces/klonditeSolitaire";
 
 export class PileModel {
+  cards: Array<CardModel>;
 
-  cards = observable<CardModel>([]);
+  constructor() {
+    this.cards = new Array<CardModel>();
+  }
 
-  @computed get hasCards() {
+  get hasCards() {
     return this.cards.length > 0;
   }
 
-  @computed get lastCard(): CardModel | undefined {
+  get lastCard(): CardModel | undefined {
     return this.hasCards ? this.cards[this.cards.length - 1] : undefined;
   }
 
-  @computed get firstCard(): CardModel | undefined {
+  get firstCard(): CardModel | undefined {
     return this.hasCards ? this.cards[0] : undefined;
   }
 
-  // ====================================================
-  // Public
-  // ====================================================
-  @action add = (card: CardModel): void => {
+  add = (card: CardModel): void => {
     this.cards.push(card);
   };
 
-  @action pop = (): CardModel | undefined => {
+  pop = (): CardModel | undefined => {
     return this.cards.pop();
   };
 
-  @action remove = (card: CardModel): void => {
-    this.cards.remove(card);
+  remove = (card: CardModel): void => {
+    this.cards = JSON.parse(
+      JSON.stringify(
+        this.cards.filter((c) => c.rank !== card.rank && c.suit !== card.suit)
+      )
+    );
   };
 
-  @action clear = () => {
-    this.cards.clear();
+  clear = () => {
+    this.cards = [];
   };
 
-  // http://en.wikipedia.org/wiki/Fisher-Yates_shuffle#The_modern_algorithm
-  @action shuffle = () => {
+  shuffle = () => {
     for (let i = this.cards.length - 1; i > 0; i--) {
       let j = Math.floor(Math.random() * (i + 1));
 
@@ -51,7 +54,7 @@ export class PileModel {
     }
   };
 
-  @action canAdd = (card: CardModel) => {
+  canAdd = (card: CardModel) => {
     if (!this.lastCard) {
       return card.rank === RANK.KING;
     }
@@ -65,14 +68,11 @@ export class PileModel {
     return isColorDifferent && isRankBelow;
   };
 
-  @action revealLastCard = () => {
+  revealLastCard = () => {
     this.lastCard?.reveal();
   };
 
-  // ====================================================
-  // UI event handlers
-  // ====================================================
-  @action handleCardDrag = (event: DragEvent, index: number) => {
+  handleCardDrag = (event: DragEvent, index: number) => {
     const target = event.target as HTMLDivElement;
 
     const cardIndex = target.getAttribute("data-index");
@@ -82,7 +82,7 @@ export class PileModel {
     event.dataTransfer.setData("pileIndex", pileIndex);
   };
 
-  @action handleCardDrop = (
+  handleCardDrop = (
     event: DragEvent,
     index: number,
     onCardDrop?: TOnCardDropFn

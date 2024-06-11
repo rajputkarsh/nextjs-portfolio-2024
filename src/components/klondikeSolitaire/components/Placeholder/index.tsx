@@ -1,8 +1,13 @@
+"use client";
 import { DragEvent, FC, ReactNode } from "react";
 import { observer } from "mobx-react-lite";
 import styled from "styled-components";
 
-import { BORDER_RADIUS, CARD_HEIGHT, CARD_WIDTH } from "@/constants/klondikeSolitaire";
+import {
+  BORDER_RADIUS,
+  CARD_HEIGHT,
+  CARD_WIDTH,
+} from "@/constants/klondikeSolitaire";
 
 interface PlaceholderProps {
   children: ReactNode;

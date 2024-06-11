@@ -9,9 +9,6 @@ export interface CardModelProps {
 }
 
 export class CardModel {
-  // ====================================================
-  // Model
-  // ====================================================
   rank: RANK;
   suit: SUIT;
   isTurned: boolean;
@@ -24,9 +21,6 @@ export class CardModel {
     this.isTurned = isTurned;
   }
 
-  // ====================================================
-  // Computed
-  // ====================================================
   get key() {
     return `${this.rank}-${this.suit}`;
   }
@@ -35,9 +29,6 @@ export class CardModel {
     return [SUIT.CLUBS, SUIT.SPADES].includes(this.suit);
   }
 
-  // ====================================================
-  // Actions
-  // ====================================================
   reveal = () => {
     this.isTurned = true;
   };

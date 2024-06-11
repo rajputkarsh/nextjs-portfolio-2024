@@ -5,9 +5,6 @@ import { PileModel } from "./Pile.model";
 import { RANK, SUIT } from "@/constants/klondikeSolitaire";
 
 export class DeckModel {
-  // ====================================================
-  // Model
-  // ====================================================
   pile = new PileModel();
   pileTurned = new PileModel();
 
@@ -15,9 +12,6 @@ export class DeckModel {
     makeAutoObservable(this);
   }
 
-  // ====================================================
-  // Computed
-  // ====================================================
   get cardUnturned() {
     return this.pile.lastCard;
   }
@@ -26,9 +20,6 @@ export class DeckModel {
     return this.pileTurned.lastCard;
   }
 
-  // ====================================================
-  // Actions
-  // ====================================================
   createCards() {
     for (const rank of Object.values(RANK)) {
       for (const suit of Object.values(SUIT)) {

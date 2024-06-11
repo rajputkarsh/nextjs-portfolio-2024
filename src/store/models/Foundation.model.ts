@@ -1,5 +1,3 @@
-import { action, computed, override } from "mobx";
-
 import { CardModel } from "./Card.model";
 import { PileModel } from "./Pile.model";
 import { RANK, RANK_VALUES } from "@/constants/klondikeSolitaire";
@@ -7,14 +5,12 @@ import { DragEvent } from "react";
 import { TOnCardDropFn } from "@/interfaces/klonditeSolitaire";
 
 export class FoundationModel extends PileModel {
-  // ====================================================
-  // Computed
-  // ====================================================
-  @computed get isDone() {
+
+  get isDone() {
     return this.cards.length === RANK_VALUES.length;
   }
 
-  @override canAdd = (card: CardModel) => {
+  canAdd = (card: CardModel) => {
     if (!this.lastCard) {
       return card.rank === RANK.ACE;
     }
@@ -28,7 +24,7 @@ export class FoundationModel extends PileModel {
     return isSameSuit && isRankAbove;
   };
 
-  @action handleDrop = (
+  handleDrop = (
     event: DragEvent,
     index: number,
     onCardDrop?: TOnCardDropFn

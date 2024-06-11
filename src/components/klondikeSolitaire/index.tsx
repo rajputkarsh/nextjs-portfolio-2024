@@ -1,3 +1,5 @@
+'use client';
+
 import { observer } from "mobx-react-lite";
 import { useEffect } from "react";
 import { Flex } from "rebass";
@@ -62,11 +64,6 @@ const App = observer(() => {
           />
         ))}
       </Flex>
-
-      {/**
-       * This is a quick and dirty workaround to prevent cards flashing - all SVGs are downloaded ahead of time.
-       * In retrospect, using old school background-image sprite would be a better solution.
-       */}
       <HiddenCards>
         {deck.pile.cards.map((card) => (
           <Card key={card.key} card={card} isTurned />

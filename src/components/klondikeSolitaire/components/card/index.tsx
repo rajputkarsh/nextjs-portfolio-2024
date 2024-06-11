@@ -1,3 +1,4 @@
+"use client";
 import { FC, DragEvent } from "react";
 import { observer } from "mobx-react-lite";
 import styled, { css } from "styled-components";
