@@ -47,7 +47,7 @@ Use the following steps to get started with your project
 - [ ] WASM Support
 - [ ] API Response Caching
 - [ ] Pre commit hooks
-- [ ] Game Library
+- [ ] Card Games
 
 ### Please give it a star if you like it
 
