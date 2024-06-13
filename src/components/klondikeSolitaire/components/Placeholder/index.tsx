@@ -39,6 +39,6 @@ const Wrapper = styled.div`
   border-radius: ${BORDER_RADIUS};
   margin-bottom: 1vw;
   margin-right: 1vw;
-  background: #424242;
+  background: #181364;
   position: relative;
 `;

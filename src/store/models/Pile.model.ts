@@ -29,11 +29,7 @@ export class PileModel {
   };
 
   remove = (card: CardModel): void => {
-    this.cards = JSON.parse(
-      JSON.stringify(
-        this.cards.filter((c) => c.rank !== card.rank && c.suit !== card.suit)
-      )
-    );
+    this.cards.remove(card);
   };
 
   clear = () => {

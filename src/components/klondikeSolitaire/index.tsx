@@ -26,17 +26,21 @@ const KlonditeSolitaire = observer(() => {
 
   useEffect(initialize, [initialize]);
 
+  useEffect(() => {
+    if(hasWon) {
+
+    }
+  }, [hasWon]);
+
   return (
-    <div>
-      <Flex alignItems="center">
-        <h1>Solitaire</h1>
+    <div className="px-8">
+      <div className="flex flex-row justify-center gap-8 mb-4">
+        <h1 className="text-4xl font-bold">Solitaire</h1>
 
-        <button type="button" onClick={reset} style={{ marginLeft: 12 }}>
-          Reset
+        <button className="bg-[#181364] text-white px-4 rounded" type="button" onClick={reset}>
+          New Game
         </button>
-      </Flex>
-
-      {hasWon && <h1>Victory!</h1>}
+      </div>
 
       <Flex justifyContent="space-between">
         <Deck deck={deck} />
