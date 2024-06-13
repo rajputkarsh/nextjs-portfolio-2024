@@ -10,7 +10,10 @@ import { PileModel } from ".//models/Pile.model";
 const PILES_COUNT = 7;
 const FOUNDATIONS_COUNT = 4;
 
-class AppStore {
+class KlonditeSolitaireStore {
+  constructor() {
+    makeAutoObservable(this);
+  }
 
   deck = new DeckModel();
 
@@ -19,10 +22,6 @@ class AppStore {
   );
 
   piles = observable<PileModel>(times(PILES_COUNT).map(() => new PileModel()));
-
-  constructor() {
-    makeAutoObservable(this);
-  }
 
   get hasWon() {
     return this.foundations.every((foundation) => foundation.isDone);
@@ -132,7 +131,7 @@ class AppStore {
   };
 }
 
-const store = new AppStore();
+const store = new KlonditeSolitaireStore();
 const storeContext = createContext(store);
 const useStore = () => useContext(storeContext);
 

@@ -11,7 +11,7 @@ import { Deck } from "./components/Deck";
 import { Foundation } from "./components/Foundation";
 import { Pile } from "./components/Pile";
 
-const App = observer(() => {
+const KlonditeSolitaire = observer(() => {
   const {
     deck,
     foundations,
@@ -79,4 +79,4 @@ const HiddenCards = styled.div`
   opacity: 0.0001;
 `;
 
-export default App;
+export default KlonditeSolitaire;
