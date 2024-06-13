@@ -1,7 +1,7 @@
-'use client';
+"use client";
 
 import { observer } from "mobx-react-lite";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { Flex } from "rebass";
 import styled from "styled-components";
 
@@ -10,6 +10,7 @@ import { Card } from "./components/Card";
 import { Deck } from "./components/Deck";
 import { Foundation } from "./components/Foundation";
 import { Pile } from "./components/Pile";
+import YouWon from "../dialogs/YouWon";
 
 const KlonditeSolitaire = observer(() => {
   const {
@@ -26,18 +27,30 @@ const KlonditeSolitaire = observer(() => {
 
   useEffect(initialize, [initialize]);
 
-  useEffect(() => {
-    if(hasWon) {
+  const [showDialog, setShowDialog] = useState<boolean>(true);
 
+  const handleOnClose = (resetGame: boolean): void => {
+    if (resetGame) {
+      reset();
     }
-  }, [hasWon]);
+    setShowDialog(false);
+  };
+
+  const handleResetGame = () => {
+    reset();
+    setShowDialog(false);
+  };
 
   return (
     <div className="px-8">
       <div className="flex flex-row justify-center gap-8 mb-4">
         <h1 className="text-4xl font-bold">Solitaire</h1>
 
-        <button className="bg-[#181364] text-white px-4 rounded" type="button" onClick={reset}>
+        <button
+          className="bg-[#181364] text-white px-4 rounded"
+          type="button"
+          onClick={handleResetGame}
+        >
           New Game
         </button>
       </div>
@@ -73,6 +86,8 @@ const KlonditeSolitaire = observer(() => {
           <Card key={card.key} card={card} isTurned />
         ))}
       </HiddenCards>
+
+      {hasWon && showDialog ? <YouWon closeDialog={handleOnClose} /> : null}
     </div>
   );
 });
