@@ -49,6 +49,9 @@ Use the following steps to get started with your project
 - [ ] Pre commit hooks
 - [ ] Card Games
 
+##
 ### Please give it a star if you like it
+##
 
 ### Built with ❤️ by [Utkarsh](https://www.linkedin.com/in/utkarsh-rajput/)
+##
