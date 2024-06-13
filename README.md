@@ -47,7 +47,7 @@ Use the following steps to get started with your project
 - [ ] WASM Support
 - [ ] API Response Caching
 - [ ] Pre commit hooks
-- [ ] Card Games
+- [ ] Add loader icons when loading dynamic images from firebase
 
 ##
 ### Please give it a star if you like it
