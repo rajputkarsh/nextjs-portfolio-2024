@@ -3,14 +3,14 @@ import { PileModel } from "./Pile.model";
 import { RANK, RANK_VALUES } from "@/constants/klondikeSolitaire";
 import { DragEvent } from "react";
 import { TOnCardDropFn } from "@/interfaces/klonditeSolitaire";
+import { action, computed } from "mobx";
 
 export class FoundationModel extends PileModel {
-
-  get isDone() {
+  @computed get isDone() {
     return this.cards.length === RANK_VALUES.length;
   }
 
-  canAdd = (card: CardModel) => {
+  @action canAdd = (card: CardModel) => {
     if (!this.lastCard) {
       return card.rank === RANK.ACE;
     }
@@ -24,7 +24,7 @@ export class FoundationModel extends PileModel {
     return isSameSuit && isRankAbove;
   };
 
-  handleDrop = (
+  @action handleDrop = (
     event: DragEvent,
     index: number,
     onCardDrop?: TOnCardDropFn

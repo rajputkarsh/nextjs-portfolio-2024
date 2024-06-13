@@ -1,4 +1,4 @@
-import { makeAutoObservable } from "mobx";
+import { action, computed, IObservableArray, observable } from "mobx";
 import { DragEvent } from "react";
 
 import { CardModel } from "./Card.model";
@@ -6,33 +6,29 @@ import { RANK, RANK_VALUES } from "@/constants/klondikeSolitaire";
 import { TOnCardDropFn } from "@/interfaces/klonditeSolitaire";
 
 export class PileModel {
-  cards: Array<CardModel>;
+  cards = observable<CardModel>([]);
 
-  constructor() {
-    this.cards = new Array<CardModel>();
-  }
-
-  get hasCards() {
+  @computed get hasCards() {
     return this.cards.length > 0;
   }
 
-  get lastCard(): CardModel | undefined {
+  @computed get lastCard(): CardModel | undefined {
     return this.hasCards ? this.cards[this.cards.length - 1] : undefined;
   }
 
-  get firstCard(): CardModel | undefined {
+  @computed get firstCard(): CardModel | undefined {
     return this.hasCards ? this.cards[0] : undefined;
   }
 
-  add = (card: CardModel): void => {
+  @action add = (card: CardModel): void => {
     this.cards.push(card);
   };
 
-  pop = (): CardModel | undefined => {
+  @action pop = (): CardModel | undefined => {
     return this.cards.pop();
   };
 
-  remove = (card: CardModel): void => {
+  @action remove = (card: CardModel): void => {
     this.cards = JSON.parse(
       JSON.stringify(
         this.cards.filter((c) => c.rank !== card.rank && c.suit !== card.suit)
@@ -40,11 +36,11 @@ export class PileModel {
     );
   };
 
-  clear = () => {
-    this.cards = [];
+  @action clear = () => {
+    this.cards.clear();
   };
 
-  shuffle = () => {
+  @action shuffle = () => {
     for (let i = this.cards.length - 1; i > 0; i--) {
       let j = Math.floor(Math.random() * (i + 1));
 
@@ -54,7 +50,7 @@ export class PileModel {
     }
   };
 
-  canAdd = (card: CardModel) => {
+  @action canAdd = (card: CardModel) => {
     if (!this.lastCard) {
       return card.rank === RANK.KING;
     }
@@ -68,11 +64,11 @@ export class PileModel {
     return isColorDifferent && isRankBelow;
   };
 
-  revealLastCard = () => {
+  @action revealLastCard = () => {
     this.lastCard?.reveal();
   };
 
-  handleCardDrag = (event: DragEvent, index: number) => {
+  @action handleCardDrag = (event: DragEvent, index: number) => {
     const target = event.target as HTMLDivElement;
 
     const cardIndex = target.getAttribute("data-index");
@@ -82,7 +78,7 @@ export class PileModel {
     event.dataTransfer.setData("pileIndex", pileIndex);
   };
 
-  handleCardDrop = (
+  @action handleCardDrop = (
     event: DragEvent,
     index: number,
     onCardDrop?: TOnCardDropFn
