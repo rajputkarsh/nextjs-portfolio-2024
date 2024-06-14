@@ -33,6 +33,7 @@ function TileList({ list }: TileListProps) {
             className="mb-4 w-full max-h-40 object-contain m-auto"
             src={item.image}
             alt=""
+            priority
             width={400}
             height={400}
           />
