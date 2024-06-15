@@ -37,7 +37,7 @@ export default function AnimatedAvatar() {
         className="w-full h-full flex flex-row justify-center"
       >
         <div id="avatar-loading" className="mb-10">
-          <Fallback text={Math.round(DOWNLOAD_PERCENTAGE >= 100 ? 99 : DOWNLOAD_PERCENTAGE)</Fallback> ).toString()} />
+          <Fallback text={Math.round(DOWNLOAD_PERCENTAGE >= 100 ? 99 : DOWNLOAD_PERCENTAGE).toString()} />
         </div>
         {shouldShowHover ? <HoverContent text={HOVER_MODEL_TEXT} /> : null}
       </div>
