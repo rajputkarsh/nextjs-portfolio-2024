@@ -2,7 +2,7 @@ import Image from "next/image";
 import TypewriterComponent from "typewriter-effect";
 import CodingBoy from "@/assets/page/coding-boy.webp";
 
-const FALLBACK_TEXT = "Loading Something Awesome. {PROGRESS}% ";
+const FALLBACK_TEXT = "Loading Something Awesome. {PROGRESS} ";
 
 function Fallback({ text }: { text: string }) {
   return (
@@ -18,7 +18,7 @@ function Fallback({ text }: { text: string }) {
         {FALLBACK_TEXT.replace("{PROGRESS}", text)}
         <TypewriterComponent
           options={{
-            strings: ".",
+            strings: "%",
             autoStart: true,
             loop: true,
           }}
