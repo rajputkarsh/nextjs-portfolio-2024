@@ -29,6 +29,8 @@ export default function AnimatedAvatar() {
 
   const DOWNLOAD_PERCENTAGE = (downloadedBytes / TOTAL_DOWNLOAD_BYTES) * 100;
 
+  console.log(`progress - ${downloadedBytes} / ${TOTAL_DOWNLOAD_BYTES} - `, DOWNLOAD_PERCENTAGE);
+
   return (
     <>
       <div
