@@ -1,7 +1,7 @@
 import Image from "next/image";
 import CodingBoy from "@/assets/page/coding-boy.webp";
 
-const FALLBACK_TEXT = "Loading Something Awesome. {PROGRESS}";
+const FALLBACK_TEXT = "Loading Something Awesome. {PROGRESS} %";
 
 function Fallback({ text }: { text: string }) {
   return (
