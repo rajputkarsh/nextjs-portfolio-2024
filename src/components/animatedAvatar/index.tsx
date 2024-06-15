@@ -29,8 +29,6 @@ export default function AnimatedAvatar() {
 
   const DOWNLOAD_PERCENTAGE = (downloadedBytes / TOTAL_DOWNLOAD_BYTES) * 100;
 
-  console.log(`progress - ${downloadedBytes} / ${TOTAL_DOWNLOAD_BYTES} - `, DOWNLOAD_PERCENTAGE);
-
   return (
     <>
       <div
@@ -39,7 +37,7 @@ export default function AnimatedAvatar() {
         className="w-full h-full flex flex-row justify-center"
       >
         <div id="avatar-loading" className="mb-10">
-          <Fallback text={Math.round(DOWNLOAD_PERCENTAGE).toString()} />
+          <Fallback text={Math.round(DOWNLOAD_PERCENTAGE >= 100 ? 99 : DOWNLOAD_PERCENTAGE)</Fallback> ).toString()} />
         </div>
         {shouldShowHover ? <HoverContent text={HOVER_MODEL_TEXT} /> : null}
       </div>
