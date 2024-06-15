@@ -1,8 +1,7 @@
 import Image from "next/image";
-import TypewriterComponent from "typewriter-effect";
 import CodingBoy from "@/assets/page/coding-boy.webp";
 
-const FALLBACK_TEXT = "Loading Something Awesome. {PROGRESS} ";
+const FALLBACK_TEXT = "Loading Something Awesome. {PROGRESS}";
 
 function Fallback({ text }: { text: string }) {
   return (
@@ -16,13 +15,6 @@ function Fallback({ text }: { text: string }) {
       />
       <h3 className="mt-8 text-xl font-semibold flex justify-center flex-row gap-1">
         {FALLBACK_TEXT.replace("{PROGRESS}", text)}
-        <TypewriterComponent
-          options={{
-            strings: "%",
-            autoStart: true,
-            loop: true,
-          }}
-        />
       </h3>
     </>
   );
