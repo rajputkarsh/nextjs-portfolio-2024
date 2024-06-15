@@ -10,14 +10,19 @@ const PLANT_MODEL = "models/plant.glb";
 
 const IFRAME_URL = "models/laptop-screen.webp";
 
-export async function loadModel(callback: () => void) {
+export const TOTAL_DOWNLOAD_BYTES = 599909261;
+
+export async function loadModel(
+  callback: () => void,
+  progressCallback: (e: ProgressEvent) => void
+) {
   const loader = new GLTFLoader();
 
-  const avatar = await loader.loadAsync(AVATAR_MODEL);
-  const scandi = await loader.loadAsync(SCANDI_MODEL);
-  const coffee = await loader.loadAsync(COFFEE_MODEL);
-  const laptop = await loader.loadAsync(LAPTOP_MODEL);
-  const plant = await loader.loadAsync(PLANT_MODEL);
+  const avatar = await loader.loadAsync(AVATAR_MODEL, progressCallback);
+  const scandi = await loader.loadAsync(SCANDI_MODEL, progressCallback);
+  const coffee = await loader.loadAsync(COFFEE_MODEL, progressCallback);
+  const laptop = await loader.loadAsync(LAPTOP_MODEL, progressCallback);
+  const plant = await loader.loadAsync(PLANT_MODEL, progressCallback);
 
   callback();
   setupScene(avatar, scandi, coffee, laptop, plant);
