@@ -10,7 +10,7 @@ const PLANT_MODEL = "models/plant.glb";
 
 const IFRAME_URL = "models/laptop-screen.webp";
 
-export const TOTAL_DOWNLOAD_BYTES = 799909261;
+export const TOTAL_DOWNLOAD_BYTES = 599909261;
 
 export async function loadModel(
   callback: () => void,
