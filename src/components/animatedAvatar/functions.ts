@@ -10,14 +10,18 @@ const PLANT_MODEL = "models/plant.glb";
 
 const IFRAME_URL = "models/laptop-screen.webp";
 
+const _handleProgress = (model: string, e: ProgressEvent) => {
+  console.log(model, ' - ', e);
+}
+
 export async function loadModel(callback: () => void) {
   const loader = new GLTFLoader();
 
-  const avatar = await loader.loadAsync(AVATAR_MODEL);
-  const scandi = await loader.loadAsync(SCANDI_MODEL);
-  const coffee = await loader.loadAsync(COFFEE_MODEL);
-  const laptop = await loader.loadAsync(LAPTOP_MODEL);
-  const plant = await loader.loadAsync(PLANT_MODEL);
+  const avatar = await loader.loadAsync(AVATAR_MODEL, (e: ProgressEvent) => _handleProgress('avatar', e) );
+  const scandi = await loader.loadAsync(SCANDI_MODEL, (e: ProgressEvent) => _handleProgress('scandi', e) );
+  const coffee = await loader.loadAsync(COFFEE_MODEL, (e: ProgressEvent) => _handleProgress('coffee', e) );
+  const laptop = await loader.loadAsync(LAPTOP_MODEL, (e: ProgressEvent) => _handleProgress('laptop', e) );
+  const plant = await loader.loadAsync(PLANT_MODEL, (e: ProgressEvent) => _handleProgress('plant', e) );
 
   callback();
   setupScene(avatar, scandi, coffee, laptop, plant);
