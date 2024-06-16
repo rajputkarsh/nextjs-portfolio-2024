@@ -4,7 +4,7 @@ export interface Project {
   id: string;
   image: string;
   imageAlt: string;
-  index: string;
+  index: number;
   sourceUrl: string;
   status: string;
   title: string;

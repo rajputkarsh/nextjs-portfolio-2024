@@ -12,6 +12,8 @@ function OtherProject() {
   useEffect(() => {
     const fetchData = async () => {
       const data = await fetchOtherProjects();
+      data.sort((project1, project2) => project2.index - project1.index);
+      data.splice(0, 1);
       setOtherProjects(data);
     };
     fetchData();
