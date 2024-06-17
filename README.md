@@ -47,6 +47,7 @@ Use the following steps to get started with your project
 - [ ] WASM Support
 - [ ] API Response Caching
 - [ ] Pre commit hooks
+- [ ] Reusable carousel component with autoscroll
 - [ ] Latest Blogs carousel on homepage
 
 ##
