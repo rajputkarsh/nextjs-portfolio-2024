@@ -44,7 +44,7 @@ function GithubStats() {
   >(undefined);
 
   const getActivityLevel = (count: number): number => {
-    return count === 0 ? 0 : (Math.round(count / 5) + 1);  
+    return Math.min(count === 0 ? 0 : Math.round(count / 5) + 1, 4);
   };
 
   const getStreak = (
