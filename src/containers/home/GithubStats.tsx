@@ -49,9 +49,12 @@ function GithubStats() {
       level = 1;
     } else if (count >= 5 && count < 10) {
       level = 2;
-    } else {
+    } else if(count >=10 && count < 15) {
       level = 3;
+    } else {
+      level = 4;
     }
+      
 
     return level;
   };
