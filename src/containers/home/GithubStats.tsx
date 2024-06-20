@@ -21,8 +21,8 @@ interface GithubDayActivity {
 }
 
 const GITHUB_CALENDAR_THEME: ReactCalendarThemeInput = {
-  light: ["#ebedf0", "#9be9a8", "#40c463", "#30a14e", "#216e39", "#073E19"],
-  dark: ["#161b22", "#0e4429", "#006d32", "#26a641", "#39d353", "#3AE858"],
+  light: ["#ebedf0", "#9be9a8", "#40c463", "#30a14e", "#216e39"],
+  dark: ["#161b22", "#0e4429", "#006d32", "#26a641", "#39d353"],
 };
 
 const GITHUB_LABEL = {
@@ -44,7 +44,7 @@ function GithubStats() {
   >(undefined);
 
   const getActivityLevel = (count: number): number => {
-    return count === 0 ? 0 : (Math.round(count / 5) + 1);       
+    return count === 0 ? 0 : (Math.round(count / 5) + 1);  
   };
 
   const getStreak = (
