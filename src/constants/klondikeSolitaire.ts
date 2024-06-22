@@ -23,7 +23,6 @@ export enum SUIT {
   SPADES = "S",
 }
 
-// These could be defined in a theme for styled-components, but for this demo this should be enough
 export const CARD_WIDTH_NUM = 7;
 export const CARD_WIDTH = `${CARD_WIDTH_NUM}vw`;
 export const CARD_HEIGHT = `${CARD_WIDTH_NUM * (3 / 2)}vw`;
