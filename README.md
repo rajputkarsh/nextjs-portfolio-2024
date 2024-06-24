@@ -41,7 +41,6 @@ Use the following steps to get started with your project
 - [x] Caching github commit data
 
  ## Coming Soon
-- [ ] Update Icon and Photo 😵‍💫
 - [ ] Update ThreeJS code to react components (using React Three Fibre)
 - [ ] CMS for administrative actions
 - [ ] WASM Support
