@@ -42,7 +42,7 @@ Use the following steps to get started with your project
 
  ## Coming Soon
 - [ ] Update ThreeJS code to react components (using React Three Fibre)
-- [ ] CMS for administrative actions
+- [ ] Dynamic pages and data using server components and Firebase
 - [ ] WASM Support
 - [ ] API Response Caching
 - [ ] Pre commit hooks
