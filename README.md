@@ -44,6 +44,7 @@ Use the following steps to get started with your project
 - [ ] Update ThreeJS code to react components (using React Three Fibre)
 - [ ] Dynamic pages and data using server components and Firebase
 - [ ] WASM Support
+- [ ] BroadcastChannel implementation for multi-tab features
 - [ ] API Response Caching
 - [ ] Pre commit hooks
 - [ ] Reusable carousel component with autoscroll
