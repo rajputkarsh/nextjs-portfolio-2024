@@ -1,5 +1,5 @@
 # NextJS 14 (Typescript) based Developer Portfolio
-#### Checkout Demo [here](https://utkarshrajput.com/)
+#### Checkout Demo [here](https://utkarshrajput.com/) [(https://utkarshrajput.com/)](https://utkarshrajput.com/)
 
 ## Description
 This project is a NextJS 14 based portfolio PWA. It has all PWA capabilities such as offline fallback, service workers, installability, app shell, etc. 
