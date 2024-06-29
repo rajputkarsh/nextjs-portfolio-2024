@@ -41,6 +41,7 @@ Use the following steps to get started with your project
 - [x] Three.JS Components
 - [x] 3D Avatar with interactibility
 - [x] Caching github commit data
+- [x] Custom Dialog Boxes
 
  ## Coming Soon
 - [ ] Update ThreeJS code to react components (using React Three Fibre)
