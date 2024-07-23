@@ -80,7 +80,7 @@ const _saveStats = async (data: { [key: string]: number }): Promise<void> => {
   }
 };
 
-export const savePreviousStats = async () => {
+export const savePreviousStats = async (): Promise<{ [key: string]: number }> => {
   const commits: { [key: string]: number } = {};
   const perPageLimit = 100;
   let currentPage = 1;
