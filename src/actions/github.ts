@@ -44,7 +44,7 @@ const _getDates = () => {
   return { date1: date1String, date2: date2String };
 };
 
-const _saveStats = async (data: { [key: string]: number }): Promise<void> => {
+const _saveStats = async (data: { [key: string]: number }): Promise<boolean> => {
   try {
     const firebase = new Firebase(true);
 
@@ -75,12 +75,14 @@ const _saveStats = async (data: { [key: string]: number }): Promise<void> => {
         await firebase.saveDocument(COLLECTION_NAME, { date, commits });
       }
     }
+    return true;
   } catch (error) {
     console.log(`Error while saving github commits -- `, error);
+      return false;
   }
 };
 
-export const savePreviousStats = async (): Promise<{ [key: string]: number }> => {
+export const savePreviousStats = async (): Promise<{commits: { [key: string]: number }, saved: boolean}> => {
   const commits: { [key: string]: number } = {};
   const perPageLimit = 100;
   let currentPage = 1;
@@ -103,9 +105,9 @@ export const savePreviousStats = async (): Promise<{ [key: string]: number }> =>
     console.log(`error -- `, error);
   }
 
-  await _saveStats(commits);
+  const saved = await _saveStats(commits);
 
-  return commits;
+  return {commits, saved};
 };
 
 export const fetchStats = async () => {
