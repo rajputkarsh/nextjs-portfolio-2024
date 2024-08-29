@@ -202,7 +202,7 @@ export default function SnakeGame() {
         </div>
       )}
       <div className="mt-4 text-sm text-gray-600">
-        Use arrow keys to control the snake
+        Use arrow keys or swipe gestures to control the snake
       </div>
     </div>
   );
