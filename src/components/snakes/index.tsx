@@ -20,8 +20,9 @@ export default function SnakeGame() {
   const [snake, setSnake] = useState<Position[]>(INITIAL_SNAKE);
   const [direction, setDirection] = useState<Direction>(INITIAL_DIRECTION);
   const [food, setFood] = useState<Position>(INITIAL_FOOD);
-  const [gameOver, setGameOver] = useState(false);
+  const [gameOver, setGameOver] = useState(true);
   const [score, setScore] = useState(0);
+  const [initialGame, setInitialGame] = useState(1);
 
   const moveSnake = useCallback(() => {
     const newSnake = [...snake];
@@ -138,6 +139,10 @@ export default function SnakeGame() {
     generateFood(INITIAL_SNAKE);
     setGameOver(false);
     setScore(0);
+
+    if (initialGame) {
+      setInitialGame(0);
+    }
   };
 
   return (
@@ -156,8 +161,8 @@ export default function SnakeGame() {
         <div
           className="border-2 bg-gray-100 border-primary rounded-lg shadow-lg overflow-hidden"
           style={{
-            width: (GRID_SIZE * CELL_SIZE) + 5,
-            height: (GRID_SIZE * CELL_SIZE) + 5,
+            width: GRID_SIZE * CELL_SIZE + 5,
+            height: GRID_SIZE * CELL_SIZE + 5,
             maxWidth: "100vw",
             position: "relative",
             backgroundImage:
@@ -195,9 +200,11 @@ export default function SnakeGame() {
       </Swipe>
       {gameOver && (
         <div className="mt-4 text-center">
-          <p className="text-2xl font-bold mb-2 text-primary">Game Over!</p>
+          {!initialGame && (
+            <p className="text-2xl font-bold mb-2 text-primary">Game Over!</p>
+          )}
           <Button onClick={resetGame} className="bg-black mt-2">
-            Restart Game
+            {!initialGame ? "Restart Game" : "Start Game"}
           </Button>
         </div>
       )}
