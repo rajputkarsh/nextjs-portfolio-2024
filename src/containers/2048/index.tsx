@@ -7,7 +7,7 @@ import { pageView } from "@/utils/analyticsEvents";
 
 function Game2048Container() {
   useEffect(() => {
-    pageView("Play -  2048");
+    pageView("Play - Game 2048");
   }, []);
 
   return (
