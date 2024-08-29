@@ -7,7 +7,7 @@ import { pageView } from "@/utils/analyticsEvents";
 
 function GameSolitaireContainer() {
   useEffect(() => {
-    pageView("Game - Solitaire");
+    pageView("Play -  Solitaire");
   }, []);
 
   return (

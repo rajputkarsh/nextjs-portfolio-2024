@@ -7,7 +7,7 @@ import { motion } from "framer-motion";
 
 function TicTacToeContainer() {
   useEffect(() => {
-    pageView("Game - Tic Tac Toe");
+    pageView("Play -  Tic Tac Toe");
   }, []);
 
   return (

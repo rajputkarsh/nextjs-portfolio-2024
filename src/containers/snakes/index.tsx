@@ -7,7 +7,7 @@ import { motion } from "framer-motion";
 
 function SnakesContainer() {
   useEffect(() => {
-    pageView("Game - Snakes");
+    pageView("Play -  Snakes");
   }, []);
 
   return (
