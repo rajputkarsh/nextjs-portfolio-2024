@@ -6,10 +6,14 @@ import { pageView } from "@/utils/analyticsEvents";
 
 let deferredPrompt: any;
 const POPUP_TIME = 10;
+const FORBIDDEN_ROUTES = ["/games"];
+
 function PWAInstallHandler() {
   const [showDialog, setShowDialog] = useState<boolean>(false);
-  const [isInstalledPWA, setIsInstalledPWA] = useState<boolean>(false); 
-  const [isAlreadyShownDialog, setIsAlreadyShownDialog] = useState<boolean>(false); 
+  const [isForbiddenRoute, setIsForbiddenRoute] = useState<boolean>(false);
+  const [isInstalledPWA, setIsInstalledPWA] = useState<boolean>(false);
+  const [isAlreadyShownDialog, setIsAlreadyShownDialog] =
+    useState<boolean>(false);
 
   const handler = (e: Event) => {
     e.preventDefault();
@@ -18,13 +22,22 @@ function PWAInstallHandler() {
 
   useEffect(() => {
     window.addEventListener("beforeinstallprompt", handler);
-    setIsInstalledPWA(() => window.matchMedia(
-    "(display-mode: standalone)"
-  ).matches);
-  setIsAlreadyShownDialog(() => window.localStorage.getItem("installDialogShown") == '1')
+    setIsInstalledPWA(
+      () => window.matchMedia("(display-mode: standalone)").matches
+    );
+    setIsAlreadyShownDialog(
+      () => window.localStorage.getItem("installDialogShown") == "1"
+    );
     setTimeout(() => {
       setShowDialog(true);
     }, POPUP_TIME * 1000);
+
+    for (let route of FORBIDDEN_ROUTES) {
+      if (window.location.pathname.includes(route)) {
+        setIsForbiddenRoute(() => true);
+        break;
+      }
+    }
 
     return () => {
       window.removeEventListener("beforeinstallprompt", handler);
@@ -35,7 +48,7 @@ function PWAInstallHandler() {
     if (deferredPrompt) {
       const { outcome } = await deferredPrompt.prompt();
       if (outcome === "accepted") {
-        pageView('PWA Installed');
+        pageView("PWA Installed");
       }
       closeDialog();
     }
@@ -45,7 +58,7 @@ function PWAInstallHandler() {
     setShowDialog(false);
   };
 
-  if (showDialog && !isAlreadyShownDialog && !isInstalledPWA) {
+  if (showDialog && !isAlreadyShownDialog && !isInstalledPWA && !isForbiddenRoute) {
     return (
       <InstallPWADialog installPWA={installPWA} closeDialog={closeDialog} />
     );
