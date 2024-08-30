@@ -60,7 +60,7 @@ const config = {
     "bg-yellow-600",
     "bg-yellow-700",
     "bg-yellow-800",
-    "text-brown-50",
+    "text-orange-950",
     "text-grey-800",
     "hover:bg-purple-600",
     "hover:bg-red-500",

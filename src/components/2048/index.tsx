@@ -29,7 +29,6 @@ function Game2048() {
   const addNumber = (newGrid: Grid): void => {
     let added = false;
     let gridFull = false;
-    let attempts = 0;
     while (!added) {
       if (gridFull) {
         break;
@@ -37,17 +36,9 @@ function Game2048() {
 
       let rand1 = Math.floor(Math.random() * 4);
       let rand2 = Math.floor(Math.random() * 4);
-      attempts++;
       if (newGrid[rand1][rand2] === 0) {
         newGrid[rand1][rand2] = Math.random() > 0.5 ? 2 : 4;
         added = true;
-      }
-      if (attempts > 50) {
-        gridFull = true;
-        let gameOver = checkIfGameOver();
-        if (gameOver) {
-          alert(config.gameOver);
-        }
       }
     }
   };
@@ -309,16 +300,16 @@ function Game2048() {
         </div>
         <div className="relative w-full md:w-max h-max bg-brown-200 m-auto p-2 rounded-md mt-4">
           {gameOver && (
-            <div className="absolute w-full h-full left-0 top-0 rounded-md bg-[rgba(238,228,218,0.5)] flex justify-center items-center">
+            <div className="z-50 absolute w-full h-full left-0 top-0 rounded-md bg-[rgba(238,228,218,0.5)] flex justify-center items-center">
               <div>
-                <div className="text-3xl font-bold text-grey-700">
+                <div className="text-3xl font-bold text-black">
                   {config.gameOver}
                 </div>
                 <div>
                   <div className="flex-1 mt-auto">
                     <div
                       onClick={resetGame}
-                      className="p-2.5 bg-brown-200 text-brown-50 w-20 rounded-lg font-bold cursor-pointer m-auto mt-5"
+                      className="p-2.5 text-center bg-brown-200 text-brown-50 w-30 rounded-lg font-bold cursor-pointer m-auto mt-5 text-slate-700"
                     >
                       Try Again
                     </div>
