@@ -24,6 +24,17 @@ export default function AnimatedAvatar() {
     loadModel(handleModelRendered, handleProgress);
   }, []);
 
+  useEffect(() => {
+    if(hoverRef.current) {
+      const canvasElements = hoverRef.current.querySelectorAll('canvas');
+
+      if(canvasElements.length > 1) {
+        canvasElements[0].remove();
+      }
+
+    }
+  }, [hoverRef.current])
+
   const shouldShowHover =
     isHovered === true && isModelRendered === true && window.innerWidth > 800;
 
