@@ -41,7 +41,7 @@ export default {
   availablegames: "Available Games",
   playTicTacToe: "Play Tic Tac Toe",
   gameDescriptionLines: [
-    "Reached Here? Lets play rome refreshing games to reset our minds.",
+    "Reached Here? Lets play some refreshing games to reset our minds.",
     "Below given are some mind blowing games that you can try.",
   ],
   newGame: "NEW GAME",
