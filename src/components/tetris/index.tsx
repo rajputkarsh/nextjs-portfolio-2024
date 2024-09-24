@@ -309,15 +309,19 @@ export default function TetrisGame() {
               <div className="text-white text-2xl font-bold">Game Over</div>
             </div>
           )}
-        </div>  
-      </Swipe>      
+        </div>
+      </Swipe>
       <div className="mt-4 space-x-4">
         {!isPlaying && !gameOver && (
           <Button className="bg-black mt-2" onClick={startGame}>
             Start Game
           </Button>
         )}
-        {isPlaying && <Button onClick={pauseGame}>Pause</Button>}
+        {isPlaying && (
+          <Button className="bg-black mt-2" onClick={pauseGame}>
+            Reset
+          </Button>
+        )}
         {!isPlaying && gameOver && (
           <Button className="bg-black mt-2" onClick={startGame}>
             Play Again
