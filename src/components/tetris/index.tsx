@@ -227,7 +227,11 @@ export default function TetrisGame() {
   }, [clearedLines]);
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100">
+    <div className="flex flex-col items-center justify-center">
+      <h1 className="text-4xl font-bold mb-4 text-primary">Snake Game</h1>
+      <div className="mb-4 text-xl font-semibold text-primary">
+        Score: {score}
+      </div>
       <div className="bg-white p-4 rounded-lg shadow-lg">
         <div className="relative">
           <div className="grid grid-cols-10 bg-gray-200">
@@ -281,7 +285,6 @@ export default function TetrisGame() {
           </div>
         )}
       </div>
-      <div className="mt-4 text-xl font-bold">Score: {score}</div>
       <div className="mt-4 space-x-4">
         {!isPlaying && !gameOver && (
           <Button className="bg-black mt-2" onClick={startGame}>
