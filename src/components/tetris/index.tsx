@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useEffect, useCallback } from "react";
+import Swipe from "react-easy-swipe";
 import { motion } from "framer-motion";
 import { Button } from "rebass";
 
@@ -195,6 +196,23 @@ export default function TetrisGame() {
     return [newBoard, clearedLines];
   };
 
+  const handleSwipe = (direction: "UP" | "DOWN" | "LEFT" | "RIGHT") => {
+    switch (direction) {
+      case "UP":
+        rotate();
+        break;
+      case "DOWN":
+        moveDown();
+        break;
+      case "LEFT":
+        moveHorizontally(-1);
+        break;
+      case "RIGHT":
+        moveHorizontally(1);
+        break;
+    }
+  };
+
   useEffect(() => {
     if (!isPlaying) return;
     const handleKeyPress = (e: KeyboardEvent) => {
@@ -232,59 +250,67 @@ export default function TetrisGame() {
       <div className="mb-4 text-xl font-semibold text-primary">
         Score: {score}
       </div>
-      <div className="bg-white p-4 rounded-lg shadow-lg">
-        <div className="relative">
-          <div className="grid grid-cols-10 bg-gray-200">
-            {board.map((row, y) =>
-              row.map((cell, x) => (
-                <motion.div
-                  key={`${y}-${x}`}
-                  className={`box-border border border-1 w-6 h-6 ${
-                    cell ? `bg-${cell}-500` : "bg-gray-100"
-                  }`}
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  transition={{ duration: 0.3 }}
-                />
-              ))
-            )}
-            {isPlaying &&
-              currentPiece.tetromino.shape.map((row, y) =>
-                row.map(
-                  (cell, x) =>
-                    cell !== 0 && (
-                      <motion.div
-                        key={`piece-${y}-${x}`}
-                        className={`w-6 h-6 box-border border border-1 absolute bg-${currentPiece.tetromino.color}-500`}
-                        style={{
-                          left: `${(currentPiece.position.x + x) * 1.5}rem`,
-                          top: `${(currentPiece.position.y + y) * 1.5}rem`,
-                        }}
-                        initial={{ opacity: 0, y: -30 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.3 }}
-                      />
-                    )
-                )
+      <Swipe
+        onSwipeDown={() => handleSwipe("DOWN")}
+        onSwipeLeft={() => handleSwipe("LEFT")}
+        onSwipeRight={() => handleSwipe("RIGHT")}
+        onSwipeUp={() => handleSwipe("UP")}
+        className="overflow-y-hidden"
+      >
+        <div className="bg-white p-4 rounded-lg shadow-lg">
+          <div className="relative">
+            <div className="grid grid-cols-10 bg-gray-200">
+              {board.map((row, y) =>
+                row.map((cell, x) => (
+                  <motion.div
+                    key={`${y}-${x}`}
+                    className={`box-border border border-1 w-6 h-6 ${
+                      cell ? `bg-${cell}-500` : "bg-gray-100"
+                    }`}
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ duration: 0.3 }}
+                  />
+                ))
               )}
-            {clearedLines.map((line) => (
-              <motion.div
-                key={`clear-${line}`}
-                className="absolute left-0 right-0 bg-white"
-                style={{ top: `${line * 1.5}rem`, height: "1.5rem" }}
-                initial={{ scaleX: 1 }}
-                animate={{ scaleX: 0 }}
-                transition={{ duration: 0.5 }}
-              />
-            ))}
+              {isPlaying &&
+                currentPiece.tetromino.shape.map((row, y) =>
+                  row.map(
+                    (cell, x) =>
+                      cell !== 0 && (
+                        <motion.div
+                          key={`piece-${y}-${x}`}
+                          className={`w-6 h-6 box-border border border-1 absolute bg-${currentPiece.tetromino.color}-500`}
+                          style={{
+                            left: `${(currentPiece.position.x + x) * 1.5}rem`,
+                            top: `${(currentPiece.position.y + y) * 1.5}rem`,
+                          }}
+                          initial={{ opacity: 0, y: -30 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          transition={{ duration: 0.3 }}
+                        />
+                      )
+                  )
+                )}
+              {clearedLines.map((line) => (
+                <motion.div
+                  key={`clear-${line}`}
+                  className="absolute left-0 right-0 bg-white"
+                  style={{ top: `${line * 1.5}rem`, height: "1.5rem" }}
+                  initial={{ scaleX: 1 }}
+                  animate={{ scaleX: 0 }}
+                  transition={{ duration: 0.5 }}
+                />
+              ))}
+            </div>
           </div>
-        </div>
-        {gameOver && (
-          <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50">
-            <div className="text-white text-2xl font-bold">Game Over</div>
-          </div>
-        )}
-      </div>
+          {gameOver && (
+            <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50">
+              <div className="text-white text-2xl font-bold">Game Over</div>
+            </div>
+          )}
+        </div>  
+      </Swipe>      
       <div className="mt-4 space-x-4">
         {!isPlaying && !gameOver && (
           <Button className="bg-black mt-2" onClick={startGame}>
@@ -304,7 +330,7 @@ export default function TetrisGame() {
         )}
       </div>
       <div className="mt-4 text-sm text-gray-600">
-        Use arrow keys to move and rotate the pieces
+        Use arrow keys or swipe gestures to move and rotate the pieces
       </div>
     </div>
   );
