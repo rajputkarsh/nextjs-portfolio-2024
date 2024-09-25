@@ -246,7 +246,7 @@ export default function TetrisGame() {
 
   return (
     <div className="flex flex-col items-center justify-center">
-      <h1 className="text-4xl font-bold mb-4 text-primary">Snake Game</h1>
+      <h1 className="text-4xl font-bold mb-4 text-primary">Tetris</h1>
       <div className="mb-4 text-xl font-semibold text-primary">
         Score: {score}
       </div>
@@ -258,7 +258,7 @@ export default function TetrisGame() {
         className="overflow-y-hidden"
       >
         <div className="bg-white p-4 rounded-lg shadow-lg">
-          <div className="relative">
+          <div>
             <div className="grid grid-cols-10 bg-gray-200">
               {board.map((row, y) =>
                 row.map((cell, x) => (
