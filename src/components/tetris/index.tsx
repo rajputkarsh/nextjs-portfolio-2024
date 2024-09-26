@@ -136,6 +136,7 @@ export default function TetrisGame() {
     };
     if (!collision(rotated, board, { x: 0, y: 0 })) {
       setCurrentPiece(rotated);
+      moveDown();
     }
   };
 
@@ -246,8 +247,10 @@ export default function TetrisGame() {
 
   return (
     <div className="flex flex-col items-center justify-center">
-      <h1 className="text-4xl font-bold mb-4 text-primary">Tetris</h1>
-      <div className="mb-4 text-xl font-semibold text-primary">
+      {window.innerWidth > 1000 ? (
+          <h1 className="text-4xl font-bold mb-4 text-primary">Tetris</h1>
+      ) : null}
+      <div className="mb-2 text-xl font-semibold text-primary">
         Score: {score}
       </div>
       <Swipe
@@ -257,8 +260,8 @@ export default function TetrisGame() {
         onSwipeUp={() => handleSwipe("UP")}
         className="overflow-y-hidden"
       >
-        <div className="bg-white p-4 rounded-lg shadow-lg">
-          <div>
+        <div className="bg-white p-2 rounded-lg shadow-lg">
+          <div className="relative">
             <div className="grid grid-cols-10 bg-gray-200">
               {board.map((row, y) =>
                 row.map((cell, x) => (
@@ -305,8 +308,13 @@ export default function TetrisGame() {
             </div>
           </div>
           {gameOver && (
-            <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50">
-              <div className="text-white text-2xl font-bold">Game Over</div>
+            <div className="absolute inset-0 flex flex-col gap-2 items-center justify-center h-screen mt-[-3rem] bg-black bg-opacity-50">
+              <div className="text-white text-2xl font-bold">Game Over</div>{" "}
+              {!isPlaying && (
+                <Button className="bg-black mt-2" onClick={startGame}>
+                  Play Again
+                </Button>
+              )}
             </div>
           )}
         </div>
@@ -322,19 +330,12 @@ export default function TetrisGame() {
             Reset
           </Button>
         )}
-        {!isPlaying && gameOver && (
-          <Button className="bg-black mt-2" onClick={startGame}>
-            Play Again
-          </Button>
-        )}
+
         {!isPlaying && !gameOver && score > 0 && (
           <Button className="bg-black mt-2" onClick={resumeGame}>
             Resume
           </Button>
         )}
-      </div>
-      <div className="mt-4 text-sm text-gray-600">
-        Use arrow keys or swipe gestures to move and rotate the pieces
       </div>
     </div>
   );
