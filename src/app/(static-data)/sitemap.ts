@@ -57,6 +57,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.8,
     },
     {
+      url: "https://utkarshrajput.com/games/minesweeper",
+      lastModified: new Date(),
+      changeFrequency: "monthly",
+      priority: 0.8,
+    },
+    {
       url: "https://blogs.utkarshrajput.com",
       lastModified: new Date(),
       changeFrequency: "monthly",
