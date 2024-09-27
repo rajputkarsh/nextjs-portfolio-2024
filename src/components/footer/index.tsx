@@ -4,7 +4,7 @@ import config from "@/constants/config";
 
 function Footer() {
   return (
-    <footer className="text-md font-semibold mt-12 mb-2 flex  flex-row justify-center ">
+    <footer className="text-md font-semibold mt-8 mb-2 flex  flex-row justify-center ">
       Built with
       <span className="px-1">❤️</span>
       by

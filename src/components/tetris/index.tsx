@@ -247,9 +247,13 @@ export default function TetrisGame() {
 
   return (
     <div className="flex flex-col items-center justify-center">
-      <div className="mb-2 text-xl font-semibold text-primary">
-        Score: {score}
-      </div>
+      {" "}
+      {window.innerWidth > 1000 ? (
+        <div className="flex gap-12 justify-between mb-1 text-2xl text-primary">
+          <h1 className="font-bold">Tetris</h1>
+          <span className="font-semibold"> Score: {score}</span>
+        </div>
+      ) : null}
       <Swipe
         onSwipeDown={() => handleSwipe("DOWN")}
         onSwipeLeft={() => handleSwipe("LEFT")}
