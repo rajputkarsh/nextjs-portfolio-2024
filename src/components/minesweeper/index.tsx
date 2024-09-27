@@ -212,7 +212,7 @@ export default function Minesweeper({
       {gameStatus !== "playing" && (
         <div className="absolute inset-0 flex flex-col gap-2 items-center justify-center h-screen mt-[-3rem] bg-black bg-opacity-50">
           <div
-            className={`mt-4 text-2xl font-bold ${
+            className={`px-2 py-1 bg-white rounded-lg mt-4 text-2xl font-bold ${
               gameStatus === "won" ? "text-green-600" : "text-red-600"
             }`}
           >
