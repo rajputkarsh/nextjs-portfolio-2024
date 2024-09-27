@@ -44,6 +44,7 @@ Use the following steps to get started with your project
 - [x] Custom Dialog Boxes
 
  ## Coming Soon
+- [ ] CMS Driven Content
 - [ ] CronJob setup
 - [ ] Update ThreeJS code to react components (using React Three Fibre)
 - [ ] Dynamic pages and data using server components and Firebase
