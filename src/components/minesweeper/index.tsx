@@ -176,7 +176,6 @@ export default function Minesweeper({
 
   return (
     <div className="flex flex-col items-center justify-center ">
-      <h1 className="text-4xl font-bold mb-4">Minesweeper</h1>
       <div className="my-4 flex px-4 justify-between w-full max-w-md">
         <Button className="bg-black mt-2" onClick={initializeGame}>
           New Game
@@ -211,12 +210,17 @@ export default function Minesweeper({
         ))}
       </div>
       {gameStatus !== "playing" && (
-        <div
-          className={`mt-4 text-2xl font-bold ${
-            gameStatus === "won" ? "text-green-600" : "text-red-600"
-          }`}
-        >
-          {gameStatus === "won" ? "You Won!" : "Game Over!"}
+        <div className="absolute inset-0 flex flex-col gap-2 items-center justify-center h-screen mt-[-3rem] bg-black bg-opacity-50">
+          <div
+            className={`mt-4 text-2xl font-bold ${
+              gameStatus === "won" ? "text-green-600" : "text-red-600"
+            }`}
+          >
+            {gameStatus === "won" ? "You Won!" : "Game Over!"}
+          </div>
+          <Button className="bg-black mt-2" onClick={initializeGame}>
+            Play Again
+          </Button>
         </div>
       )}
     </div>

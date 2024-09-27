@@ -247,9 +247,6 @@ export default function TetrisGame() {
 
   return (
     <div className="flex flex-col items-center justify-center">
-      {window.innerWidth > 1000 ? (
-          <h1 className="text-4xl font-bold mb-4 text-primary">Tetris</h1>
-      ) : null}
       <div className="mb-2 text-xl font-semibold text-primary">
         Score: {score}
       </div>
