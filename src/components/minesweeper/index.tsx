@@ -176,6 +176,7 @@ export default function Minesweeper({
 
   return (
     <div className="flex flex-col items-center justify-center ">
+      <h1 className="text-2xl font-bold">Minesweeper</h1>
       <div className="my-4 flex px-4 justify-between w-full max-w-md">
         <Button className="bg-black mt-2" onClick={initializeGame}>
           New Game
@@ -183,7 +184,7 @@ export default function Minesweeper({
         <div className="text-xl font-bold">Flags left: {flagsLeft}</div>
       </div>
       <div
-        className="bg-white p-4 rounded-lg shadow-lg"
+        className="bg-white p-3 rounded-lg shadow-lg"
         onContextMenu={(e) => e.preventDefault()}
       >
         {grid.map((row, rowIndex) => (
@@ -192,7 +193,7 @@ export default function Minesweeper({
               <button
                 key={`${rowIndex}-${colIndex}`}
                 className={`${
-                  window.innerWidth > 1000 ? "w-12 h-12" : "w-7 h-7"
+                  window.innerWidth > 1000 ? "w-11 h-11" : "w-7 h-7"
                 } border border-gray-300 flex items-center justify-center font-bold ${getCellColor(
                   cell
                 )}`}
