@@ -124,7 +124,7 @@ export default function TetrisGame() {
         position: { ...prev.position, x: prev.position.x + direction },
       }));
     }
-    setTimeout(moveDown, 400);
+    moveDown();
   };
 
   const rotate = () => {
@@ -137,7 +137,7 @@ export default function TetrisGame() {
     };
     if (!collision(rotated, board, { x: 0, y: 0 })) {
       setCurrentPiece(rotated);
-      setTimeout(moveDown, 400);
+      moveDown();
     }
   };
 
