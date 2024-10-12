@@ -124,6 +124,7 @@ export default function TetrisGame() {
         position: { ...prev.position, x: prev.position.x + direction },
       }));
     }
+    moveDown();
   };
 
   const rotate = () => {
