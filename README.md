@@ -55,6 +55,7 @@ Use the following steps to get started with your project
 - [ ] Reusable carousel component with autoscroll
 - [ ] Latest Blogs carousel on homepage
 - [ ] Update existing project statuses and metadata
+- [ ] SEO Optimization & Data collection
 
 ##
 ### Please give it a star if you like it
