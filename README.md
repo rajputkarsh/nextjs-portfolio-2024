@@ -45,7 +45,7 @@ Use the following steps to get started with your project
 
  ## Coming Soon
 - [ ] CMS Driven Content
-- [ ] CronJob setup
+- [ ] CronJob setup (configurable EC2 endpoints)
 - [ ] Update ThreeJS code to react components (using React Three Fibre)
 - [ ] Dynamic pages and data using server components and Firebase
 - [ ] WASM Support
