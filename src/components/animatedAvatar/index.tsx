@@ -21,7 +21,9 @@ export default function AnimatedAvatar() {
   };
 
   useEffect(() => {
-    loadModel(handleModelRendered, handleProgress);
+    setTimeout(() => {
+      loadModel(handleModelRendered, handleProgress);
+    }, 500)
   }, []);
 
   useEffect(() => {
