@@ -5,7 +5,7 @@ import InstallPWADialog from "../dialogs/InstallPWA";
 import { pageView } from "@/utils/analyticsEvents";
 
 let deferredPrompt: any;
-const POPUP_TIME = 10;
+const POPUP_TIME = 20;
 const FORBIDDEN_ROUTES = ["/games"];
 
 function PWAInstallHandler() {
