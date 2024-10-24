@@ -44,6 +44,7 @@ Use the following steps to get started with your project
 - [x] Custom Dialog Boxes
 
  ## Coming Soon
+- [ ] Structured Data (SEO)
 - [ ] CMS Driven Content
 - [ ] CronJob setup (configurable EC2 endpoints)
 - [ ] Update ThreeJS code to react components (using React Three Fibre)
