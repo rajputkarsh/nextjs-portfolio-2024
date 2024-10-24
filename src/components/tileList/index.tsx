@@ -23,7 +23,7 @@ function TileList({ list }: TileListProps) {
           target="_blank"
         >
           <h4
-            className={`text-theme-color font-semibold text:lg md:text-xl mb-2 ${
+            className={`text-theme-color font-semibold text-lg md:text-xl mb-2 ${
               shouldAddHeight ? 'md:h-[3rem]' : ''
             }`}
           >
@@ -37,7 +37,7 @@ function TileList({ list }: TileListProps) {
             width={400}
             height={400}
           />
-          <p className="text:lg md:text-xl">{item.body}</p>
+          <p className="text-lg md:text-xl text-justify">{item.body}</p>
         </Link>
       ))}
     </>
