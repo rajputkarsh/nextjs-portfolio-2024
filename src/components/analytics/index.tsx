@@ -5,6 +5,7 @@ function Analytics() {
     <>
       <Script
         async
+        strategy="afterInteractive"
         src={`https://www.googletagmanager.com/gtag/js?id=${process.env.GOOGLE_ANALYTICS_MEASUREMENT_ID}`}
       />
       <Script id="google-analytics">
