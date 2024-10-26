@@ -12,7 +12,7 @@ export interface PersonSchema {
   jobTitle: string;
   description: string;
   image: string;
-  sameAs: string[];
+  sameAs: Array<string>;
   url: string;
 }
 
@@ -31,15 +31,15 @@ export interface ProjectSchema {
   "@type": "SoftwareSourceCode";
   name: string;
   description: string;
-  programmingLanguage: string[];
+  programmingLanguage: Array<string>;
   codeRepository: string;
-  url: string;
+  url?: string;
 }
 
 export interface ItemListSchema {
   "@type": "ItemList";
   "@id": string;
-  itemListElement: ProjectSchema[];
+  itemListElement: Array<ProjectSchema | GameSchema>;
 }
 
 export interface ProfilePageSchema {
@@ -55,10 +55,7 @@ export interface ProfilePageSchema {
 
 export interface PortfolioSchema {
   "@context": "https://schema.org";
-  "@graph": (
-    | PersonSchema
-    | WebsiteSchema
-    | ItemListSchema
-    | ProfilePageSchema
-  )[];
+  "@graph": Array<
+    PersonSchema | WebsiteSchema | ItemListSchema | ProfilePageSchema
+  >;
 }
