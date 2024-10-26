@@ -31,7 +31,7 @@ function TileList({ list, centerText }: TileListProps) {
             {item.title}
           </h4>
           <Image
-            className="mt-2 mb-4 w-full max-h-44 object-contain m-auto"
+            className="mb-4 w-full max-h-44 object-contain m-auto"
             src={item.image}
             alt=""
             priority
