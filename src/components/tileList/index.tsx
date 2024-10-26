@@ -39,7 +39,9 @@ function TileList({ list, centerText }: TileListProps) {
             height={400}
           />
           <p
-            className={`text-md md:text-lg${centerText ? " text-justify" : ""}`}
+            className={`text-md ${
+              centerText ? "text-justify" : "md:text-lg"
+            }`}
           >
             {item.body}
           </p>
