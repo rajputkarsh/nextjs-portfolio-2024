@@ -1,5 +1,6 @@
 import GoogleAnalytics from "./GoogleAnalytics";
 import Hotjar from "./Hotjar";
+import SchemaMarkup from "./SchemaMarkup";
 import Tags from "./Tags";
 
 function Header() {
@@ -8,6 +9,7 @@ function Header() {
     <Tags />
     <GoogleAnalytics />
     <Hotjar />
+    <SchemaMarkup />
     </>
   );
 }
