@@ -25,7 +25,7 @@ function GameList() {
 
       {gameList ? (
         <div className="w-full flex flex-row flex-wrap justify-center gap-4 px-8 md:px-16">
-          <TileList list={gameList} />
+          <TileList centerText={true} list={gameList} />
         </div>
       ) : (
         <Image

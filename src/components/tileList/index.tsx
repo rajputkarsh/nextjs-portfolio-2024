@@ -5,12 +5,13 @@ import Link from 'next/link';
 
 interface TileListProps {
   list: Array<Game | Project>;
+  centerText: boolean;
 }
 
 const isGame = (data: Game | Project): data is Game => 'url' in data;
 const isProject = (data: Game | Project): data is Project => 'demoUrl' in data;
 
-function TileList({ list }: TileListProps) {
+function TileList({ list, centerText }: TileListProps) {
   const shouldAddHeight =
     list.filter((data) => data.title.length >= 16).length > 0 ? true : false;
   return (
@@ -30,14 +31,18 @@ function TileList({ list }: TileListProps) {
             {item.title}
           </h4>
           <Image
-            className="mb-4 w-full max-h-40 object-contain m-auto"
+            className="mt-2 mb-4 w-full max-h-40 object-contain m-auto"
             src={item.image}
             alt=""
             priority
             width={400}
             height={400}
           />
-          <p className="text-md md:text-lg text-justify">{item.body}</p>
+          <p
+            className={`text-md md:text-lg${centerText ? " text-justify" : ""}`}
+          >
+            {item.body}
+          </p>
         </Link>
       ))}
     </>
