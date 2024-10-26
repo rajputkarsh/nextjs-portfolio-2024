@@ -24,14 +24,14 @@ function TileList({ list, centerText }: TileListProps) {
           target="_blank"
         >
           <h4
-            className={`text-theme-color font-semibold text-xl md:text-2xl mb-2 ${
+            className={`text-theme-color font-semibold ${isProject(item) ? "text-lg md:text-xl" : "text-xl md:text-2xl"} mb-2 ${
               shouldAddHeight ? "md:h-[3rem]" : ""
             }`}
           >
             {item.title}
           </h4>
           <Image
-            className="mt-2 mb-4 w-full max-h-40 object-contain m-auto"
+            className="mt-2 mb-4 w-full max-h-44 object-contain m-auto"
             src={item.image}
             alt=""
             priority
