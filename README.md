@@ -42,9 +42,9 @@ Use the following steps to get started with your project
 - [x] 3D Avatar with interactibility
 - [x] Caching github commit data
 - [x] Custom Dialog Boxes
+- [x] Structured Data a.k.a Schema Markup for better SEO
 
  ## Coming Soon
-- [ ] Structured Data (SEO)
 - [ ] CMS Driven Content
 - [ ] CronJob setup (configurable EC2 endpoints)
 - [ ] Update ThreeJS code to react components (using React Three Fibre)
