@@ -41,8 +41,8 @@ function TileList({ list, centerText }: TileListProps) {
           <p
             className={` ${
               centerText
-                ? "text-md md:text-lg text-justify"
-                : "text-sm md:text-md"
+                ? "text-sm md:text-md text-justify"
+                : "text-md md:text-lg"
             }`}
           >
             {item.body}
