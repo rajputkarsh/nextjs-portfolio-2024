@@ -14,15 +14,17 @@ const INITIAL_FOOD: Position = { x: 15, y: 15 };
 const GAME_SPEED = 100;
 
 export default function SnakeGame() {
-  const CELL_SIZE =
-    (window.innerWidth > 400 ? 400 : window.innerWidth) / GRID_SIZE;
 
+  const [innerWidth, setInnerWidth] = useState<number>(0);
   const [snake, setSnake] = useState<Position[]>(INITIAL_SNAKE);
   const [direction, setDirection] = useState<Direction>(INITIAL_DIRECTION);
   const [food, setFood] = useState<Position>(INITIAL_FOOD);
   const [gameOver, setGameOver] = useState(true);
   const [score, setScore] = useState(0);
   const [initialGame, setInitialGame] = useState(1);
+  
+  const CELL_SIZE =
+    (innerWidth > 400 ? 400 : innerWidth) / GRID_SIZE;
 
   const moveSnake = useCallback(() => {
     const newSnake = [...snake];
@@ -132,6 +134,10 @@ export default function SnakeGame() {
     window.addEventListener("keydown", handleKeyPress);
     return () => window.removeEventListener("keydown", handleKeyPress);
   }, [handleKeyPress]);
+
+  useEffect(() => {
+    setInnerWidth(() => window.innerWidth);
+  }, [window]);
 
   const resetGame = () => {
     setSnake(INITIAL_SNAKE);
