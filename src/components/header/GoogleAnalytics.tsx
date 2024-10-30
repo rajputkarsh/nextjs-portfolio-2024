@@ -1,8 +1,9 @@
 import Script from "next/script";
 import { headers } from "next/headers";
 
-function GoogleAnalytics() {
-  const nonce = headers().get("x-nonce") || undefined;
+async function GoogleAnalytics() {
+  const headerData = await headers();
+  const nonce = headerData.get("x-nonce") || undefined;
   return (
     <Script
       src="https://www.googletagmanager.com/gtag/js"
