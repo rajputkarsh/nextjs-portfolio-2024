@@ -1,5 +1,7 @@
 /** @type {import('tailwindcss').Config} */
 
+import tailwindTypography from "@tailwindcss/typography";
+
 const config = {
   content: [
     "./src/**/*.{ts,tsx}",
@@ -37,7 +39,7 @@ const config = {
     },
   },
   plugins: [
-    require("@tailwindcss/typography"),
+    tailwindTypography,
     function ({ addUtilities }) {
       const utilities = {
         ".dark-background": {
