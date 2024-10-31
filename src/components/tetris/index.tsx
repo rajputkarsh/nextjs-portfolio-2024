@@ -71,6 +71,8 @@ const randomTetromino = () => {
 
 export default function TetrisGame() {
   const [board, setBoard] = useState<Array<Array<any>>>(createEmptyBoard());
+  const [innerWidth, setInnerWidth] = useState<number>(0);
+
   const [currentPiece, setCurrentPiece] = useState({
     tetromino: randomTetromino(),
     position: { x: 4, y: 0 },
@@ -246,10 +248,14 @@ export default function TetrisGame() {
     }
   }, [clearedLines]);
 
+    useEffect(() => {
+      setInnerWidth(() => window.innerWidth);
+    }, [window]);
+
   return (
     <div className="flex flex-col items-center justify-center">
       {" "}
-      {window.innerWidth > 1000 ? (
+      {innerWidth > 1000 ? (
         <div className="flex gap-12 justify-between mb-1 text-2xl text-primary">
           <h1 className="font-bold">Tetris</h1>
           <span className="font-semibold"> Score: {score}</span>
