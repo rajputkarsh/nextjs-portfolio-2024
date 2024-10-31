@@ -15,6 +15,7 @@ export default function Minesweeper({
   height = 10,
   mineCount = 10,
 }) {
+  const [innerWidth, setInnerWidth] = useState<number>(0);
   const [grid, setGrid] = useState<Cell[][]>([]);
   const [gameStatus, setGameStatus] = useState<"playing" | "won" | "lost">(
     "playing"
@@ -24,6 +25,10 @@ export default function Minesweeper({
   useEffect(() => {
     initializeGame();
   }, []);
+
+  useEffect(() => {
+    setInnerWidth(() => window.innerWidth);
+  }, [window]);
 
   const initializeGame = () => {
     const newGrid: Cell[][] = Array(height)
@@ -193,7 +198,7 @@ export default function Minesweeper({
               <button
                 key={`${rowIndex}-${colIndex}`}
                 className={`${
-                  window.innerWidth > 1000 ? "w-11 h-11" : "w-7 h-7"
+                  innerWidth > 1000 ? "w-11 h-11" : "w-7 h-7"
                 } border border-gray-300 flex items-center justify-center font-bold ${getCellColor(
                   cell
                 )}`}
