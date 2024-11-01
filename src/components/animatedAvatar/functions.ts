@@ -53,6 +53,11 @@ export function setupScene(
   renderer.shadowMap.enabled = true;
   renderer.shadowMap.type = THREE.PCFSoftShadowMap;
 
+  const canvas = container.querySelector("canvas");
+  if (canvas) {
+    container.removeChild(canvas);
+  }
+
   container.appendChild(renderer.domElement);
 
   // Camera setup
