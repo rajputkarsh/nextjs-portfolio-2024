@@ -19,7 +19,7 @@ html {
   -webkit-animation-fill-mode: both;
   animation-fill-mode: both;
   -webkit-animation-name: fadeIn;
-  animation-name: fadeIn;  
+  animation-name: fadeIn;
 }
 
 .underline-animation {
@@ -73,6 +73,16 @@ html {
   }
 }
 
+.react-activity-calendar__calendar {
+  padding-inline: 0.5rem;
+
+  rect {
+    :focus {
+      outline: 1px solid black
+    }
+  }
+}
+
 .vertical-timeline {
   .vertical-timeline-element-icon {
     display: flex;
@@ -95,10 +105,12 @@ html {
 ::-webkit-scrollbar-track {
   background: #dddcdc;
 }
+
 ::-webkit-scrollbar-thumb {
   background: $themeColor;
   border-radius: 5px;
 }
+
 ::-webkit-scrollbar-thumb:hover {
   background: $themeColor;
 }
@@ -148,11 +160,21 @@ html.dark {
 
 
 @-webkit-keyframes fadeIn {
-  0% {opacity: 0;}
-  100% {opacity: 1;}
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
 }
 
 @keyframes fadeIn {
-  0% {opacity: 0;}
-  100% {opacity: 1;}
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
 }
