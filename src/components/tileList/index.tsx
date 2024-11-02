@@ -1,15 +1,15 @@
-import Image from 'next/image';
-import { Game } from '@/interfaces/game';
-import { Project } from '@/interfaces/project';
-import Link from 'next/link';
+import Image from "next/image";
+import { Game } from "@/interfaces/game";
+import { Project } from "@/interfaces/project";
+import Link from "next/link";
 
 interface TileListProps {
   list: Array<Game | Project>;
   centerText: boolean;
 }
 
-const isGame = (data: Game | Project): data is Game => 'url' in data;
-const isProject = (data: Game | Project): data is Project => 'demoUrl' in data;
+const isGame = (data: Game | Project): data is Game => "url" in data;
+const isProject = (data: Game | Project): data is Project => "demoUrl" in data;
 
 function TileList({ list, centerText }: TileListProps) {
   const shouldAddHeight =
@@ -28,7 +28,7 @@ function TileList({ list, centerText }: TileListProps) {
               !isGame(item) ? "text-lg md:text-xl" : "text-xl md:text-2xl"
             } mb-2 ${shouldAddHeight ? "md:h-[3rem]" : ""}`}
           >
-            {item.title}
+            <span className="underline-animation">{item.title}</span>
           </h4>
           <Image
             className="mb-4 w-full max-h-44 object-contain m-auto"

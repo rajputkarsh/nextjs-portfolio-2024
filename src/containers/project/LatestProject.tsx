@@ -27,7 +27,9 @@ function LatestProject() {
         <div className="flex flex-col-reverse md:flex-row gap-4">
           <div className="w-full md:w-1/2 flex flex-col gap-4 justify-center">
             <h3 className="text-2xl md:text-3xl font-semibold text-theme-color flex flex-row justify-center gap-2">
-              {latestProject.title}
+              <span className="cursor-pointer underline-animation">
+                {latestProject.title}
+              </span>
               <Link
                 className="text-theme-color cursor-pointer"
                 href={latestProject.demoUrl || latestProject.sourceUrl}
