@@ -41,13 +41,18 @@ function LatestProject() {
             </h4>
           </div>
           <div className="w-full md:w-1/2">
-            <Image
-              className="m-auto px-16 md:px-0"
-              src={latestProject.image}
-              alt=""
-              width={600}
-              height={600}
-            />
+            <Link
+              href={latestProject.demoUrl || latestProject.sourceUrl}
+              target="_blank"
+            >
+              <Image
+                className="m-auto px-16 md:px-0 cursor-pointer"
+                src={latestProject.image}
+                alt=""
+                width={600}
+                height={600}
+              />
+            </Link>
           </div>
         </div>
       ) : (
