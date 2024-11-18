@@ -34,7 +34,7 @@ Use the following steps to get started with your project
 - [x] Media Caching via service workers
 - [x] Offline mode
 - [x] Auto refresh on network resume
-- [x] Google Analytics
+- [x] Google Analytics, Hotjar & Microsoft Clarity Integrations
 - [x] Framer Motion Animations
 - [x] Mobile Responsive
 - [x] Push Notifications
