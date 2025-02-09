@@ -62,7 +62,6 @@ Use the following steps to get started with your project
 - [ ] Latest Blogs carousel on homepage
 - [ ] Update existing project statuses and metadata
 - [ ] SEO Optimization & Data collection (combined for Hotjar &  GA )
-- [ ] NextJS 15 specific caching changes
 - [ ] Language Internationalization (next-intl)
 
 ##
