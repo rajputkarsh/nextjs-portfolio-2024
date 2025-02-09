@@ -47,6 +47,7 @@ Use the following steps to get started with your project
 - [x] Caching github commit data
 - [x] Custom Dialog Boxes
 - [x] Structured Data a.k.a Schema Markup for better SEO
+- [x] Dynamic Sitemaps
 
  ## Coming Soon
 - [ ] CMS Driven Content
