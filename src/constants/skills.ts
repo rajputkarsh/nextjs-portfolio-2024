@@ -9,6 +9,7 @@ import reduxLogo from "@/assets/logos/redux.webp";
 import recoilLogo from "@/assets/logos/recoil.webp";
 import nodejsLogo from "@/assets/logos/nodejs.webp";
 import expressLogo from "@/assets/logos/express.webp";
+import honoLogo from "@/assets/logos/hono.webp";
 import nestLogo from "@/assets/logos/nest.webp";
 import hapiLogo from "@/assets/logos/hapi.webp";
 import mongodbLogo from "@/assets/logos/mongodb.webp";
@@ -75,6 +76,10 @@ export default {
     {
       name: "Express.JS",
       icon: expressLogo.src,
+    },
+    {
+      name: "Hono",
+      icon: honoLogo.src,
     },
     {
       name: "Nest.JS",
