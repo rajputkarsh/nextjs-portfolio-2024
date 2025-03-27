@@ -1,18 +1,18 @@
-'use client';
+"use client";
 
-import { cloneElement, useEffect, useState } from 'react';
-import Image from 'next/image';
+import { cloneElement, useEffect, useState } from "react";
+import Image from "next/image";
 import ActivityCalendar, {
   ThemeInput as ReactCalendarThemeInput,
-} from 'react-activity-calendar';
-import { Tooltip as ReactTooltip } from 'react-tooltip';
-import { fetchStats, savePreviousStats } from "@/actions/github";
-import config from '@/constants/config';
-import loader from '@/assets/loader.svg';
+} from "react-activity-calendar";
+import { Tooltip as ReactTooltip } from "react-tooltip";
+import { fetchStats, fetchStreak, savePreviousStats } from "@/actions/github";
+import config from "@/constants/config";
+import loader from "@/assets/loader.svg";
 
-import 'react-tooltip/dist/react-tooltip.css';
-import { formatDate } from '@/utils/common';
-import useCurrentTheme from '@/hooks/useCurrentTheme';
+import "react-tooltip/dist/react-tooltip.css";
+import { formatDate } from "@/utils/common";
+import useCurrentTheme from "@/hooks/useCurrentTheme";
 
 interface GithubDayActivity {
   date: string;
@@ -30,7 +30,7 @@ const GITHUB_LABEL = {
 };
 
 function GithubStats() {
-  const { theme } = useCurrentTheme() as { theme: 'light' | 'dark' };
+  const { theme } = useCurrentTheme() as { theme: "light" | "dark" };
   const [streak, setStreak] = useState<{
     currentStreak: number;
     maxStreak: number;
@@ -47,47 +47,11 @@ function GithubStats() {
     return Math.min(count === 0 ? 0 : Math.round(count / 5) + 1, 4);
   };
 
-  const getStreak = (
-    dates: Array<string>
-  ): { maxStreak: number; currentStreak: number } => {
-    const today = new Date();
-    today.setHours(0, 0, 0, 0);
-
-    let currentStreak = 0,
-      maxStreak = 0;
-    let lastDate;
-
-    for (const date of dates) {
-      const currentDate = new Date(date);
-      currentDate.setHours(0, 0, 0, 0);
-      if (lastDate && currentDate.getTime() - lastDate.getTime() === 86400000) {
-        currentStreak++;
-        if (currentStreak > maxStreak) {
-          maxStreak = currentStreak;
-        }
-      } else {
-        currentStreak = 1;
-      }
-      lastDate = currentDate;
-    }
-
-    if (lastDate && today.getTime() === lastDate.getTime() + 86400000) {
-      currentStreak++;
-      if (currentStreak > maxStreak) {
-        maxStreak = currentStreak;
-      }
-    }
-
-    return { currentStreak, maxStreak };
-  };
-
   useEffect(() => {
     const fetchData = async () => {
-      const data = await fetchStats() || [];
-      const activityDateArray: Array<string> = Object.keys(data).sort(
-        (date1, date2) => new Date(date1).getTime() - new Date(date2).getTime()
-      );
-      const currentStreak = getStreak(activityDateArray);
+      const data = (await fetchStats()) || [];
+      const streakData = (await fetchStreak()) || { current: 0, max: 0 };
+
       const activityData: Array<GithubDayActivity> = Object.entries(data).map(
         ([date, count]) => ({
           date,
@@ -99,7 +63,11 @@ function GithubStats() {
         (obj1, obj2) =>
           new Date(obj1.date).getTime() - new Date(obj2.date).getTime()
       );
-      setStreak((_) => currentStreak);
+
+      setStreak((_) => ({
+        currentStreak: streakData.current,
+        maxStreak: streakData.max,
+      }));
       setGithubStats(activityData);
       setTotalCommits(
         Object.values(data).reduce((prev, curr) => prev + curr, 0)
