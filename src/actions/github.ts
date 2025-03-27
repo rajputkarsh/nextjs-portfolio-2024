@@ -84,6 +84,40 @@ const _saveStats = async (data: {
   }
 };
 
+const _getStreak = (
+  dates: Array<string>
+): { maxStreak: number; currentStreak: number } => {
+  const today = new Date();
+  today.setHours(0, 0, 0, 0);
+
+  let currentStreak = 0,
+    maxStreak = 0;
+  let lastDate;
+
+  for (const date of dates) {
+    const currentDate = new Date(date);
+    currentDate.setHours(0, 0, 0, 0);
+    if (lastDate && currentDate.getTime() - lastDate.getTime() === 86400000) {
+      currentStreak++;
+      if (currentStreak > maxStreak) {
+        maxStreak = currentStreak;
+      }
+    } else {
+      currentStreak = 1;
+    }
+    lastDate = currentDate;
+  }
+
+  if (lastDate && today.getTime() === lastDate.getTime() + 86400000) {
+    currentStreak++;
+    if (currentStreak > maxStreak) {
+      maxStreak = currentStreak;
+    }
+  }
+
+  return { currentStreak, maxStreak };
+};
+
 export const savePreviousStats = async (): Promise<{
   commits: { [key: string]: number };
   saved: boolean;
@@ -115,12 +149,12 @@ export const savePreviousStats = async (): Promise<{
   return { commits, saved };
 };
 
-export const fetchStats = async () => {
+export const fetchStats = async (duration: number = 365) => {
   const commits: { [key: string]: number } = {};
   const firebase = new Firebase(true);
 
   const date = new Date();
-  date.setDate(date.getDate() - 365);
+  date.setDate(date.getDate() - duration);
 
   const commitData = await firebase.searchDocuments<{
     id: string;
@@ -137,4 +171,21 @@ export const fetchStats = async () => {
   }
 
   return commits;
+};
+
+export const fetchStreak = async (): Promise<{
+  current: number;
+  max: number;
+}> => {
+  const data = await fetchStats(3650);
+
+  const activityDateArray: Array<string> = Object.keys(data).sort(
+    (date1, date2) => new Date(date1).getTime() - new Date(date2).getTime()
+  );
+  const streak = _getStreak(activityDateArray);
+
+  return {
+    current: streak.currentStreak,
+    max: streak.maxStreak,
+  };
 };
